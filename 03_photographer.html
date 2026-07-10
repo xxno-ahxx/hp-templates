@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>REN AOKI PHOTOGRAPHY | 蒼木 蓮 — 写真家ポートフォリオ</title>
+<meta name="description" content="東京を拠点に活動する写真家・蒼木蓮のポートフォリオサイト。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#0c0c0c;
+  --ink:#1a1a1a;
+  --gray:#7a7a7a;
+  --light:#f4f2ee;
+  --white:#fdfdfc;
+  --accent:#b0a48e;
+  --serif-jp:'Shippori Mincho',serif;
+  --serif-en:'Cormorant Garamond',serif;
+}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+html{
+  scroll-behavior:smooth;
+}
+body{
+  background:var(--white);
+  color:var(--ink);
+  font-family:var(--serif-jp);
+  line-height:2.1;
+  letter-spacing:.06em;
+  overflow-x:hidden;
+}
+::selection{
+  background:var(--black);
+  color:var(--white);
+}
+/* ===== ナビ ===== */
+header{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:100;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:26px 5vw;
+  mix-blend-mode:difference;
+  color:#fff;
+}
+.logo{
+  font-family:var(--serif-en);
+  font-size:1.05rem;
+  letter-spacing:.42em;
+  text-decoration:none;
+  color:#fff;
+  text-transform:uppercase;
+}
+nav ul{
+  display:flex;
+  gap:36px;
+  list-style:none;
+}
+nav a{
+  color:#fff;
+  text-decoration:none;
+  font-size:.8rem;
+  letter-spacing:.3em;
+  text-transform:uppercase;
+  font-family:var(--serif-en);
+  opacity:.75;
+  transition:opacity .3s;
+}
+nav a:hover{
+  opacity:1;
+}
+.menu-btn{
+  display:none;
+  background:none;
+  border:none;
+  cursor:pointer;
+  flex-direction:column;
+  gap:7px;
+}
+.menu-btn span{
+  width:30px;
+  height:1px;
+  background:#fff;
+  transition:.35s;
+}
+/* ===== ヒーロー（全画面） ===== */
+.hero{
+  height:100vh;
+  position:relative;
+  display:flex;
+  align-items:flex-end;
+  overflow:hidden;
+}
+.hero-photo{
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(1200px 700px at 70% 30%,rgba(255,255,255,.14),transparent 60%),
+    linear-gradient(160deg,#3c3c3c 0%,#141414 45%,#050505 100%);
+}
+.hero-photo::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1px);
+  background-size:5px 5px;
+  opacity:.5;
+}
+.hero-inner{
+  position:relative;
+  z-index:1;
+  padding:0 5vw 12vh;
+  color:var(--white);
+}
+.hero-en{
+  font-family:var(--serif-en);
+  font-size:clamp(3rem,10vw,8rem);
+  font-weight:400;
+  letter-spacing:.08em;
+  line-height:1.05;
+  opacity:0;
+  animation:fadeUp 1.6s .3s ease forwards;
+}
+.hero-en em{
+  font-style:italic;
+  color:var(--accent);
+}
+.hero-jp{
+  margin-top:24px;
+  font-size:clamp(.85rem,1.6vw,1rem);
+  letter-spacing:.4em;
+  color:rgba(255,255,255,.75);
+  opacity:0;
+  animation:fadeUp 1.6s .8s ease forwards;
+}
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(30px);}
+  to{opacity:1;transform:none;}
+}
+.scroll-hint{
+  position:absolute;
+  right:5vw;
+  bottom:6vh;
+  writing-mode:vertical-rl;
+  font-family:var(--serif-en);
+  letter-spacing:.4em;
+  font-size:.75rem;
+  color:rgba(255,255,255,.6);
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+.scroll-hint::after{
+  content:'';
+  width:1px;
+  height:70px;
+  background:rgba(255,255,255,.5);
+  animation:lineDrop 2s ease infinite;
+}
+@keyframes lineDrop{
+  0%{transform:scaleY(0);transform-origin:top;}
+  50%{transform:scaleY(1);transform-origin:top;}
+  51%{transform-origin:bottom;}
+  100%{transform:scaleY(0);transform-origin:bottom;}
+}
+/* ===== セクション共通 ===== */
+section{
+  padding:140px 5vw;
+  max-width:1240px;
+  margin:0 auto;
+}
+.sec-index{
+  font-family:var(--serif-en);
+  font-style:italic;
+  color:var(--accent);
+  font-size:1rem;
+  letter-spacing:.2em;
+}
+h2.sec-title{
+  font-size:clamp(1.5rem,3.4vw,2.2rem);
+  font-weight:500;
+  letter-spacing:.24em;
+  margin:.5em 0 2em;
+}
+.reveal{
+  opacity:0;
+  transform:translateY(44px);
+  transition:opacity 1.1s ease,transform 1.1s ease;
+}
+.reveal.show{
+  opacity:1;
+  transform:none;
+}
+/* ===== Statement ===== */
+.statement{
+  text-align:center;
+  max-width:760px;
+}
+.statement p{
+  font-size:clamp(1rem,2vw,1.25rem);
+  line-height:2.6;
+}
+.statement .en{
+  font-family:var(--serif-en);
+  font-style:italic;
+  color:var(--gray);
+  margin-top:36px;
+  font-size:1rem;
+  letter-spacing:.14em;
+}
+/* ===== Works（マソンリー） ===== */
+.works-bg{
+  background:var(--light);
+}
+.works-grid{
+  columns:3;
+  column-gap:20px;
+}
+.work{
+  break-inside:avoid;
+  margin-bottom:20px;
+  position:relative;
+  overflow:hidden;
+  cursor:pointer;
+}
+.work .ph{
+  width:100%;
+  display:block;
+  filter:grayscale(1) contrast(1.05);
+  transition:filter .8s ease,transform 1.2s ease;
+}
+.work:hover .ph{
+  filter:grayscale(.1) contrast(1);
+  transform:scale(1.04);
+}
+.work .cap{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  padding:18px 20px 14px;
+  background:linear-gradient(transparent,rgba(0,0,0,.65));
+  color:#fff;
+  font-size:.8rem;
+  letter-spacing:.24em;
+  opacity:0;
+  transform:translateY(10px);
+  transition:.5s;
+}
+.work:hover .cap{
+  opacity:1;
+  transform:none;
+}
+.ph{
+  aspect-ratio:var(--ar,3/4);
+}
+.ph1{background:linear-gradient(150deg,#585858,#1d1d1d);--ar:3/4;}
+.ph2{background:linear-gradient(120deg,#9c9c9c,#3d3d3d);--ar:4/3;}
+.ph3{background:linear-gradient(170deg,#2f2f2f,#0a0a0a);--ar:3/5;}
+.ph4{background:linear-gradient(140deg,#c9c4b8,#6e6a60);--ar:1/1;}
+.ph5{background:linear-gradient(160deg,#6f6f6f,#242424);--ar:3/4;}
+.ph6{background:linear-gradient(130deg,#42403a,#161513);--ar:4/5;}
+.ph7{background:linear-gradient(155deg,#8a877e,#2c2b27);--ar:4/3;}
+.ph8{background:linear-gradient(145deg,#333,#0d0d0d);--ar:1/1;}
+.ph9{background:linear-gradient(165deg,#b5b0a4,#57534a);--ar:3/4;}
+/* ===== Services ===== */
+.services{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:0;
+  border-top:1px solid #ddd;
+}
+.service{
+  padding:52px 34px;
+  border-bottom:1px solid #ddd;
+  border-right:1px solid #ddd;
+  transition:background .4s;
+}
+.service:nth-child(3n){border-right:none;}
+.service:hover{
+  background:var(--light);
+}
+.service .no{
+  font-family:var(--serif-en);
+  font-style:italic;
+  color:var(--accent);
+  font-size:1.4rem;
+}
+.service h3{
+  font-size:1.1rem;
+  font-weight:500;
+  letter-spacing:.2em;
+  margin:14px 0 12px;
+}
+.service p{
+  font-size:.86rem;
+  color:var(--gray);
+  line-height:2;
+}
+.service .fee{
+  display:block;
+  margin-top:18px;
+  font-family:var(--serif-en);
+  letter-spacing:.1em;
+  font-size:.95rem;
+}
+/* ===== Profile ===== */
+.profile{
+  display:grid;
+  grid-template-columns:.85fr 1.15fr;
+  gap:70px;
+  align-items:center;
+}
+.profile-photo{
+  aspect-ratio:3/4;
+  background:linear-gradient(160deg,#4a4a4a,#111);
+  filter:grayscale(1);
+  position:relative;
+}
+.profile-photo::after{
+  content:'REN AOKI';
+  position:absolute;
+  bottom:-14px;
+  right:-10px;
+  font-family:var(--serif-en);
+  font-style:italic;
+  letter-spacing:.3em;
+  color:var(--accent);
+  font-size:.85rem;
+}
+.profile h3{
+  font-size:1.4rem;
+  font-weight:500;
+  letter-spacing:.3em;
+  margin-bottom:6px;
+}
+.profile .en-name{
+  font-family:var(--serif-en);
+  font-style:italic;
+  color:var(--gray);
+  margin-bottom:28px;
+}
+.profile p{
+  font-size:.92rem;
+  color:#444;
+}
+.awards{
+  margin-top:28px;
+  list-style:none;
+  border-top:1px solid #ddd;
+}
+.awards li{
+  border-bottom:1px solid #ddd;
+  padding:12px 4px;
+  font-size:.83rem;
+  color:var(--gray);
+  display:flex;
+  gap:22px;
+}
+.awards b{
+  font-family:var(--serif-en);
+  color:var(--ink);
+  font-weight:600;
+  min-width:3.4em;
+}
+/* ===== CTA ===== */
+.cta{
+  background:var(--black);
+  color:var(--white);
+  text-align:center;
+  max-width:none;
+}
+.cta-inner{
+  max-width:720px;
+  margin:0 auto;
+}
+.cta h2{
+  font-family:var(--serif-en);
+  font-size:clamp(2rem,6vw,3.6rem);
+  font-weight:400;
+  font-style:italic;
+  letter-spacing:.1em;
+}
+.cta p{
+  margin:26px 0 44px;
+  color:#bbb;
+  font-size:.92rem;
+}
+.cta a.btn{
+  display:inline-block;
+  padding:18px 64px;
+  border:1px solid var(--white);
+  color:var(--white);
+  text-decoration:none;
+  letter-spacing:.34em;
+  font-size:.82rem;
+  transition:background .4s,color .4s;
+}
+.cta a.btn:hover{
+  background:var(--white);
+  color:var(--black);
+}
+/* ===== フッター ===== */
+footer{
+  padding:44px 5vw;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:14px;
+  font-family:var(--serif-en);
+  letter-spacing:.24em;
+  font-size:.75rem;
+  color:var(--gray);
+  text-transform:uppercase;
+}
+/* ===== レスポンシブ ===== */
+@media(max-width:900px){
+  .works-grid{columns:2;}
+  .services{grid-template-columns:1fr;}
+  .service{border-right:none;}
+  .profile{grid-template-columns:1fr;gap:48px;}
+  nav ul{
+    position:fixed;
+    inset:0;
+    background:#0c0c0c;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:38px;
+    font-size:1rem;
+    transform:translateX(100%);
+    transition:transform .5s ease;
+  }
+  nav ul.open{transform:none;}
+  .menu-btn{display:flex;z-index:110;}
+  .menu-btn.open span:nth-child(1){transform:translateY(8px) rotate(45deg);}
+  .menu-btn.open span:nth-child(2){opacity:0;}
+  .menu-btn.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg);}
+}
+@media(max-width:560px){
+  .works-grid{columns:1;}
+  section{padding:100px 6vw;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="#top">Ren Aoki</a>
+  <nav>
+    <ul id="navList">
+      <li><a href="#works">Works</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#profile">Profile</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <button class="menu-btn" id="menuBtn" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<main id="top">
+  <!-- ヒーロー -->
+  <section class="hero" style="padding:0;max-width:none;">
+    <div class="hero-photo"></div>
+    <div class="hero-inner">
+      <h1 class="hero-en">Light,<br><em>and silence.</em></h1>
+      <p class="hero-jp">写真家 蒼木 蓮 — 光と沈黙を、一枚に。</p>
+    </div>
+    <div class="scroll-hint">Scroll</div>
+  </section>
+
+  <!-- ステートメント -->
+  <section class="statement reveal">
+    <p>シャッターを切る一瞬の前には、いつも長い沈黙があります。<br>被写体と向き合い、光を待ち、風がやむのを待つ。<br>その静けさごと写し取ることが、私の仕事です。</p>
+    <p class="en">Tokyo-based photographer, specializing in portrait and landscape.</p>
+  </section>
+
+  <!-- Works -->
+  <div class="works-bg" id="works">
+    <section>
+      <p class="sec-index reveal">01 — Works</p>
+      <h2 class="sec-title reveal">作品</h2>
+      <div class="works-grid">
+        <figure class="work reveal"><div class="ph ph1"></div><figcaption class="cap">SILENCE / 2025 — 東京</figcaption></figure>
+        <figure class="work reveal"><div class="ph ph2"></div><figcaption class="cap">HORIZON / 2024 — 北海道</figcaption></figure>
+        <figure class="work reveal"><div class="ph ph3"></div><figcaption class="cap">VERTICAL CITY / 2025 — 新宿</figcaption></figure>
+        <figure class="work reveal"><div class="ph ph4"></div><figcaption class="cap">PORTRAIT #12 / 2024</figcaption></figure>
+        <figure class="work reveal"><div class="ph ph5"></div><figcaption class="cap">RAIN / 2023 — 鎌倉</figcaption></figure>
+        <figure class="work reveal"><div class="ph ph6"></div><figcaption class="cap">NIGHT SWIM / 2025 — 沖縄</figcaption></figure>
+        <figure class="work reveal"><div class="ph ph7"></div><figcaption class="cap">DUNE / 2024 — 鳥取</figcaption></figure>
+        <figure class="work reveal"><div class="ph ph8"></div><figcaption class="cap">MONOLITH / 2023 — 大阪</figcaption></figure>
+        <figure class="work reveal"><div class="ph ph9"></div><figcaption class="cap">PORTRAIT #27 / 2025</figcaption></figure>
+      </div>
+    </section>
+  </div>
+
+  <!-- Services -->
+  <section id="services">
+    <p class="sec-index reveal">02 — Services</p>
+    <h2 class="sec-title reveal">撮影メニュー</h2>
+    <div class="services reveal">
+      <div class="service">
+        <span class="no">i.</span>
+        <h3>ポートレート撮影</h3>
+        <p>プロフィール写真・宣材写真・家族写真。自然光のスタジオ、またはご希望のロケーションで撮影します。</p>
+        <span class="fee">¥38,000〜 / 90min</span>
+      </div>
+      <div class="service">
+        <span class="no">ii.</span>
+        <h3>ブランド・商品撮影</h3>
+        <p>ブランドの世界観を丁寧にヒアリングし、Webサイトやルックブックのためのビジュアルを制作します。</p>
+        <span class="fee">¥120,000〜 / 1day</span>
+      </div>
+      <div class="service">
+        <span class="no">iii.</span>
+        <h3>ウェディング・記念日</h3>
+        <p>前撮り・当日スナップ。演出しすぎない、ふたりの空気感そのままの記録を残します。</p>
+        <span class="fee">¥88,000〜 / 3h</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Profile -->
+  <section id="profile">
+    <p class="sec-index reveal">03 — Profile</p>
+    <h2 class="sec-title reveal">プロフィール</h2>
+    <div class="profile">
+      <div class="profile-photo reveal"></div>
+      <div class="reveal">
+        <h3>蒼木 蓮</h3>
+        <p class="en-name">Ren Aoki / Photographer</p>
+        <p>1990年、長野県生まれ。武蔵野美術大学卒業後、広告制作会社を経て2018年に独立。「光と沈黙」をテーマに、人物と風景の境界を探る作品を制作している。国内外の雑誌・広告で活動する傍ら、毎年個展を開催。</p>
+        <ul class="awards">
+          <li><b>2025</b>個展「沈黙の質量」開催（表参道 GALLERY SEN）</li>
+          <li><b>2024</b>日本写真芸術賞 新人賞 受賞</li>
+          <li><b>2023</b>PARIS PHOTO FAIR 出展</li>
+          <li><b>2021</b>写真集『余白』刊行</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" id="contact">
+    <div class="cta-inner reveal">
+      <h2>Let&rsquo;s make a quiet masterpiece.</h2>
+      <p>撮影のご依頼・お見積りは、メールにて承ります。通常2営業日以内にご返信いたします。</p>
+      <a class="btn" href="mailto:contact@renaoki.example.jp">CONTACT</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span>REN AOKI PHOTOGRAPHY</span>
+  <span>Tokyo, Japan</span>
+  <span>© 2025 Ren Aoki</span>
+</footer>
+
+<script>
+// モバイルメニュー開閉
+const menuBtn = document.getElementById('menuBtn');
+const navList = document.getElementById('navList');
+menuBtn.addEventListener('click', () => {
+  menuBtn.classList.toggle('open');
+  navList.classList.toggle('open');
+});
+navList.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  menuBtn.classList.remove('open');
+  navList.classList.remove('open');
+}));
+
+// スクロールリビール（ゆったりめ）
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('show');
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// ヒーローのパララックス
+const heroPhoto = document.querySelector('.hero-photo');
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  if (y < window.innerHeight) {
+    heroPhoto.style.transform = `translateY(${y * 0.25}px) scale(${1 + y * 0.0002})`;
+  }
+}, { passive: true });
+</script>
+</body>
+</html>

@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LUMIÈRE NOIRE | リュミエール・ノワール — トータルビューティサロン＆スパ</title>
+<meta name="description" content="銀座のプライベートビューティサロン＆スパ、リュミエール・ノワール。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600&family=Cinzel:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#101010;
+  --char:#181613;
+  --gold:#c9a45c;
+  --gold-light:#e6cf9a;
+  --gold-dim:rgba(201,164,92,.35);
+  --ivory:#f5efe4;
+  --muted:#9d968a;
+  --serif-jp:'Noto Serif JP',serif;
+  --serif-en:'Cinzel',serif;
+}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+html{
+  scroll-behavior:smooth;
+}
+body{
+  background:var(--black);
+  color:var(--ivory);
+  font-family:var(--serif-jp);
+  line-height:2;
+  letter-spacing:.05em;
+  overflow-x:hidden;
+}
+/* 金の飾り線 */
+.gold-line{
+  width:64px;
+  height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  margin:22px auto;
+}
+/* ===== ナビ ===== */
+header{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:100;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:20px 5vw;
+  background:linear-gradient(rgba(16,16,16,.92),rgba(16,16,16,.75) 70%,transparent);
+  transition:background .4s;
+}
+.logo{
+  font-family:var(--serif-en);
+  color:var(--gold);
+  text-decoration:none;
+  letter-spacing:.32em;
+  font-size:1.05rem;
+}
+nav ul{
+  display:flex;
+  gap:34px;
+  list-style:none;
+}
+nav a{
+  color:var(--ivory);
+  text-decoration:none;
+  font-size:.82rem;
+  letter-spacing:.24em;
+  position:relative;
+  padding-bottom:4px;
+}
+nav a::after{
+  content:'';
+  position:absolute;
+  bottom:0;
+  left:50%;
+  width:0;
+  height:1px;
+  background:var(--gold);
+  transition:width .4s,left .4s;
+}
+nav a:hover::after{
+  width:100%;
+  left:0;
+}
+.menu-btn{
+  display:none;
+  background:none;
+  border:none;
+  cursor:pointer;
+  flex-direction:column;
+  gap:6px;
+}
+.menu-btn span{
+  width:28px;
+  height:1px;
+  background:var(--gold);
+  transition:.35s;
+}
+/* ===== ヒーロー ===== */
+.hero{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  position:relative;
+  padding:120px 6vw 80px;
+  background:
+    radial-gradient(900px 500px at 50% 110%,rgba(201,164,92,.14),transparent 65%),
+    radial-gradient(700px 380px at 50% -10%,rgba(201,164,92,.08),transparent 60%),
+    var(--black);
+  overflow:hidden;
+}
+.hero::before,.hero::after{
+  content:'';
+  position:absolute;
+  width:1px;
+  height:120px;
+  background:linear-gradient(var(--gold),transparent);
+  top:0;
+}
+.hero::before{left:8vw;}
+.hero::after{right:8vw;}
+.hero .kicker{
+  font-family:var(--serif-en);
+  letter-spacing:.5em;
+  color:var(--gold);
+  font-size:.8rem;
+  opacity:0;
+  animation:heroFade 1.4s .2s forwards;
+}
+.hero h1{
+  font-family:var(--serif-en);
+  font-weight:500;
+  font-size:clamp(2.2rem,7vw,5rem);
+  letter-spacing:.16em;
+  margin:22px 0 6px;
+  color:var(--ivory);
+  opacity:0;
+  animation:heroFade 1.4s .6s forwards;
+}
+.hero h1 span{
+  color:var(--gold);
+}
+.hero .sub{
+  font-size:clamp(.9rem,1.7vw,1.05rem);
+  color:var(--muted);
+  letter-spacing:.3em;
+  opacity:0;
+  animation:heroFade 1.4s 1s forwards;
+}
+@keyframes heroFade{
+  from{opacity:0;transform:translateY(24px);}
+  to{opacity:1;transform:none;}
+}
+.hero .btn{
+  margin-top:52px;
+  opacity:0;
+  animation:heroFade 1.4s 1.4s forwards;
+}
+.btn{
+  display:inline-block;
+  padding:16px 56px;
+  border:1px solid var(--gold);
+  color:var(--gold);
+  text-decoration:none;
+  letter-spacing:.32em;
+  font-size:.82rem;
+  position:relative;
+  overflow:hidden;
+  transition:color .45s;
+  z-index:1;
+}
+.btn::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:var(--gold);
+  transform:scaleX(0);
+  transform-origin:right;
+  transition:transform .45s ease;
+  z-index:-1;
+}
+.btn:hover{
+  color:var(--black);
+}
+.btn:hover::before{
+  transform:scaleX(1);
+  transform-origin:left;
+}
+/* ===== セクション共通 ===== */
+section{
+  padding:130px 6vw;
+  max-width:1160px;
+  margin:0 auto;
+}
+.sec-head{
+  text-align:center;
+  margin-bottom:70px;
+}
+.sec-en{
+  font-family:var(--serif-en);
+  color:var(--gold);
+  letter-spacing:.44em;
+  font-size:.82rem;
+  text-transform:uppercase;
+}
+.sec-head h2{
+  font-size:clamp(1.5rem,3.4vw,2.1rem);
+  font-weight:500;
+  letter-spacing:.22em;
+  margin-top:.6em;
+}
+.reveal{
+  opacity:0;
+  transform:translateY(40px);
+  transition:opacity 1s ease,transform 1s ease;
+}
+.reveal.show{
+  opacity:1;
+  transform:none;
+}
+/* ===== コンセプト ===== */
+.concept{
+  text-align:center;
+  max-width:740px;
+}
+.concept p{
+  color:#cfc8bb;
+  font-size:clamp(.95rem,1.7vw,1.08rem);
+  line-height:2.5;
+}
+/* ===== メニュー ===== */
+.menu-list{
+  border-top:1px solid var(--gold-dim);
+}
+.menu-row{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:20px;
+  align-items:baseline;
+  padding:34px 10px;
+  border-bottom:1px solid var(--gold-dim);
+  transition:background .4s,padding .4s;
+}
+.menu-row:hover{
+  background:rgba(201,164,92,.05);
+  padding-left:22px;
+}
+.menu-row h3{
+  font-size:1.08rem;
+  font-weight:500;
+  letter-spacing:.14em;
+}
+.menu-row h3 small{
+  display:block;
+  font-family:var(--serif-en);
+  color:var(--gold);
+  font-size:.72rem;
+  letter-spacing:.3em;
+  margin-bottom:6px;
+}
+.menu-row p{
+  color:var(--muted);
+  font-size:.86rem;
+  margin-top:8px;
+  max-width:36em;
+}
+.menu-price{
+  font-family:var(--serif-en);
+  color:var(--gold-light);
+  font-size:1.15rem;
+  letter-spacing:.1em;
+  white-space:nowrap;
+}
+/* ===== 空間ギャラリー ===== */
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  grid-auto-rows:220px;
+  gap:14px;
+}
+.g-item{
+  position:relative;
+  overflow:hidden;
+  border:1px solid rgba(201,164,92,.2);
+}
+.g-item .ph{
+  position:absolute;
+  inset:0;
+  transition:transform 1.2s ease;
+}
+.g-item:hover .ph{
+  transform:scale(1.07);
+}
+.g-item span{
+  position:absolute;
+  left:16px;
+  bottom:12px;
+  font-family:var(--serif-en);
+  letter-spacing:.3em;
+  font-size:.7rem;
+  color:var(--gold-light);
+  z-index:1;
+}
+.g1{grid-column:span 2;}
+.g1 .ph{background:linear-gradient(130deg,#3a3226,#141210);}
+.g2 .ph{background:linear-gradient(160deg,#2b2620,#0f0e0c);}
+.g3 .ph{background:linear-gradient(145deg,#4a4032,#191510);}
+.g4 .ph{background:linear-gradient(150deg,#262019,#0d0c0a);}
+.g5{grid-column:span 2;}
+.g5 .ph{background:linear-gradient(120deg,#3d352a,#12100d);}
+/* ===== Voice ===== */
+.voices{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+.voice{
+  border:1px solid var(--gold-dim);
+  padding:38px 30px;
+  background:linear-gradient(170deg,rgba(201,164,92,.06),transparent 55%);
+  position:relative;
+}
+.voice::before{
+  content:'“';
+  font-family:var(--serif-en);
+  position:absolute;
+  top:8px;
+  left:20px;
+  font-size:3.4rem;
+  color:var(--gold-dim);
+  line-height:1;
+}
+.voice p{
+  font-size:.88rem;
+  color:#d8d1c4;
+  margin-top:16px;
+}
+.voice .who{
+  margin-top:20px;
+  font-size:.78rem;
+  color:var(--gold);
+  letter-spacing:.2em;
+}
+/* ===== CTA ===== */
+.cta{
+  text-align:center;
+  border-top:1px solid var(--gold-dim);
+  border-bottom:1px solid var(--gold-dim);
+  max-width:none;
+  background:
+    radial-gradient(600px 300px at 50% 50%,rgba(201,164,92,.12),transparent 70%);
+}
+.cta h2{
+  font-family:var(--serif-en);
+  font-weight:500;
+  letter-spacing:.24em;
+  font-size:clamp(1.6rem,4.4vw,2.6rem);
+  color:var(--gold-light);
+}
+.cta p{
+  color:var(--muted);
+  margin:22px auto 40px;
+  max-width:34em;
+  font-size:.92rem;
+}
+.cta .tel{
+  display:block;
+  font-family:var(--serif-en);
+  font-size:clamp(1.4rem,3.6vw,2rem);
+  letter-spacing:.18em;
+  color:var(--ivory);
+  text-decoration:none;
+  margin-bottom:30px;
+}
+/* ===== インフォ・フッター ===== */
+.salon-info{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:36px;
+  text-align:center;
+}
+.salon-info h3{
+  font-family:var(--serif-en);
+  color:var(--gold);
+  letter-spacing:.3em;
+  font-size:.8rem;
+  margin-bottom:14px;
+}
+.salon-info p{
+  font-size:.88rem;
+  color:#cfc8bb;
+}
+footer{
+  text-align:center;
+  padding:44px 20px;
+  border-top:1px solid rgba(201,164,92,.15);
+  color:var(--muted);
+  font-size:.78rem;
+  letter-spacing:.2em;
+}
+footer .logo{
+  display:block;
+  margin-bottom:12px;
+}
+/* ===== レスポンシブ ===== */
+@media(max-width:900px){
+  .gallery-grid{grid-template-columns:repeat(2,1fr);}
+  .g1,.g5{grid-column:span 2;}
+  .voices{grid-template-columns:1fr;}
+  .salon-info{grid-template-columns:1fr;}
+  .menu-row{grid-template-columns:1fr;}
+  nav ul{
+    position:fixed;
+    inset:0;
+    background:rgba(16,16,16,.97);
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:38px;
+    transform:translateY(-100%);
+    transition:transform .5s;
+  }
+  nav ul.open{transform:none;}
+  .menu-btn{display:flex;z-index:110;}
+  .menu-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .menu-btn.open span:nth-child(2){opacity:0;}
+  .menu-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="#top">LUMIÈRE NOIRE</a>
+  <nav>
+    <ul id="navList">
+      <li><a href="#concept">CONCEPT</a></li>
+      <li><a href="#menu">MENU</a></li>
+      <li><a href="#space">SPACE</a></li>
+      <li><a href="#voice">VOICE</a></li>
+      <li><a href="#reserve">RESERVE</a></li>
+    </ul>
+  </nav>
+  <button class="menu-btn" id="menuBtn" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<main id="top">
+  <!-- ヒーロー -->
+  <section class="hero" style="max-width:none;">
+    <p class="kicker">GINZA — PRIVATE BEAUTY SALON &amp; SPA</p>
+    <h1>LUMIÈRE <span>NOIRE</span></h1>
+    <div class="gold-line"></div>
+    <p class="sub">闇の中でこそ、光は美しい。</p>
+    <a class="btn" href="#reserve">RESERVATION</a>
+  </section>
+
+  <!-- コンセプト -->
+  <section class="concept" id="concept">
+    <div class="sec-head reveal">
+      <p class="sec-en">Concept</p>
+      <h2>あなただけの、静寂と輝き</h2>
+      <div class="gold-line"></div>
+    </div>
+    <p class="reveal">リュミエール・ノワールは、完全予約制・全室個室のプライベートサロン。髪、肌、そして心まで。一流のセラピストとトップスタイリストが、あなたのための時間だけに集中します。銀座の喧騒から一歩離れた、大人のための隠れ家へようこそ。</p>
+  </section>
+
+  <!-- メニュー -->
+  <section id="menu">
+    <div class="sec-head reveal">
+      <p class="sec-en">Menu</p>
+      <h2>トリートメントメニュー</h2>
+      <div class="gold-line"></div>
+    </div>
+    <div class="menu-list reveal">
+      <div class="menu-row">
+        <div>
+          <h3><small>HAIR</small>プレミアムカット＆髪質改善トリートメント</h3>
+          <p>骨格と髪質を見極めたカットに、酸熱トリートメントを組み合わせた当店いちばん人気のコース。</p>
+        </div>
+        <span class="menu-price">¥18,700</span>
+      </div>
+      <div class="menu-row">
+        <div>
+          <h3><small>FACIAL</small>ゴールドリフトフェイシャル 70min</h3>
+          <p>24Kゴールドパックと独自のリンパドレナージュで、フェイスラインを引き上げ透明感のある肌へ。</p>
+        </div>
+        <span class="menu-price">¥24,200</span>
+      </div>
+      <div class="menu-row">
+        <div>
+          <h3><small>SPA</small>ヘッドスパ「夜の森」 60min</h3>
+          <p>ヒノキと白檀のオリジナルアロマで頭皮を解きほぐす、深い眠りに落ちるようなドライヘッドスパ。</p>
+        </div>
+        <span class="menu-price">¥13,200</span>
+      </div>
+      <div class="menu-row">
+        <div>
+          <h3><small>BODY</small>全身アロマトリートメント 90min</h3>
+          <p>その日の体調に合わせて精油をブレンド。首肩から足先まで、流れるようなストロークで巡りを整えます。</p>
+        </div>
+        <span class="menu-price">¥27,500</span>
+      </div>
+      <div class="menu-row">
+        <div>
+          <h3><small>BRIDAL</small>ブライダルコース（3回集中）</h3>
+          <p>挙式日から逆算したオーダーメイドプラン。ヘア・フェイシャル・ボディをトータルでプロデュース。</p>
+        </div>
+        <span class="menu-price">¥66,000</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 空間 -->
+  <section id="space">
+    <div class="sec-head reveal">
+      <p class="sec-en">Space</p>
+      <h2>サロンの空間</h2>
+      <div class="gold-line"></div>
+    </div>
+    <div class="gallery-grid reveal">
+      <div class="g-item g1"><div class="ph"></div><span>RECEPTION</span></div>
+      <div class="g-item g2"><div class="ph"></div><span>PRIVATE ROOM</span></div>
+      <div class="g-item g3"><div class="ph"></div><span>SPA SUITE</span></div>
+      <div class="g-item g4"><div class="ph"></div><span>POWDER ROOM</span></div>
+      <div class="g-item g5"><div class="ph"></div><span>LOUNGE</span></div>
+    </div>
+  </section>
+
+  <!-- お客様の声 -->
+  <section id="voice">
+    <div class="sec-head reveal">
+      <p class="sec-en">Voice</p>
+      <h2>お客様の声</h2>
+      <div class="gold-line"></div>
+    </div>
+    <div class="voices">
+      <div class="voice reveal">
+        <p>個室なので周りを気にせず、本当にリラックスできます。ヘッドスパは途中の記憶がないほど。月に一度の自分へのご褒美です。</p>
+        <p class="who">40代 女性 / 経営者</p>
+      </div>
+      <div class="voice reveal">
+        <p>髪質改善をお願いして3ヶ月。癖に悩んでいた髪が朝のブローだけでまとまるようになりました。カウンセリングの丁寧さが違います。</p>
+        <p class="who">30代 女性 / 会社員</p>
+      </div>
+      <div class="voice reveal">
+        <p>結婚式前のブライダルコースを利用しました。当日は肌の調子が人生最高で、写真を見返すたびにお願いして良かったと思います。</p>
+        <p class="who">20代 女性 / ご新婦</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta reveal" id="reserve">
+    <p class="sec-en">Reservation</p>
+    <h2>ご予約・お問い合わせ</h2>
+    <p>完全予約制。当日のご予約はお電話にてご相談ください。初回のお客様には、丁寧なカウンセリングの時間を別途お取りしています。</p>
+    <a class="tel" href="tel:0300000000">03-0000-0000</a>
+    <a class="btn" href="mailto:reserve@lumiere-noire.example.jp">WEB RESERVATION</a>
+  </section>
+
+  <!-- サロン情報 -->
+  <section>
+    <div class="salon-info reveal">
+      <div>
+        <h3>ADDRESS</h3>
+        <p>東京都中央区銀座7-XX-X<br>ノワールビル 5F</p>
+      </div>
+      <div>
+        <h3>HOURS</h3>
+        <p>平日 11:00 - 21:00<br>土日祝 10:00 - 19:00 / 月曜定休</p>
+      </div>
+      <div>
+        <h3>ACCESS</h3>
+        <p>銀座駅 A2出口 徒歩4分<br>新橋駅 銀座口 徒歩6分</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <a class="logo" href="#top">LUMIÈRE NOIRE</a>
+  <p>© 2025 LUMIÈRE NOIRE GINZA. All Rights Reserved.</p>
+</footer>
+
+<script>
+// モバイルメニュー
+const menuBtn = document.getElementById('menuBtn');
+const navList = document.getElementById('navList');
+menuBtn.addEventListener('click', () => {
+  menuBtn.classList.toggle('open');
+  navList.classList.toggle('open');
+});
+navList.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  menuBtn.classList.remove('open');
+  navList.classList.remove('open');
+}));
+
+// スクロールリビール
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('show');
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

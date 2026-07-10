@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HPテンプレート集 — 10ジャンル一覧</title>
+<meta name="description" content="10ジャンル向けモダンホームページテンプレートのインデックスページ。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Inter:wght@600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f7f9;
+  --card:#ffffff;
+  --ink:#1c2430;
+  --muted:#69707d;
+  --line:#e5e8ee;
+  --accent:#3457ff;
+  --font:'Noto Sans JP',sans-serif;
+  --font-en:'Inter',sans-serif;
+}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+body{
+  font-family:var(--font);
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.8;
+  padding:60px 24px 80px;
+}
+.wrap{
+  max-width:1180px;
+  margin:0 auto;
+}
+/* ヘッダー */
+.page-head{
+  margin-bottom:48px;
+}
+.page-head .en{
+  font-family:var(--font-en);
+  font-weight:800;
+  letter-spacing:.24em;
+  color:var(--accent);
+  font-size:.8rem;
+  text-transform:uppercase;
+}
+.page-head h1{
+  font-size:clamp(1.7rem,4vw,2.6rem);
+  font-weight:900;
+  margin:.2em 0 .3em;
+}
+.page-head p{
+  color:var(--muted);
+  font-size:.95rem;
+  max-width:44em;
+}
+/* グリッド */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+  gap:24px;
+}
+.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:16px;
+  overflow:hidden;
+  text-decoration:none;
+  color:var(--ink);
+  display:flex;
+  flex-direction:column;
+  transition:transform .25s,box-shadow .25s;
+}
+.card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 20px 44px rgba(28,36,48,.12);
+}
+/* サムネイル（CSS疑似プレビュー） */
+.thumb{
+  height:190px;
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+}
+/* 疑似ブラウザ枠 */
+.mini{
+  width:100%;
+  height:100%;
+  border-radius:8px;
+  overflow:hidden;
+  box-shadow:0 8px 22px rgba(0,0,0,.22);
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  transition:transform .3s;
+}
+.card:hover .mini{
+  transform:scale(1.04);
+}
+.mini .bar{
+  height:14px;
+  display:flex;
+  align-items:center;
+  gap:3px;
+  padding:0 6px;
+  flex-shrink:0;
+}
+.mini .bar i{
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  display:inline-block;
+}
+.mini .body{
+  flex:1;
+  position:relative;
+  padding:10px;
+}
+.mock{
+  border-radius:3px;
+  margin-bottom:5px;
+}
+/* 01 スイーツカフェ */
+.t01{background:linear-gradient(140deg,#f9d9e2,#fdf3e8);}
+.t01 .mini{background:#fdf6ef;}
+.t01 .bar{background:#fbe3ea;}
+.t01 .bar i{background:#e88ba3;}
+.t01 .blob{
+  position:absolute;
+  right:8px;
+  top:16px;
+  width:44px;
+  height:44px;
+  background:#f7c9d4;
+  border-radius:60% 40% 55% 45% / 50% 55% 45% 50%;
+}
+.t01 .mock{background:#e8c8b8;height:9px;width:55%;}
+.t01 .mock.sub{background:#f0dccd;height:6px;width:70%;}
+.t01 .mock.btn{background:#e88ba3;height:10px;width:34%;border-radius:99px;margin-top:8px;}
+/* 02 ITスタートアップ */
+.t02{background:linear-gradient(140deg,#171a33,#0a0b14);}
+.t02 .mini{background:#0d0f1c;}
+.t02 .bar{background:#171a2e;}
+.t02 .bar i{background:#7c5cff;}
+.t02 .mock{height:8px;width:62%;background:linear-gradient(90deg,#7c5cff,#22d3ee,#f43f9d);}
+.t02 .mock.sub{background:#2a2e4a;height:5px;width:74%;}
+.t02 .cells{
+  display:grid;
+  grid-template-columns:2fr 1fr;
+  gap:4px;
+  margin-top:8px;
+}
+.t02 .cells span{
+  height:22px;
+  border-radius:4px;
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(124,92,255,.4);
+}
+/* 03 カメラマン */
+.t03{background:linear-gradient(140deg,#4c4c4c,#161616);}
+.t03 .mini{background:linear-gradient(155deg,#565656,#101010);}
+.t03 .bar{background:rgba(255,255,255,.08);}
+.t03 .bar i{background:#bbb;}
+.t03 .mock{background:rgba(255,255,255,.85);height:10px;width:46%;margin-top:22px;}
+.t03 .mock.sub{background:rgba(255,255,255,.35);height:5px;width:32%;}
+/* 04 美容サロン */
+.t04{background:linear-gradient(140deg,#241f16,#0d0c09);}
+.t04 .mini{background:#111;}
+.t04 .bar{background:#1c180f;}
+.t04 .bar i{background:#c9a45c;}
+.t04 .mock{background:#c9a45c;height:8px;width:48%;margin:16px auto 6px;}
+.t04 .mock.sub{background:rgba(201,164,92,.35);height:4px;width:64%;margin:0 auto 4px;}
+.t04 .mock.frame{
+  background:none;
+  border:1px solid #c9a45c;
+  height:12px;
+  width:36%;
+  margin:8px auto 0;
+}
+/* 05 不動産 */
+.t05{background:linear-gradient(140deg,#dfe9f5,#b9cde6);}
+.t05 .mini{background:#fff;}
+.t05 .bar{background:#132a4a;}
+.t05 .bar i{background:#e8a33d;}
+.t05 .hero-strip{background:#132a4a;height:26px;border-radius:3px;margin-bottom:6px;}
+.t05 .cells{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:4px;
+}
+.t05 .cells span{
+  height:20px;
+  border-radius:3px;
+  background:#e8f0fa;
+  border:1px solid #dbe4ef;
+}
+/* 06 フィットネス */
+.t06{background:linear-gradient(140deg,#2b241d,#000);}
+.t06 .mini{background:#0e0d0b;}
+.t06 .bar{background:#1c1712;}
+.t06 .bar i{background:#ff5c1a;}
+.t06 .mock{background:#ff5c1a;height:12px;width:66%;clip-path:polygon(3px 0,100% 0,calc(100% - 3px) 100%,0 100%);}
+.t06 .mock.sub{background:#3a332c;height:6px;width:52%;}
+.t06 .mock.y{background:#ffc21a;height:8px;width:30%;margin-top:8px;}
+/* 07 音楽アーティスト */
+.t07{background:linear-gradient(140deg,#160f1e,#08070c);}
+.t07 .mini{background:#08070c;}
+.t07 .bar{background:#141019;}
+.t07 .bar i{background:#39ff88;}
+.t07 .mock{background:#39ff88;height:9px;width:50%;box-shadow:0 0 10px rgba(57,255,136,.8);}
+.t07 .mock.pink{background:#ff2d95;width:38%;box-shadow:0 0 10px rgba(255,45,149,.8);}
+.t07 .mock.sub{background:#241f30;height:5px;width:68%;box-shadow:none;}
+/* 08 ウェディング */
+.t08{background:linear-gradient(140deg,#f6ecdd,#eedfd2);}
+.t08 .mini{background:#fffdf9;}
+.t08 .bar{background:#f0e4d3;}
+.t08 .bar i{background:#b99659;}
+.t08 .mock{background:#d6bd90;height:8px;width:44%;margin:14px auto 6px;border-radius:99px;}
+.t08 .mock.sub{background:#eee3d2;height:5px;width:60%;margin:0 auto 4px;border-radius:99px;}
+.t08 .flower{
+  text-align:center;
+  font-size:.9rem;
+  margin-top:6px;
+}
+/* 09 クリエイティブ */
+.t09{background:linear-gradient(140deg,#ffe9a8,#ffd1c9);}
+.t09 .mini{background:#f4f1ea;}
+.t09 .bar{background:#141414;}
+.t09 .bar i{background:#ffc400;}
+.t09 .mock{background:#141414;height:14px;width:78%;}
+.t09 .mock.red{background:#ff3b2f;height:14px;width:58%;}
+.t09 .shapes{
+  display:flex;
+  gap:5px;
+  margin-top:8px;
+}
+.t09 .shapes i{
+  width:14px;
+  height:14px;
+  display:inline-block;
+}
+.t09 .shapes i:nth-child(1){background:#1f4bff;border-radius:50%;}
+.t09 .shapes i:nth-child(2){background:#00b871;}
+.t09 .shapes i:nth-child(3){background:#8a3fff;transform:rotate(18deg);}
+/* 10 クリニック */
+.t10{background:linear-gradient(140deg,#dff0fa,#c9e8f4);}
+.t10 .mini{background:#fff;}
+.t10 .bar{background:#4aa8d8;}
+.t10 .bar i{background:#fff;}
+.t10 .mock{background:#eaf6fc;height:22px;border-radius:4px;border:1px solid #d8e9f2;}
+.t10 .cells{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr 1fr;
+  gap:4px;
+  margin-top:5px;
+}
+.t10 .cells span{
+  height:16px;
+  border-radius:99px;
+  background:#fff;
+  border:1px solid #d8e9f2;
+}
+.t10 .cells span:first-child{background:#ff8f5c;border-color:#ff8f5c;}
+/* カード本文 */
+.card-body{
+  padding:18px 20px 20px;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  flex:1;
+}
+.card-body .no{
+  font-family:var(--font-en);
+  font-weight:800;
+  font-size:.72rem;
+  color:var(--accent);
+  letter-spacing:.18em;
+}
+.card-body h2{
+  font-size:1.05rem;
+  font-weight:700;
+}
+.card-body p{
+  font-size:.8rem;
+  color:var(--muted);
+  flex:1;
+}
+.tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin-top:6px;
+}
+.tags span{
+  font-size:.68rem;
+  background:var(--bg);
+  border:1px solid var(--line);
+  color:var(--muted);
+  padding:2px 10px;
+  border-radius:99px;
+}
+.open-link{
+  margin-top:10px;
+  font-size:.8rem;
+  font-weight:700;
+  color:var(--accent);
+}
+/* フッター */
+.page-foot{
+  margin-top:56px;
+  text-align:center;
+  color:var(--muted);
+  font-size:.8rem;
+}
+@media(max-width:480px){
+  body{padding:40px 16px 60px;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="page-head">
+    <p class="en">HP Template Collection</p>
+    <h1>ホームページテンプレート集</h1>
+    <p>10ジャンル向けのモダンな日本語ホームページテンプレートです。すべて1ファイル完結（HTML/CSS/JS埋め込み・外部ライブラリ不使用）、レスポンシブ対応。カードをクリックすると各テンプレートが開きます。</p>
+  </header>
+
+  <div class="grid">
+    <a class="card" href="01_sweets-cafe.html">
+      <div class="thumb t01">
+        <div class="mini">
+          <div class="bar"><i></i><i></i><i></i></div>
+          <div class="body">
+            <div class="blob"></div>
+            <div class="mock"></div>
+            <div class="mock sub"></div>
+            <div class="mock sub" style="width:52%;"></div>
+            <div class="mock btn"></div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <span class="no">TEMPLATE 01</span>
+        <h2>スイーツカフェ</h2>
+        <p>パステルピンク×ベージュ。ブロブ形状とふわふわアニメーションのかわいい系デザイン。</p>
+        <div class="tags"><span>パステル</span><span>曲線・ブロブ</span><span>スクロール演出</span></div>
+        <span class="open-link">テンプレートを開く →</span>
+      </div>
+    </a>
+
+    <a class="card" href="02_tech-startup.html">
+      <div class="thumb t02">
+        <div class="mini">
+          <div class="bar"><i></i><i></i><i></i></div>
+          <div class="body">
+            <div class="mock"></div>
+            <div class="mock sub"></div>
+            <div class="cells"><span></span><span></span><span></span><span></span></div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <span class="no">TEMPLATE 02</span>
+        <h2>ITスタートアップ企業</h2>
+        <p>ダークモード×グラデーションメッシュ。Bentoグリッド、カウントアップ、ターミナル風タイピング演出。</p>
+        <div class="tags"><span>ダークモード</span><span>Bento Grid</span><span>グラデーション</span></div>
+        <span class="open-link">テンプレートを開く →</span>
+      </div>
+    </a>
+
+    <a class="card" href="03_photographer.html">
+      <div class="thumb t03">
+        <div class="mini">
+          <div class="bar"><i></i><i></i><i></i></div>
+          <div class="body">
+            <div class="mock"></div>
+            <div class="mock sub"></div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <span class="no">TEMPLATE 03</span>
+        <h2>カメラマンポートフォリオ</h2>
+        <p>モノクロ基調・余白重視。全画面ヒーロー、パララックス、マソンリー型ギャラリー。</p>
+        <div class="tags"><span>モノクロ</span><span>全画面写真</span><span>パララックス</span></div>
+        <span class="open-link">テンプレートを開く →</span>
+      </div>
+    </a>
+
+    <a class="card" href="04_beauty-salon.html">
+      <div class="thumb t04">
+        <div class="mini">
+          <div class="bar"><i></i><i></i><i></i></div>
+          <div class="body">
+            <div class="mock"></div>
+            <div class="mock sub"></div>
+            <div class="mock sub" style="width:52%;"></div>
+            <div class="mock frame"></div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <span class="no">TEMPLATE 04</span>
+        <h2>美容サロン・スパ</h2>
+        <p>ゴールド×ブラックの高級感。明朝体・飾り罫・ホバーで満ちるボタンなどエレガントな細部。</p>
+        <div class="tags"><span>ゴールド×黒</span><span>高級感</span><span>明朝体</span></div>
+        <span class="open-link">テンプレートを開く →</span>
+      </div>
+    </a>
+
+    <a class="card" href="05_real-estate.html">
+      <div class="thumb t05">
+        <div class="mini">
+          <div class="bar"><i></i><i></i><i></i></div>
+          <div class="body">
+            <div class="hero-strip"></div>
+            <div class="cells"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <span class="no">TEMPLATE 05</span>
+        <h2>不動産会社</h2>
+        <p>ネイビー×ホワイトの信頼感。物件検索フォーム、物件カード一覧、購入フローを完備。</p>
+        <div class="tags"><span>ネイビー</span><span>物件カード</span><span>検索UI</span></div>
+        <span class="open-link">テンプレートを開く →</span>
+      </div>
+    </a>
+
+    <a class="card" href="06_fitness-gym.html">
+      <div class="thumb t06">
+        <div class="mini">
+          <div class="bar"><i></i><i></i><i></i></div>
+          <div class="body">
+            <div class="mock"></div>
+            <div class="mock sub"></div>
+            <div class="mock y"></div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <span class="no">TEMPLATE 06</span>
+        <h2>フィットネスジム</h2>
+        <p>オレンジ×ブラックの極太タイポ。マーキー、斜めカットのボタン、料金プラン比較。</p>
+        <div class="tags"><span>エネルギッシュ</span><span>極太フォント</span><span>マーキー</span></div>
+        <span class="open-link">テンプレートを開く →</span>
+      </div>
+    </a>
+
+    <a class="card" href="07_music-artist.html">
+      <div class="thumb t07">
+        <div class="mini">
+          <div class="bar"><i></i><i></i><i></i></div>
+          <div class="body">
+            <div class="mock"></div>
+            <div class="mock pink"></div>
+            <div class="mock sub"></div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <span class="no">TEMPLATE 07</span>
+        <h2>音楽アーティスト</h2>
+        <p>グランジ×ネオン。グリッチ文字、走査線、トラックリスト、ツアー日程テーブル。</p>
+        <div class="tags"><span>ネオン</span><span>グリッチ</span><span>ダーク</span></div>
+        <span class="open-link">テンプレートを開く →</span>
+      </div>
+    </a>
+
+    <a class="card" href="08_wedding.html">
+      <div class="thumb t08">
+        <div class="mini">
+          <div class="bar"><i></i><i></i><i></i></div>
+          <div class="body">
+            <div class="mock"></div>
+            <div class="mock sub"></div>
+            <div class="flower">💐</div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <span class="no">TEMPLATE 08</span>
+        <h2>ウェディングプランナー</h2>
+        <p>白×ゴールドのロマンティック系。スクリプト書体、花の装飾、準備タイムライン。</p>
+        <div class="tags"><span>白×ゴールド</span><span>花・装飾</span><span>タイムライン</span></div>
+        <span class="open-link">テンプレートを開く →</span>
+      </div>
+    </a>
+
+    <a class="card" href="09_creative-agency.html">
+      <div class="thumb t09">
+        <div class="mini">
+          <div class="bar"><i></i><i></i><i></i></div>
+          <div class="body">
+            <div class="mock"></div>
+            <div class="mock red"></div>
+            <div class="shapes"><i></i><i></i><i></i></div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <span class="no">TEMPLATE 09</span>
+        <h2>クリエイティブデザイン会社</h2>
+        <p>超特大タイポグラフィ×原色。ネオブルータリズム風の枠線とハードシャドウでインパクト重視。</p>
+        <div class="tags"><span>大胆タイポ</span><span>カラフル</span><span>ブルータリズム</span></div>
+        <span class="open-link">テンプレートを開く →</span>
+      </div>
+    </a>
+
+    <a class="card" href="10_clinic.html">
+      <div class="thumb t10">
+        <div class="mini">
+          <div class="bar"><i></i><i></i><i></i></div>
+          <div class="body">
+            <div class="mock"></div>
+            <div class="cells"><span></span><span></span><span></span><span></span></div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <span class="no">TEMPLATE 10</span>
+        <h2>医療クリニック</h2>
+        <p>水色×白の清潔感。診療時間テーブル、FAQアコーディオン、本日の診療状況カード。</p>
+        <div class="tags"><span>清潔感</span><span>診療時間表</span><span>FAQ</span></div>
+        <span class="open-link">テンプレートを開く →</span>
+      </div>
+    </a>
+  </div>
+
+  <footer class="page-foot">
+    <p>全テンプレート：1ファイル完結 / レスポンシブ / 外部ライブラリ不使用（Google Fontsのみ使用）</p>
+  </footer>
+</div>
+</body>
+</html>

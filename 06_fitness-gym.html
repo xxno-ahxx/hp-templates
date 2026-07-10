@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BURST GYM | バーストジム — 限界を、超えろ。24時間フィットネス</title>
+<meta name="description" content="24時間営業のフィットネスジムBURST GYM。パーソナルトレーニングから最新マシンまで。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;700;900&family=Archivo+Black&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#0e0d0b;
+  --dark:#171512;
+  --orange:#ff5c1a;
+  --orange-hot:#ff7a00;
+  --yellow:#ffc21a;
+  --white:#f7f5f2;
+  --gray:#8d8a84;
+  --font-jp:'Noto Sans JP',sans-serif;
+  --font-impact:'Archivo Black',sans-serif;
+}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+html{
+  scroll-behavior:smooth;
+}
+body{
+  background:var(--black);
+  color:var(--white);
+  font-family:var(--font-jp);
+  line-height:1.8;
+  overflow-x:hidden;
+}
+/* ===== ナビ ===== */
+header{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:100;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:16px 5vw;
+  background:rgba(14,13,11,.9);
+  backdrop-filter:blur(8px);
+  border-bottom:2px solid var(--orange);
+}
+.logo{
+  font-family:var(--font-impact);
+  font-size:1.5rem;
+  color:var(--white);
+  text-decoration:none;
+  letter-spacing:.04em;
+}
+.logo b{
+  color:var(--orange);
+}
+nav ul{
+  display:flex;
+  gap:28px;
+  list-style:none;
+  align-items:center;
+}
+nav a{
+  color:var(--white);
+  text-decoration:none;
+  font-weight:700;
+  font-size:.9rem;
+  letter-spacing:.08em;
+  transition:color .2s;
+}
+nav a:hover{
+  color:var(--orange);
+}
+.nav-cta{
+  background:var(--orange);
+  padding:10px 26px;
+  clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%);
+  color:#fff !important;
+}
+.menu-btn{
+  display:none;
+  background:none;
+  border:none;
+  cursor:pointer;
+  flex-direction:column;
+  gap:5px;
+}
+.menu-btn span{
+  width:28px;
+  height:4px;
+  background:var(--orange);
+  transition:.3s;
+}
+/* ===== ヒーロー ===== */
+.hero{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:130px 5vw 90px;
+  position:relative;
+  background:
+    radial-gradient(800px 500px at 85% 20%,rgba(255,92,26,.22),transparent 60%),
+    repeating-linear-gradient(-45deg,rgba(255,255,255,.02) 0 2px,transparent 2px 14px),
+    var(--black);
+  overflow:hidden;
+}
+.hero-shape{
+  position:absolute;
+  right:-140px;
+  top:50%;
+  transform:translateY(-50%) rotate(12deg);
+  width:480px;
+  height:640px;
+  background:linear-gradient(160deg,var(--orange),var(--orange-hot) 60%,var(--yellow));
+  clip-path:polygon(30% 0,100% 0,70% 100%,0 100%);
+  opacity:.9;
+}
+.hero-shape::after{
+  content:'💪';
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:9rem;
+  filter:drop-shadow(0 20px 30px rgba(0,0,0,.4));
+}
+.hero-content{
+  position:relative;
+  z-index:1;
+  max-width:680px;
+}
+.hero .tag{
+  display:inline-block;
+  background:var(--yellow);
+  color:var(--black);
+  font-weight:900;
+  padding:6px 18px;
+  font-size:.85rem;
+  letter-spacing:.14em;
+  clip-path:polygon(6px 0,100% 0,calc(100% - 6px) 100%,0 100%);
+}
+.hero h1{
+  font-family:var(--font-impact);
+  font-size:clamp(2.6rem,9vw,6rem);
+  line-height:1.05;
+  margin:24px 0 10px;
+  letter-spacing:.02em;
+  text-transform:uppercase;
+}
+.hero h1 .stroke{
+  color:transparent;
+  -webkit-text-stroke:2px var(--orange);
+}
+.hero h1 .fill{
+  color:var(--orange);
+}
+.hero .jp-copy{
+  font-size:clamp(1.1rem,2.6vw,1.5rem);
+  font-weight:900;
+  margin-bottom:16px;
+}
+.hero p.desc{
+  color:var(--gray);
+  max-width:32em;
+  font-size:.95rem;
+}
+.hero-btns{
+  margin-top:36px;
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+}
+.btn{
+  display:inline-block;
+  padding:16px 42px;
+  font-weight:900;
+  font-size:1rem;
+  text-decoration:none;
+  letter-spacing:.08em;
+  clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%);
+  transition:transform .2s,filter .2s;
+}
+.btn:hover{
+  transform:translateY(-3px) skewX(-2deg);
+  filter:brightness(1.1);
+}
+.btn.fire{
+  background:linear-gradient(90deg,var(--orange),var(--orange-hot));
+  color:#fff;
+  box-shadow:0 12px 30px rgba(255,92,26,.45);
+}
+.btn.line{
+  border:2px solid var(--white);
+  color:var(--white);
+}
+/* ===== マーキー ===== */
+.marquee{
+  border-top:2px solid var(--orange);
+  border-bottom:2px solid var(--orange);
+  overflow:hidden;
+  padding:14px 0;
+  background:var(--dark);
+}
+.marquee-track{
+  display:flex;
+  gap:48px;
+  white-space:nowrap;
+  animation:marquee 18s linear infinite;
+  font-family:var(--font-impact);
+  font-size:1.3rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+.marquee-track span{
+  color:var(--white);
+}
+.marquee-track span:nth-child(even){
+  color:transparent;
+  -webkit-text-stroke:1px var(--orange);
+}
+@keyframes marquee{
+  from{transform:translateX(0);}
+  to{transform:translateX(-50%);}
+}
+/* ===== セクション共通 ===== */
+section{
+  padding:100px 5vw;
+  max-width:1200px;
+  margin:0 auto;
+}
+.sec-head{
+  margin-bottom:56px;
+}
+.sec-en{
+  font-family:var(--font-impact);
+  color:var(--orange);
+  font-size:.9rem;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+}
+.sec-head h2{
+  font-size:clamp(1.7rem,4.4vw,2.8rem);
+  font-weight:900;
+  margin-top:.2em;
+  line-height:1.3;
+}
+.reveal{
+  opacity:0;
+  transform:translateY(38px);
+  transition:opacity .6s ease,transform .6s ease;
+}
+.reveal.show{
+  opacity:1;
+  transform:none;
+}
+/* ===== プログラム ===== */
+.programs{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+.program{
+  background:var(--dark);
+  border:1px solid #2a2723;
+  padding:36px 28px;
+  position:relative;
+  overflow:hidden;
+  transition:transform .25s,border-color .25s;
+}
+.program::before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:4px;
+  background:linear-gradient(90deg,var(--orange),var(--yellow));
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform .4s;
+}
+.program:hover{
+  transform:translateY(-6px);
+  border-color:var(--orange);
+}
+.program:hover::before{
+  transform:scaleX(1);
+}
+.program .icon{
+  font-size:2.6rem;
+}
+.program h3{
+  font-size:1.2rem;
+  font-weight:900;
+  margin:14px 0 10px;
+}
+.program p{
+  color:var(--gray);
+  font-size:.88rem;
+}
+.program .lv{
+  display:inline-block;
+  margin-top:16px;
+  font-size:.72rem;
+  font-weight:700;
+  color:var(--yellow);
+  border:1px solid var(--yellow);
+  padding:2px 12px;
+}
+/* ===== 数字 ===== */
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:2px;
+  background:#2a2723;
+  border:2px solid #2a2723;
+}
+.stat{
+  background:var(--black);
+  text-align:center;
+  padding:44px 10px;
+}
+.stat .num{
+  font-family:var(--font-impact);
+  font-size:clamp(2rem,4.6vw,3.2rem);
+  color:var(--orange);
+}
+.stat .unit{
+  color:var(--yellow);
+  font-weight:900;
+}
+.stat p{
+  color:var(--gray);
+  font-size:.82rem;
+  margin-top:6px;
+}
+/* ===== 料金 ===== */
+.plans{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+  align-items:stretch;
+}
+.plan{
+  background:var(--dark);
+  border:1px solid #2a2723;
+  padding:40px 30px;
+  display:flex;
+  flex-direction:column;
+  position:relative;
+}
+.plan.hot{
+  border:2px solid var(--orange);
+  transform:scale(1.03);
+  box-shadow:0 20px 50px rgba(255,92,26,.25);
+}
+.plan .pop{
+  position:absolute;
+  top:-14px;
+  left:50%;
+  transform:translateX(-50%);
+  background:var(--orange);
+  font-size:.72rem;
+  font-weight:900;
+  padding:4px 18px;
+  letter-spacing:.14em;
+}
+.plan h3{
+  font-family:var(--font-impact);
+  letter-spacing:.08em;
+  font-size:1.1rem;
+  text-transform:uppercase;
+  color:var(--yellow);
+}
+.plan .price{
+  font-family:var(--font-impact);
+  font-size:2.4rem;
+  margin:18px 0 4px;
+}
+.plan .price small{
+  font-size:.9rem;
+  color:var(--gray);
+  font-family:var(--font-jp);
+}
+.plan ul{
+  list-style:none;
+  margin:20px 0 28px;
+  flex:1;
+}
+.plan li{
+  padding:9px 0;
+  border-bottom:1px dashed #2a2723;
+  font-size:.88rem;
+  color:#cfccc6;
+}
+.plan li::before{
+  content:'▸ ';
+  color:var(--orange);
+  font-weight:900;
+}
+/* ===== CTA ===== */
+.cta{
+  max-width:none;
+  background:linear-gradient(100deg,var(--orange) 0%,var(--orange-hot) 60%,var(--yellow) 100%);
+  color:var(--black);
+  text-align:center;
+  clip-path:polygon(0 40px,100% 0,100% calc(100% - 40px),0 100%);
+  padding:130px 6vw;
+}
+.cta h2{
+  font-family:var(--font-impact);
+  font-size:clamp(2rem,6.4vw,4rem);
+  text-transform:uppercase;
+  line-height:1.1;
+}
+.cta p{
+  font-weight:700;
+  margin:20px auto 36px;
+  max-width:34em;
+}
+.cta .btn{
+  background:var(--black);
+  color:var(--white);
+}
+/* ===== フッター ===== */
+footer{
+  padding:48px 5vw;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:16px;
+  color:var(--gray);
+  font-size:.82rem;
+}
+/* ===== レスポンシブ ===== */
+@media(max-width:920px){
+  .programs,.plans{grid-template-columns:1fr;}
+  .stats{grid-template-columns:1fr 1fr;}
+  .plan.hot{transform:none;}
+  .hero-shape{opacity:.35;}
+  nav ul{
+    position:fixed;
+    inset:0;
+    background:rgba(14,13,11,.97);
+    flex-direction:column;
+    justify-content:center;
+    gap:34px;
+    font-size:1.2rem;
+    transform:translateX(100%);
+    transition:transform .35s;
+  }
+  nav ul.open{transform:none;}
+  .menu-btn{display:flex;z-index:110;}
+  .menu-btn.open span:nth-child(1){transform:translateY(9px) rotate(45deg);}
+  .menu-btn.open span:nth-child(2){opacity:0;}
+  .menu-btn.open span:nth-child(3){transform:translateY(-9px) rotate(-45deg);}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="#top">BURST<b>GYM</b></a>
+  <nav>
+    <ul id="navList">
+      <li><a href="#program">プログラム</a></li>
+      <li><a href="#stats">実績</a></li>
+      <li><a href="#price">料金プラン</a></li>
+      <li><a href="#join" class="nav-cta">今すぐ入会</a></li>
+    </ul>
+  </nav>
+  <button class="menu-btn" id="menuBtn" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<main id="top">
+  <!-- ヒーロー -->
+  <section class="hero" style="max-width:none;">
+    <div class="hero-shape"></div>
+    <div class="hero-content">
+      <span class="tag">24時間営業 / 年中無休</span>
+      <h1><span class="stroke">BREAK</span><br><span class="fill">YOUR LIMIT.</span></h1>
+      <p class="jp-copy">限界を、超えろ。今日のお前が、最強の記録だ。</p>
+      <p class="desc">BURST GYMは、最新マシン120台とプロトレーナーによる本格指導を、月額6,980円から。仕事帰りの深夜も、出勤前の早朝も、お前のベストタイムがジムのゴールデンタイムだ。</p>
+      <div class="hero-btns">
+        <a class="btn fire" href="#join">無料体験を予約する</a>
+        <a class="btn line" href="#price">料金を見る</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- マーキー -->
+  <div class="marquee">
+    <div class="marquee-track">
+      <span>NO PAIN NO GAIN</span><span>BURST GYM</span><span>TRAIN HARD</span><span>24H OPEN</span><span>NO PAIN NO GAIN</span><span>BURST GYM</span><span>TRAIN HARD</span><span>24H OPEN</span>
+    </div>
+  </div>
+
+  <!-- プログラム -->
+  <section id="program">
+    <div class="sec-head reveal">
+      <p class="sec-en">Programs</p>
+      <h2>お前を追い込む、6つのプログラム</h2>
+    </div>
+    <div class="programs">
+      <div class="program reveal">
+        <div class="icon">🏋️</div>
+        <h3>フリーウェイトゾーン</h3>
+        <p>パワーラック12台、ダンベルは最大50kgまで完備。混雑状況はアプリでリアルタイム確認OK。</p>
+        <span class="lv">全レベル対応</span>
+      </div>
+      <div class="program reveal">
+        <div class="icon">🔥</div>
+        <h3>HIITバーストクラス</h3>
+        <p>30分で最大燃焼。心拍数モニターを装着し、追い込み度をスクリーンで可視化するグループレッスン。</p>
+        <span class="lv">中級〜上級</span>
+      </div>
+      <div class="program reveal">
+        <div class="icon">🥊</div>
+        <h3>キックボクシング</h3>
+        <p>元プロ選手が指導。ストレス発散と全身シェイプを同時に。女性限定クラスもあり。</p>
+        <span class="lv">初心者歓迎</span>
+      </div>
+      <div class="program reveal">
+        <div class="icon">🤝</div>
+        <h3>パーソナルトレーニング</h3>
+        <p>体組成データと食事ログをもとに完全オーダーメイド。2ヶ月で結果にコミットする短期集中コース。</p>
+        <span class="lv">マンツーマン</span>
+      </div>
+      <div class="program reveal">
+        <div class="icon">🧘</div>
+        <h3>リカバリールーム</h3>
+        <p>ストレッチエリア・コンプレッションブーツ・コールドシャワー完備。攻めた翌日は、回復も全力で。</p>
+        <span class="lv">会員無料</span>
+      </div>
+      <div class="program reveal">
+        <div class="icon">📱</div>
+        <h3>BURSTアプリ連携</h3>
+        <p>トレーニング記録・体重推移・混雑状況・レッスン予約をアプリで一括管理。仲間とスコアを競える。</p>
+        <span class="lv">全会員対象</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 実績 -->
+  <section id="stats">
+    <div class="sec-head reveal">
+      <p class="sec-en">Numbers</p>
+      <h2>数字は裏切らない。</h2>
+    </div>
+    <div class="stats reveal">
+      <div class="stat"><div><span class="num" data-count="120">0</span><span class="unit">台</span></div><p>最新マシン</p></div>
+      <div class="stat"><div><span class="num" data-count="9800">0</span><span class="unit">人</span></div><p>累計会員数</p></div>
+      <div class="stat"><div><span class="num" data-count="92">0</span><span class="unit">%</span></div><p>3ヶ月継続率</p></div>
+      <div class="stat"><div><span class="num" data-count="24">0</span><span class="unit">h</span></div><p>年中無休営業</p></div>
+    </div>
+  </section>
+
+  <!-- 料金 -->
+  <section id="price">
+    <div class="sec-head reveal">
+      <p class="sec-en">Price</p>
+      <h2>シンプルな料金プラン</h2>
+    </div>
+    <div class="plans">
+      <div class="plan reveal">
+        <h3>Lite</h3>
+        <div class="price">¥6,980<small> /月（税込）</small></div>
+        <ul>
+          <li>マシンエリア使い放題</li>
+          <li>深夜帯（22時-8時）利用</li>
+          <li>アプリ利用</li>
+          <li>ロッカー利用</li>
+        </ul>
+        <a class="btn line" href="#join">このプランで始める</a>
+      </div>
+      <div class="plan hot reveal">
+        <span class="pop">人気No.1</span>
+        <h3>Standard</h3>
+        <div class="price">¥9,980<small> /月（税込）</small></div>
+        <ul>
+          <li>24時間フル利用</li>
+          <li>グループレッスン受け放題</li>
+          <li>リカバリールーム利用</li>
+          <li>プロテインバー10%OFF</li>
+          <li>水素水飲み放題</li>
+        </ul>
+        <a class="btn fire" href="#join">このプランで始める</a>
+      </div>
+      <div class="plan reveal">
+        <h3>Personal</h3>
+        <div class="price">¥29,800<small> /月（税込）</small></div>
+        <ul>
+          <li>Standardの全特典</li>
+          <li>パーソナル月4回（60分）</li>
+          <li>食事指導・LINEサポート</li>
+          <li>体組成測定 毎週</li>
+        </ul>
+        <a class="btn line" href="#join">このプランで始める</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" id="join">
+    <h2>START TODAY.</h2>
+    <p>入会金0円キャンペーン実施中（今月末まで）。まずは無料体験で、マシンも空気も確かめてくれ。手ぶらでOK、ウェアとシューズは無料レンタル。</p>
+    <a class="btn" href="tel:0500000000">📞 無料体験を予約する</a>
+  </section>
+</main>
+
+<footer>
+  <a class="logo" href="#top">BURST<b>GYM</b></a>
+  <p>東京都渋谷区神南X-X-X バーストビルB1F / 渋谷駅 徒歩5分</p>
+  <p>© 2025 BURST GYM</p>
+</footer>
+
+<script>
+// モバイルメニュー
+const menuBtn = document.getElementById('menuBtn');
+const navList = document.getElementById('navList');
+menuBtn.addEventListener('click', () => {
+  menuBtn.classList.toggle('open');
+  navList.classList.toggle('open');
+});
+navList.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  menuBtn.classList.remove('open');
+  navList.classList.remove('open');
+}));
+
+// スクロールリビール
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('show');
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// カウントアップ
+const cio = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target;
+    const target = +el.dataset.count;
+    const start = performance.now();
+    const dur = 1400;
+    const tick = now => {
+      const p = Math.min((now - start) / dur, 1);
+      el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3))).toLocaleString();
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+    cio.unobserve(el);
+  });
+}, { threshold: .6 });
+document.querySelectorAll('.num[data-count]').forEach(el => cio.observe(el));
+</script>
+</body>
+</html>

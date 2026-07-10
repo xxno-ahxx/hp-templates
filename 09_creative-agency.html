@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GOKAN inc. | 五感設計事務所 — デザインで、心を動かす。</title>
+<meta name="description" content="ブランディング・グラフィック・Webデザインのクリエイティブカンパニー、GOKAN inc.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Anton&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4f1ea;
+  --ink:#141414;
+  --red:#ff3b2f;
+  --blue:#1f4bff;
+  --yellow:#ffc400;
+  --green:#00b871;
+  --purple:#8a3fff;
+  --font-jp:'Noto Sans JP',sans-serif;
+  --font-big:'Anton',sans-serif;
+}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+html{
+  scroll-behavior:smooth;
+}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--font-jp);
+  line-height:1.85;
+  overflow-x:hidden;
+}
+::selection{
+  background:var(--yellow);
+}
+/* ===== ナビ ===== */
+header{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:100;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:16px 4vw;
+  background:var(--paper);
+  border-bottom:3px solid var(--ink);
+}
+.logo{
+  font-family:var(--font-big);
+  font-size:1.5rem;
+  color:var(--ink);
+  text-decoration:none;
+  letter-spacing:.02em;
+}
+.logo i{
+  font-style:normal;
+  color:var(--red);
+}
+nav ul{
+  display:flex;
+  gap:4px;
+  list-style:none;
+}
+nav a{
+  display:inline-block;
+  color:var(--ink);
+  text-decoration:none;
+  font-weight:900;
+  font-size:.86rem;
+  padding:8px 18px;
+  border:2px solid transparent;
+  transition:.2s;
+}
+nav a:hover{
+  border-color:var(--ink);
+  background:var(--yellow);
+  transform:rotate(-2deg);
+}
+.menu-btn{
+  display:none;
+  background:none;
+  border:none;
+  cursor:pointer;
+  flex-direction:column;
+  gap:5px;
+}
+.menu-btn span{
+  width:28px;
+  height:4px;
+  background:var(--ink);
+  transition:.3s;
+}
+/* ===== ヒーロー ===== */
+.hero{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:140px 4vw 80px;
+  position:relative;
+  overflow:hidden;
+}
+.hero h1{
+  font-family:var(--font-big);
+  font-size:clamp(3.2rem,13vw,10.5rem);
+  line-height:.96;
+  text-transform:uppercase;
+  letter-spacing:.01em;
+}
+.hero h1 .line{
+  display:block;
+  overflow:hidden;
+}
+.hero h1 .line span{
+  display:inline-block;
+  transform:translateY(110%);
+  animation:riseUp .9s cubic-bezier(.2,.8,.2,1) forwards;
+}
+.hero h1 .line:nth-child(2) span{animation-delay:.15s;color:var(--red);}
+.hero h1 .line:nth-child(3) span{animation-delay:.3s;}
+@keyframes riseUp{
+  to{transform:none;}
+}
+.hero h1 .outline{
+  color:transparent;
+  -webkit-text-stroke:3px var(--ink);
+}
+.hero .sub{
+  margin-top:34px;
+  display:flex;
+  align-items:center;
+  gap:22px;
+  flex-wrap:wrap;
+}
+.hero .sub p{
+  font-weight:700;
+  font-size:clamp(.95rem,1.8vw,1.15rem);
+  max-width:30em;
+}
+.hero .stamp{
+  width:110px;
+  height:110px;
+  border-radius:50%;
+  background:var(--blue);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  font-weight:900;
+  font-size:.72rem;
+  line-height:1.4;
+  animation:spinIn 14s linear infinite;
+  flex-shrink:0;
+}
+@keyframes spinIn{
+  from{transform:rotate(0);}
+  to{transform:rotate(360deg);}
+}
+.hero .shapes span{
+  position:absolute;
+  pointer-events:none;
+}
+.shape-circle{
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  background:var(--yellow);
+  top:14%;
+  right:8%;
+  animation:bob 5s ease-in-out infinite alternate;
+}
+.shape-tri{
+  width:0;
+  height:0;
+  border-left:70px solid transparent;
+  border-right:70px solid transparent;
+  border-bottom:120px solid var(--green);
+  bottom:12%;
+  right:22%;
+  animation:bob 6s -2s ease-in-out infinite alternate;
+}
+.shape-square{
+  width:90px;
+  height:90px;
+  background:var(--purple);
+  top:24%;
+  right:30%;
+  transform:rotate(18deg);
+  animation:bob 4.4s -1s ease-in-out infinite alternate;
+}
+@keyframes bob{
+  from{translate:0 0;}
+  to{translate:0 -26px;}
+}
+/* ===== マーキー ===== */
+.marquee{
+  background:var(--ink);
+  color:var(--paper);
+  overflow:hidden;
+  padding:16px 0;
+  border-top:3px solid var(--ink);
+  border-bottom:3px solid var(--ink);
+}
+.marquee-track{
+  display:flex;
+  gap:40px;
+  white-space:nowrap;
+  animation:mq 16s linear infinite;
+  font-family:var(--font-big);
+  font-size:1.4rem;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+.marquee-track em{
+  font-style:normal;
+  color:var(--yellow);
+}
+@keyframes mq{
+  from{transform:translateX(0);}
+  to{transform:translateX(-50%);}
+}
+/* ===== セクション共通 ===== */
+section{
+  padding:110px 4vw;
+  max-width:1240px;
+  margin:0 auto;
+}
+.sec-head{
+  margin-bottom:56px;
+}
+.sec-head h2{
+  font-family:var(--font-big);
+  font-size:clamp(2.2rem,6.5vw,4.4rem);
+  text-transform:uppercase;
+  line-height:1;
+}
+.sec-head h2 i{
+  font-style:normal;
+}
+.sec-head .jp{
+  font-weight:900;
+  margin-top:10px;
+  display:inline-block;
+  background:var(--ink);
+  color:var(--paper);
+  padding:4px 16px;
+  transform:rotate(-1.5deg);
+  font-size:.9rem;
+}
+.reveal{
+  opacity:0;
+  transform:translateY(40px) rotate(.5deg);
+  transition:opacity .6s ease,transform .6s ease;
+}
+.reveal.show{
+  opacity:1;
+  transform:none;
+}
+/* ===== サービス ===== */
+.services{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:0;
+  border:3px solid var(--ink);
+}
+.service{
+  padding:46px 40px;
+  border:3px solid var(--ink);
+  margin:-1.5px;
+  position:relative;
+  transition:background .25s;
+}
+.service:hover{
+  background:#fff;
+}
+.service .tag{
+  font-family:var(--font-big);
+  font-size:.95rem;
+  color:#fff;
+  padding:5px 16px;
+  display:inline-block;
+  transform:rotate(-2deg);
+}
+.service:nth-child(1) .tag{background:var(--red);}
+.service:nth-child(2) .tag{background:var(--blue);}
+.service:nth-child(3) .tag{background:var(--green);}
+.service:nth-child(4) .tag{background:var(--purple);}
+.service h3{
+  font-size:1.4rem;
+  font-weight:900;
+  margin:18px 0 12px;
+}
+.service p{
+  font-size:.9rem;
+  color:#4c4c4c;
+}
+.service .big-no{
+  position:absolute;
+  top:16px;
+  right:22px;
+  font-family:var(--font-big);
+  font-size:3.2rem;
+  color:transparent;
+  -webkit-text-stroke:2px var(--ink);
+  opacity:.4;
+}
+/* ===== 実績 ===== */
+.works{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:26px;
+}
+.work{
+  border:3px solid var(--ink);
+  background:#fff;
+  overflow:hidden;
+  transition:transform .25s,box-shadow .25s;
+  cursor:pointer;
+}
+.work:hover{
+  transform:translate(-6px,-6px);
+  box-shadow:10px 10px 0 var(--ink);
+}
+.work .thumb{
+  height:200px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:var(--font-big);
+  font-size:2.2rem;
+  color:#fff;
+  border-bottom:3px solid var(--ink);
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+.w1 .thumb{background:linear-gradient(135deg,var(--red),#ff7a45);}
+.w2 .thumb{background:linear-gradient(135deg,var(--blue),#31c8ff);}
+.w3 .thumb{background:linear-gradient(135deg,var(--green),#a8e02f);}
+.w4 .thumb{background:linear-gradient(135deg,var(--purple),#ff5ad2);}
+.w5 .thumb{background:linear-gradient(135deg,#ff9500,var(--yellow));}
+.w6 .thumb{background:linear-gradient(135deg,#222,#5a5a5a);}
+.work .body{
+  padding:22px 24px;
+}
+.work .cat{
+  font-size:.72rem;
+  font-weight:900;
+  color:#777;
+  letter-spacing:.16em;
+}
+.work h3{
+  font-size:1.05rem;
+  font-weight:900;
+  margin-top:6px;
+}
+/* ===== 数字 ===== */
+.facts{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:26px;
+  text-align:center;
+}
+.fact{
+  border:3px solid var(--ink);
+  background:#fff;
+  padding:38px 12px;
+  box-shadow:8px 8px 0 var(--ink);
+}
+.fact .n{
+  font-family:var(--font-big);
+  font-size:clamp(2.2rem,5vw,3.4rem);
+}
+.fact:nth-child(1) .n{color:var(--red);}
+.fact:nth-child(2) .n{color:var(--blue);}
+.fact:nth-child(3) .n{color:var(--green);}
+.fact:nth-child(4) .n{color:var(--purple);}
+.fact p{
+  font-weight:900;
+  font-size:.85rem;
+  margin-top:8px;
+}
+/* ===== CTA ===== */
+.cta{
+  max-width:none;
+  background:var(--ink);
+  color:var(--paper);
+  text-align:center;
+  padding:130px 6vw;
+  position:relative;
+  overflow:hidden;
+}
+.cta h2{
+  font-family:var(--font-big);
+  font-size:clamp(2.4rem,8vw,6rem);
+  text-transform:uppercase;
+  line-height:1;
+}
+.cta h2 i{
+  font-style:normal;
+  color:var(--yellow);
+}
+.cta p{
+  font-weight:700;
+  margin:24px auto 40px;
+  max-width:32em;
+}
+.btn{
+  display:inline-block;
+  font-family:var(--font-big);
+  font-size:1.1rem;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  padding:18px 54px;
+  background:var(--yellow);
+  color:var(--ink);
+  text-decoration:none;
+  border:3px solid var(--yellow);
+  transition:.25s;
+}
+.btn:hover{
+  background:transparent;
+  color:var(--yellow);
+  transform:rotate(-2deg) scale(1.04);
+}
+/* ===== フッター ===== */
+footer{
+  background:var(--ink);
+  color:#8f8f8f;
+  border-top:1px solid #333;
+  padding:36px 4vw;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:14px;
+  font-size:.82rem;
+  font-weight:700;
+}
+footer .logo{color:var(--paper);font-size:1.1rem;}
+/* ===== レスポンシブ ===== */
+@media(max-width:920px){
+  .services{grid-template-columns:1fr;}
+  .works{grid-template-columns:1fr 1fr;}
+  .facts{grid-template-columns:1fr 1fr;}
+  nav ul{
+    position:fixed;
+    inset:0;
+    background:var(--paper);
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:20px;
+    font-size:1.3rem;
+    transform:translateY(-100%);
+    transition:transform .4s;
+  }
+  nav ul.open{transform:none;}
+  .menu-btn{display:flex;z-index:110;}
+  .menu-btn.open span:nth-child(1){transform:translateY(9px) rotate(45deg);}
+  .menu-btn.open span:nth-child(2){opacity:0;}
+  .menu-btn.open span:nth-child(3){transform:translateY(-9px) rotate(-45deg);}
+}
+@media(max-width:600px){
+  .works{grid-template-columns:1fr;}
+  .facts{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="#top">GOKAN<i>.</i></a>
+  <nav>
+    <ul id="navList">
+      <li><a href="#service">SERVICE</a></li>
+      <li><a href="#works">WORKS</a></li>
+      <li><a href="#about">ABOUT</a></li>
+      <li><a href="#contact">CONTACT</a></li>
+    </ul>
+  </nav>
+  <button class="menu-btn" id="menuBtn" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<main id="top">
+  <!-- ヒーロー -->
+  <section class="hero" style="max-width:none;">
+    <div class="shapes">
+      <span class="shape-circle"></span>
+      <span class="shape-tri"></span>
+      <span class="shape-square"></span>
+    </div>
+    <h1>
+      <span class="line"><span>DESIGN</span></span>
+      <span class="line"><span>MOVES</span></span>
+      <span class="line"><span class="outline">PEOPLE.</span></span>
+    </h1>
+    <div class="sub">
+      <div class="stamp">SINCE<br>2013<br>TOKYO</div>
+      <p>デザインで、心を動かす。五感設計事務所（GOKAN inc.）は、ブランディングからWebまで「見た瞬間に伝わる」を追求するクリエイティブカンパニーです。</p>
+    </div>
+  </section>
+
+  <!-- マーキー -->
+  <div class="marquee">
+    <div class="marquee-track">
+      <span>BRANDING</span><em>★</em><span>GRAPHIC</span><em>★</em><span>WEB DESIGN</span><em>★</em><span>MOTION</span><em>★</em><span>BRANDING</span><em>★</em><span>GRAPHIC</span><em>★</em><span>WEB DESIGN</span><em>★</em><span>MOTION</span><em>★</em>
+    </div>
+  </div>
+
+  <!-- サービス -->
+  <section id="service">
+    <div class="sec-head reveal">
+      <h2>WHAT <i style="color:var(--red);">WE</i> DO</h2>
+      <span class="jp">私たちがやっていること</span>
+    </div>
+    <div class="services reveal">
+      <div class="service">
+        <span class="big-no">01</span>
+        <span class="tag">BRANDING</span>
+        <h3>ブランディング</h3>
+        <p>ロゴ・VI設計からブランドストーリーの言語化まで。企業や商品の「らしさ」を掘り起こし、一貫した世界観に落とし込みます。</p>
+      </div>
+      <div class="service">
+        <span class="big-no">02</span>
+        <span class="tag">GRAPHIC</span>
+        <h3>グラフィックデザイン</h3>
+        <p>ポスター、パッケージ、装丁、サイン計画。手に取った瞬間、街で見かけた瞬間に足を止めさせるビジュアルをつくります。</p>
+      </div>
+      <div class="service">
+        <span class="big-no">03</span>
+        <span class="tag">WEB / UI</span>
+        <h3>Web・UIデザイン</h3>
+        <p>コーポレートサイトからECまで、設計・デザイン・実装をワンチームで。美しさと使いやすさは両立できると信じています。</p>
+      </div>
+      <div class="service">
+        <span class="big-no">04</span>
+        <span class="tag">MOTION</span>
+        <h3>モーション・映像</h3>
+        <p>ブランドムービー、SNS動画、Webのマイクロインタラクションまで。動きの気持ちよさで記憶に残る体験を設計します。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 実績 -->
+  <section id="works">
+    <div class="sec-head reveal">
+      <h2>SELECTED <i style="color:var(--blue);">WORKS</i></h2>
+      <span class="jp">実績紹介</span>
+    </div>
+    <div class="works">
+      <article class="work w1 reveal">
+        <div class="thumb">KISSA</div>
+        <div class="body">
+          <p class="cat">BRANDING / PACKAGE</p>
+          <h3>老舗喫茶チェーン リブランディング</h3>
+        </div>
+      </article>
+      <article class="work w2 reveal">
+        <div class="thumb">AQUA</div>
+        <div class="body">
+          <p class="cat">WEB / UI</p>
+          <h3>水族館 公式サイト＆チケットUI</h3>
+        </div>
+      </article>
+      <article class="work w3 reveal">
+        <div class="thumb">YASAI</div>
+        <div class="body">
+          <p class="cat">PACKAGE / ILLUSTRATION</p>
+          <h3>オーガニック野菜ブランド パッケージ</h3>
+        </div>
+      </article>
+      <article class="work w4 reveal">
+        <div class="thumb">FES!</div>
+        <div class="body">
+          <p class="cat">GRAPHIC / MOTION</p>
+          <h3>音楽フェス キービジュアル＆OP映像</h3>
+        </div>
+      </article>
+      <article class="work w5 reveal">
+        <div class="thumb">MACHI</div>
+        <div class="body">
+          <p class="cat">SIGN / BRANDING</p>
+          <h3>商店街サイン計画・ロゴ制作</h3>
+        </div>
+      </article>
+      <article class="work w6 reveal">
+        <div class="thumb">BOOK</div>
+        <div class="body">
+          <p class="cat">EDITORIAL</p>
+          <h3>デザイン誌『余白』 アートディレクション</h3>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 数字 -->
+  <section id="about">
+    <div class="sec-head reveal">
+      <h2>GOKAN IN <i style="color:var(--green);">NUMBERS</i></h2>
+      <span class="jp">数字で見る五感設計事務所</span>
+    </div>
+    <div class="facts">
+      <div class="fact reveal"><div class="n">340+</div><p>プロジェクト実績</p></div>
+      <div class="fact reveal"><div class="n">18</div><p>デザインアワード受賞</p></div>
+      <div class="fact reveal"><div class="n">12名</div><p>デザイナー・エンジニア</p></div>
+      <div class="fact reveal"><div class="n">96%</div><p>リピート率</p></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" id="contact">
+    <h2>LET'S MAKE<br>SOMETHING <i>LOUD.</i></h2>
+    <p>「なんとなくモヤモヤしている」段階からでもご相談ください。課題の言語化からご一緒します。お見積り・ご相談は無料です。</p>
+    <a class="btn" href="mailto:hello@gokan-inc.example.jp">START A PROJECT →</a>
+  </section>
+</main>
+
+<footer>
+  <a class="logo" href="#top">GOKAN<i style="color:var(--red);">.</i></a>
+  <p>東京都目黒区中目黒X-X-X クリエイトビル3F</p>
+  <p>© 2025 GOKAN inc. All Rights Reserved.</p>
+</footer>
+
+<script>
+// モバイルメニュー
+const menuBtn = document.getElementById('menuBtn');
+const navList = document.getElementById('navList');
+menuBtn.addEventListener('click', () => {
+  menuBtn.classList.toggle('open');
+  navList.classList.toggle('open');
+});
+navList.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  menuBtn.classList.remove('open');
+  navList.classList.remove('open');
+}));
+
+// スクロールリビール
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('show');
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
