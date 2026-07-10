@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>HPテンプレート集 — 10ジャンル一覧</title>
 <meta name="description" content="10ジャンル向けモダンホームページテンプレートのインデックスページ。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -320,6 +320,16 @@ body{
 }
 @media(max-width:480px){
   body{padding:40px 16px 60px;}
+}
+/* === iOS セーフエリア対応 === */
+@supports (padding-top: env(safe-area-inset-top)) {
+  header {
+    padding-top: max(12px, env(safe-area-inset-top));
+  }
+}
+/* iOSズーム防止（フォーム入力は16px以上） */
+input, select, textarea {
+  font-size: max(16px, 1em);
 }
 </style>
 </head>

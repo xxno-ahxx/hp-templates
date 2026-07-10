@@ -2,471 +2,131 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blanche Fleur | ブランシュ・フルール — ウェディングプランニング</title>
-<meta name="description" content="ふたりらしさを花束にする、オーダーメイドウェディングのブランシュ・フルール。">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>BLANC Wedding | ブラン ウェディング</title>
+<meta name="description" content="東京・鎌倉のウェディングプランナー BLANC。ふたりだけの特別な一日を、丁寧に叶えます。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600&family=Parisienne&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --white:#fffdf9;
-  --blush:#f9f2ec;
-  --champagne:#f0e4d3;
-  --gold:#b99659;
-  --gold-soft:#d6bd90;
-  --text:#5a5148;
-  --heading:#3f3830;
-  --rose:#d9a0a7;
-  --serif-jp:'Noto Serif JP',serif;
-  --script:'Parisienne',cursive;
-  --serif-en:'EB Garamond',serif;
+  --bg:#fefcf8;--white:#fff;--cream:#f9f5ef;--text:#2c2620;--muted:#9a8e82;
+  --gold:#b8955a;--gold2:#d4af74;--line:#ede8df;
+  --font-jp:'Noto Serif JP',serif;--font-en:'Cormorant Garamond',serif;
 }
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-html{
-  scroll-behavior:smooth;
-}
-body{
-  background:var(--white);
-  color:var(--text);
-  font-family:var(--serif-jp);
-  line-height:2.1;
-  letter-spacing:.05em;
-  overflow-x:hidden;
-}
-/* 花の装飾 */
-.flower-deco{
-  position:absolute;
-  font-size:2rem;
-  opacity:.55;
-  pointer-events:none;
-  animation:sway 6s ease-in-out infinite alternate;
-}
-@keyframes sway{
-  from{transform:rotate(-8deg) translateY(0);}
-  to{transform:rotate(8deg) translateY(-8px);}
-}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:var(--font-jp);line-height:2;overflow-x:hidden;}
 /* ===== ナビ ===== */
-header{
-  position:fixed;
-  top:0;
-  left:0;
-  right:0;
-  z-index:100;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:18px 5vw;
-  background:rgba(255,253,249,.9);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid rgba(185,150,89,.18);
-}
-.logo{
-  font-family:var(--script);
-  font-size:1.7rem;
-  color:var(--gold);
-  text-decoration:none;
-}
-nav ul{
-  display:flex;
-  gap:32px;
-  list-style:none;
-}
-nav a{
-  color:var(--text);
-  text-decoration:none;
-  font-size:.86rem;
-  letter-spacing:.2em;
-  transition:color .3s;
-}
-nav a:hover{
-  color:var(--gold);
-}
-.menu-btn{
-  display:none;
-  background:none;
-  border:none;
-  cursor:pointer;
-  flex-direction:column;
-  gap:6px;
-}
-.menu-btn span{
-  width:26px;
-  height:1px;
-  background:var(--gold);
-  transition:.35s;
-}
+header{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:18px 6vw;background:rgba(254,252,248,.92);border-bottom:1px solid var(--line);backdrop-filter:blur(10px);}
+.logo{font-family:var(--font-en);font-size:1.5rem;font-style:italic;font-weight:700;letter-spacing:.12em;color:var(--gold);text-decoration:none;}
+nav ul{display:flex;gap:28px;list-style:none;align-items:center;}
+nav a{color:var(--muted);text-decoration:none;font-size:.84rem;letter-spacing:.2em;transition:color .25s;}
+nav a:hover{color:var(--gold);}
+.nav-consult{padding:9px 26px;border:1px solid var(--gold);color:var(--gold) !important;font-size:.8rem;letter-spacing:.25em;transition:background .25s !important;}
+.nav-consult:hover{background:var(--gold) !important;color:#fff !important;}
+.menu-btn{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:6px;min-width:44px;min-height:44px;align-items:center;justify-content:center;}
+.menu-btn span{width:24px;height:1px;background:var(--gold);transition:.3s;display:block;}
 /* ===== ヒーロー ===== */
-.hero{
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  position:relative;
-  padding:130px 6vw 90px;
-  background:
-    radial-gradient(700px 460px at 50% 0%,rgba(240,228,211,.6),transparent 70%),
-    radial-gradient(500px 340px at 12% 90%,rgba(217,160,167,.16),transparent 70%),
-    radial-gradient(520px 340px at 88% 85%,rgba(214,189,144,.18),transparent 70%),
-    var(--white);
-}
-.hero .script{
-  font-family:var(--script);
-  font-size:clamp(2.6rem,8vw,5.4rem);
-  color:var(--gold);
-  line-height:1.2;
-  opacity:0;
-  animation:soft 1.8s .3s forwards;
-}
-.hero h1{
-  font-size:clamp(1.2rem,3vw,1.8rem);
-  font-weight:500;
-  letter-spacing:.4em;
-  color:var(--heading);
-  margin:26px 0 18px;
-  opacity:0;
-  animation:soft 1.8s .8s forwards;
-}
-.hero p{
-  color:#8a7f72;
-  font-size:clamp(.88rem,1.6vw,1rem);
-  max-width:34em;
-  opacity:0;
-  animation:soft 1.8s 1.3s forwards;
-}
-@keyframes soft{
-  from{opacity:0;transform:translateY(22px);}
-  to{opacity:1;transform:none;}
-}
-.hero .btn{
-  margin-top:46px;
-  opacity:0;
-  animation:soft 1.8s 1.7s forwards;
-}
-.btn{
-  display:inline-block;
-  padding:16px 54px;
-  background:var(--gold);
-  color:#fff;
-  text-decoration:none;
-  letter-spacing:.3em;
-  font-size:.84rem;
-  border-radius:2px;
-  box-shadow:0 12px 30px rgba(185,150,89,.35);
-  transition:background .35s,transform .35s;
-}
-.btn:hover{
-  background:var(--gold-soft);
-  transform:translateY(-3px);
-}
-.btn.outline{
-  background:transparent;
-  border:1px solid var(--gold);
-  color:var(--gold);
-  box-shadow:none;
-}
-/* ===== セクション共通 ===== */
-section{
-  padding:120px 6vw;
-  max-width:1120px;
-  margin:0 auto;
-  position:relative;
-}
-.sec-head{
-  text-align:center;
-  margin-bottom:64px;
-}
-.sec-script{
-  font-family:var(--script);
-  font-size:clamp(1.8rem,4vw,2.6rem);
-  color:var(--gold);
-}
-.sec-head h2{
-  font-size:clamp(1.2rem,2.6vw,1.6rem);
-  font-weight:500;
-  letter-spacing:.34em;
-  color:var(--heading);
-  margin-top:10px;
-}
-.petal-line{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:12px;
-  margin-top:18px;
-  color:var(--gold-soft);
-  font-size:.9rem;
-}
-.petal-line::before,.petal-line::after{
-  content:'';
-  width:56px;
-  height:1px;
-  background:linear-gradient(90deg,transparent,var(--gold-soft));
-}
-.petal-line::after{
-  background:linear-gradient(90deg,var(--gold-soft),transparent);
-}
-.reveal{
-  opacity:0;
-  transform:translateY(38px);
-  transition:opacity 1s ease,transform 1s ease;
-}
-.reveal.show{
-  opacity:1;
-  transform:none;
-}
+.hero{height:100vh;display:grid;grid-template-columns:55% 45%;overflow:hidden;}
+.hero-left{position:relative;overflow:hidden;}
+.hero-left img{width:100%;height:100%;object-fit:cover;}
+.hero-left::after{content:'';position:absolute;inset:0;background:rgba(44,38,32,.18);}
+.hero-right{background:var(--cream);display:flex;flex-direction:column;justify-content:center;padding:10vw 7vw 6vw;position:relative;}
+.hero-right::before{content:'BLANC';font-family:var(--font-en);font-size:22vw;font-style:italic;font-weight:700;color:rgba(184,149,90,.06);position:absolute;bottom:-2vw;right:-3vw;line-height:1;pointer-events:none;}
+.hero-right .eyebrow{font-family:var(--font-en);color:var(--gold);letter-spacing:.55em;font-size:.72rem;text-transform:uppercase;margin-bottom:28px;}
+.hero-right h1{font-family:var(--font-en);font-size:clamp(2.4rem,5vw,4.4rem);font-style:italic;line-height:1.3;margin-bottom:24px;color:var(--text);}
+.hero-right p{color:var(--muted);font-size:.92rem;max-width:28em;margin-bottom:38px;}
+.btn-gold{display:inline-block;padding:14px 42px;background:linear-gradient(90deg,var(--gold),var(--gold2));color:#fff;text-decoration:none;font-size:.8rem;letter-spacing:.35em;text-transform:uppercase;transition:opacity .3s;}
+.btn-gold:hover{opacity:.85;}
 /* ===== コンセプト ===== */
-.concept{
-  text-align:center;
-  max-width:760px;
-}
-.concept p{
-  font-size:clamp(.94rem,1.7vw,1.06rem);
-  line-height:2.6;
-}
+.concept{padding:120px 6vw;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.concept-img{position:relative;}
+.concept-img img{width:100%;border-radius:2px;}
+.concept-img .frame{position:absolute;top:-18px;left:-18px;right:18px;bottom:18px;border:1px solid var(--gold);border-radius:2px;pointer-events:none;}
+.concept-text .eyebrow{font-family:var(--font-en);color:var(--gold);letter-spacing:.45em;font-size:.72rem;text-transform:uppercase;margin-bottom:20px;}
+.concept-text h2{font-family:var(--font-en);font-size:clamp(2rem,4vw,3rem);font-style:italic;line-height:1.4;margin-bottom:22px;}
+.concept-text p{color:var(--muted);font-size:.9rem;margin-bottom:16px;}
 /* ===== プラン ===== */
-.plans-bg{
-  background:var(--blush);
-}
-.plans{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:26px;
-}
-.plan{
-  background:var(--white);
-  border:1px solid rgba(185,150,89,.25);
-  border-radius:4px;
-  padding:46px 32px;
-  text-align:center;
-  position:relative;
-  transition:transform .35s,box-shadow .35s;
-}
-.plan:hover{
-  transform:translateY(-8px);
-  box-shadow:0 26px 52px rgba(185,150,89,.18);
-}
-.plan .flower{
-  font-size:2.4rem;
-}
-.plan h3{
-  font-family:var(--serif-en);
-  font-size:1.2rem;
-  letter-spacing:.2em;
-  color:var(--gold);
-  margin:16px 0 4px;
-}
-.plan .jp-name{
-  font-size:.95rem;
-  color:var(--heading);
-  letter-spacing:.2em;
-  margin-bottom:18px;
-}
-.plan p.desc{
-  font-size:.85rem;
-  color:#8a7f72;
-  text-align:left;
-}
-.plan .price{
-  font-family:var(--serif-en);
-  font-size:1.5rem;
-  color:var(--heading);
-  margin-top:22px;
-}
-.plan .price small{
-  font-size:.75rem;
-  color:#8a7f72;
-}
-/* ===== ストーリー（流れ） ===== */
-.timeline{
-  position:relative;
-  max-width:680px;
-  margin:0 auto;
-}
-.timeline::before{
-  content:'';
-  position:absolute;
-  left:24px;
-  top:0;
-  bottom:0;
-  width:1px;
-  background:linear-gradient(var(--gold-soft),transparent);
-}
-.t-item{
-  position:relative;
-  padding:0 0 46px 72px;
-}
-.t-item::before{
-  content:'✿';
-  position:absolute;
-  left:12px;
-  top:0;
-  color:var(--gold);
-  background:var(--white);
-  padding:2px 0;
-}
-.t-item h3{
-  font-size:1.02rem;
-  color:var(--heading);
-  letter-spacing:.16em;
-}
-.t-item .when{
-  font-family:var(--serif-en);
-  font-style:italic;
-  color:var(--gold);
-  font-size:.85rem;
-}
-.t-item p{
-  font-size:.88rem;
-  color:#8a7f72;
-  margin-top:6px;
-}
+.plans{background:var(--cream);padding:120px 6vw;}
+.plans-inner{max-width:1200px;margin:0 auto;}
+.sec-hd{text-align:center;margin-bottom:64px;}
+.sec-eyebrow{font-family:var(--font-en);color:var(--gold);letter-spacing:.5em;font-size:.72rem;text-transform:uppercase;}
+.sec-hd h2{font-family:var(--font-en);font-size:clamp(1.8rem,4vw,2.8rem);font-style:italic;margin:.5em 0;}
+.plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.plan-card{background:var(--white);border:1px solid var(--line);padding:44px 36px;position:relative;transition:border-color .3s;}
+.plan-card:hover{border-color:var(--gold);}
+.plan-card.featured{border-color:var(--gold);}
+.feat-tag{position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--gold);color:#fff;font-size:.7rem;letter-spacing:.3em;padding:4px 20px;}
+.plan-name{font-family:var(--font-en);font-size:.72rem;letter-spacing:.5em;color:var(--muted);text-transform:uppercase;margin-bottom:12px;}
+.plan-card h3{font-family:var(--font-en);font-size:1.4rem;font-style:italic;margin-bottom:14px;}
+.plan-price{font-family:var(--font-en);font-size:2rem;font-weight:700;color:var(--gold);margin-bottom:6px;}
+.plan-price span{font-size:.85rem;font-weight:400;color:var(--muted);}
+.plan-card ul{list-style:none;margin-top:24px;display:flex;flex-direction:column;gap:10px;border-top:1px solid var(--line);padding-top:22px;}
+.plan-card li{font-size:.86rem;color:var(--muted);padding-left:18px;position:relative;}
+.plan-card li::before{content:'✦';position:absolute;left:0;color:var(--gold);font-size:.6rem;top:4px;}
+.plan-card li.inc{color:var(--text);}
 /* ===== ギャラリー ===== */
-.gallery{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  grid-auto-rows:210px;
-  gap:14px;
-}
-.g-item{
-  border-radius:4px;
-  overflow:hidden;
-  position:relative;
-}
-.g-item .ph{
-  position:absolute;
-  inset:0;
-  transition:transform 1s ease;
-}
-.g-item:hover .ph{
-  transform:scale(1.06);
-}
-.g-item span{
-  position:absolute;
-  bottom:10px;
-  left:14px;
-  z-index:1;
-  font-family:var(--serif-en);
-  font-style:italic;
-  color:#fff;
-  font-size:.8rem;
-  letter-spacing:.14em;
-  text-shadow:0 2px 8px rgba(0,0,0,.4);
-}
-.gp1{background:linear-gradient(140deg,#f3e0d8,#dfc0b4);}
-.gp2{background:linear-gradient(150deg,#ece3d2,#cdb894);}
-.gp3{background:linear-gradient(130deg,#f6e8e6,#e0b9be);}
-.gp4{background:linear-gradient(160deg,#e8e6da,#b9b7a4);}
-.gp5{background:linear-gradient(145deg,#f4ead9,#dcc49c);}
-.gp6{background:linear-gradient(135deg,#efe0e2,#cfa3ab);}
-.g-tall{grid-row:span 2;}
-/* ===== Voice ===== */
-.voices{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:26px;
-}
-.voice{
-  background:var(--blush);
-  border-radius:4px;
-  padding:40px 36px;
-  position:relative;
-}
-.voice::before{
-  content:'❝';
-  font-family:var(--serif-en);
-  position:absolute;
-  top:14px;
-  left:22px;
-  font-size:2.6rem;
-  color:var(--gold-soft);
-}
-.voice p{
-  font-size:.9rem;
-  margin-top:14px;
-}
-.voice .who{
-  margin-top:18px;
-  font-family:var(--serif-en);
-  font-style:italic;
-  color:var(--gold);
-  font-size:.86rem;
-}
-/* ===== CTA ===== */
-.cta{
-  max-width:none;
-  text-align:center;
-  background:
-    radial-gradient(600px 320px at 50% 100%,rgba(214,189,144,.3),transparent 70%),
-    linear-gradient(170deg,var(--champagne),var(--blush));
-}
-.cta .sec-script{
-  font-size:clamp(2rem,5.4vw,3.2rem);
-}
-.cta p{
-  max-width:36em;
-  margin:20px auto 42px;
-  font-size:.92rem;
-}
-.cta-btns{
-  display:flex;
-  gap:18px;
-  justify-content:center;
-  flex-wrap:wrap;
-}
+.gallery{padding:120px 6vw;max-width:1400px;margin:0 auto;}
+.gallery-grid{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:60px;gap:10px;margin-top:56px;}
+.gi{overflow:hidden;border-radius:2px;}
+.gi img{width:100%;height:100%;object-fit:cover;transition:transform .5s;}
+.gi:hover img{transform:scale(1.04);}
+.gi1{grid-column:span 5;grid-row:span 7;}
+.gi2{grid-column:span 4;grid-row:span 4;}
+.gi3{grid-column:span 3;grid-row:span 4;}
+.gi4{grid-column:span 4;grid-row:span 5;}
+.gi5{grid-column:span 3;grid-row:span 5;}
+.gi6{grid-column:span 5;grid-row:span 4;}
+/* ===== お問い合わせ ===== */
+.contact{padding:120px 6vw;max-width:720px;margin:0 auto;text-align:center;}
+.contact h2{font-family:var(--font-en);font-size:clamp(1.8rem,4vw,2.8rem);font-style:italic;margin-bottom:16px;}
+.contact p{color:var(--muted);margin-bottom:46px;}
+.contact-form{display:flex;flex-direction:column;gap:20px;text-align:left;}
+.contact-form label{font-size:.72rem;letter-spacing:.3em;color:var(--muted);display:block;margin-bottom:6px;}
+.contact-form input,.contact-form select,.contact-form textarea{width:100%;background:transparent;border:none;border-bottom:1px solid var(--line);color:var(--text);font-family:var(--font-jp);font-size:max(16px,1em);padding:12px 0;outline:none;transition:border-color .3s;}
+.contact-form input:focus,.contact-form select:focus{border-bottom-color:var(--gold);}
+.contact-form textarea{resize:vertical;height:100px;}
 /* ===== フッター ===== */
-footer{
-  text-align:center;
-  padding:48px 20px;
-  font-size:.8rem;
-  color:#a3988a;
-}
-footer .logo{
-  display:block;
-  margin-bottom:8px;
-}
+footer{background:var(--text);padding:64px 6vw 32px;}
+.ft-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;margin-bottom:48px;}
+.ft-logo{font-family:var(--font-en);font-size:1.5rem;font-style:italic;font-weight:700;color:var(--gold);display:block;margin-bottom:14px;}
+.ft-col p,.ft-col a{display:block;color:rgba(255,255,255,.45);font-size:.84rem;text-decoration:none;line-height:2.2;}
+.ft-col a:hover{color:var(--gold);}
+.ft-col h4{font-family:var(--font-en);font-size:.7rem;letter-spacing:.4em;color:var(--gold);margin-bottom:16px;text-transform:uppercase;}
+.ft-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:24px;text-align:center;color:rgba(255,255,255,.3);font-size:.76rem;}
+/* ===== reveal ===== */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s,transform .8s;}
+.reveal.show{opacity:1;transform:none;}
 /* ===== レスポンシブ ===== */
 @media(max-width:900px){
-  .plans{grid-template-columns:1fr;}
-  .gallery{grid-template-columns:repeat(2,1fr);}
-  .voices{grid-template-columns:1fr;}
-  nav ul{
-    position:fixed;
-    inset:0;
-    background:rgba(255,253,249,.98);
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    gap:36px;
-    font-size:1.05rem;
-    transform:translateY(-100%);
-    transition:transform .45s;
-  }
+  .hero{grid-template-columns:1fr;height:auto;}.hero-left{height:65vw;min-height:280px;}.hero-right{padding:52px 6vw 64px;}
+  .concept{grid-template-columns:1fr;gap:48px;}.plan-grid{grid-template-columns:1fr;}.ft-inner{grid-template-columns:1fr 1fr;}
+  nav ul{position:fixed;inset:0;background:rgba(254,252,248,.97);flex-direction:column;align-items:center;justify-content:center;gap:28px;transform:translateY(-100%);transition:transform .4s;z-index:999;}
   nav ul.open{transform:none;}
-  .menu-btn{display:flex;z-index:110;}
+  .menu-btn{display:flex;z-index:1010;}
   .menu-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
   .menu-btn.open span:nth-child(2){opacity:0;}
   .menu-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .gallery-grid{grid-template-columns:repeat(6,1fr);}
+  .gi1,.gi2,.gi3,.gi4,.gi5,.gi6{grid-column:span 3;grid-row:span 4;}
 }
+@media(max-width:560px){.ft-inner{grid-template-columns:1fr;}}
+/* === iOS セーフエリア対応 === */
+@supports (padding-top: env(safe-area-inset-top)) {
+  header { padding-top: max(18px, env(safe-area-inset-top)); }
+}
+input, select, textarea { font-size: max(16px, 1em); }
 </style>
 </head>
 <body>
-
 <header>
-  <a class="logo" href="#top">Blanche Fleur</a>
+  <a class="logo" href="#top">Blanc</a>
   <nav>
     <ul id="navList">
-      <li><a href="#concept">コンセプト</a></li>
-      <li><a href="#plan">プラン</a></li>
-      <li><a href="#flow">当日までの流れ</a></li>
-      <li><a href="#gallery">ギャラリー</a></li>
-      <li><a href="#contact">ご相談</a></li>
+      <li><a href="#concept">About</a></li>
+      <li><a href="#plans">Planner</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact" class="nav-consult">ご相談</a></li>
     </ul>
   </nav>
   <button class="menu-btn" id="menuBtn" aria-label="メニュー">
@@ -475,149 +135,144 @@ footer .logo{
 </header>
 
 <main id="top">
-  <!-- ヒーロー -->
-  <section class="hero" style="max-width:none;">
-    <span class="flower-deco" style="top:18%;left:10%;">🌸</span>
-    <span class="flower-deco" style="top:30%;right:12%;animation-delay:-2s;">💐</span>
-    <span class="flower-deco" style="bottom:16%;left:16%;animation-delay:-4s;">🕊️</span>
-    <span class="flower-deco" style="bottom:24%;right:18%;animation-delay:-1s;">🌿</span>
-    <p class="script">Once in a lifetime</p>
-    <h1>ふたりらしさを、花束にする。</h1>
-    <p>ブランシュ・フルールは、おふたりの物語を丁寧に紡ぐオーダーメイドウェディングのプランニングサロン。会場探しから当日のコーディネートまで、専任プランナーが寄り添います。</p>
-    <a class="btn" href="#contact">無料相談を予約する</a>
+  <section class="hero">
+    <div class="hero-left">
+      <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=900&auto=format" alt="Wedding">
+    </div>
+    <div class="hero-right">
+      <p class="eyebrow">Tokyo · Kamakura Wedding</p>
+      <h1>Your story,<br>beautifully<br>told.</h1>
+      <p>ふたりの「好き」を丁寧に紡いで、世界にひとつの結婚式を。BLANCは、東京・鎌倉を拠点にするウェディングプランナーです。</p>
+      <a class="btn-gold" href="#contact">無料相談を予約する</a>
+    </div>
   </section>
 
-  <!-- コンセプト -->
   <section class="concept" id="concept">
-    <div class="sec-head reveal">
-      <p class="sec-script">Our Promise</p>
-      <h2>私たちの約束</h2>
-      <div class="petal-line">✿</div>
+    <div class="concept-img reveal">
+      <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=700&auto=format" alt="Concept">
+      <div class="frame"></div>
     </div>
-    <p class="reveal">世界にひとつだけの結婚式は、豪華さではなく「らしさ」から生まれると私たちは信じています。初めてのデートの場所、ふたりの好きな音楽、家族との思い出——。カウンセリングで見つけた小さな物語のかけらを、空間・料理・演出のすべてに散りばめて、ゲストの記憶に残る一日をつくります。</p>
+    <div class="concept-text reveal">
+      <p class="eyebrow">Our Philosophy</p>
+      <h2>その日だけの<br>物語を、<br>ともに。</h2>
+      <p>BLANCが大切にするのは、ふたりがどんな時間を過ごしたいか、どんな想いで大切な人たちを迎えたいか、ということです。</p>
+      <p>花、光、音楽、料理——すべての要素を丁寧に選び、ふたりの「好き」が詰まった1日を一緒に作り上げます。大きな式場だけでなく、レストランウェディングや屋外セレモニーも得意としています。</p>
+    </div>
   </section>
 
-  <!-- プラン -->
-  <div class="plans-bg" id="plan">
-    <section>
-      <div class="sec-head reveal">
-        <p class="sec-script">Wedding Plans</p>
-        <h2>ウェディングプラン</h2>
-        <div class="petal-line">✿</div>
+  <section class="plans" id="plans">
+    <div class="plans-inner">
+      <div class="sec-hd reveal">
+        <p class="sec-eyebrow">Planning</p>
+        <h2>プランニングメニュー</h2>
+        <p style="color:var(--muted);font-size:.9rem;">すべてのプランにアフターサポートが含まれます</p>
       </div>
-      <div class="plans">
-        <div class="plan reveal">
-          <div class="flower">🌿</div>
-          <h3>GARDEN</h3>
-          <p class="jp-name">ガーデンウェディング</p>
-          <p class="desc">緑と自然光に包まれた邸宅ガーデンでの挙式＆パーティ。テラスでのデザートビュッフェが人気です。ゲスト40〜80名さまに。</p>
-          <div class="price">¥1,980,000〜<small>（40名想定）</small></div>
+      <div class="plan-grid">
+        <div class="plan-card reveal">
+          <p class="plan-name">Light</p>
+          <h3>Petal Plan</h3>
+          <div class="plan-price">¥100,000<span> 〜</span></div>
+          <ul>
+            <li class="inc">初回コンサルテーション</li>
+            <li class="inc">会場選定サポート</li>
+            <li class="inc">当日スケジュール作成</li>
+            <li>装花コーディネート</li>
+            <li>演出・音楽プランニング</li>
+          </ul>
         </div>
-        <div class="plan reveal">
-          <div class="flower">🕯️</div>
-          <h3>INTIMATE</h3>
-          <p class="jp-name">少人数ウェディング</p>
-          <p class="desc">大切な家族と親しい友人だけを招く、あたたかな会食スタイル。ひとりひとりと語らう時間を大切にしたい方へ。6〜30名さま。</p>
-          <div class="price">¥880,000〜<small>（10名想定）</small></div>
+        <div class="plan-card featured reveal">
+          <span class="feat-tag">Most Popular</span>
+          <p class="plan-name">Standard</p>
+          <h3>Bloom Plan</h3>
+          <div class="plan-price">¥220,000<span> 〜</span></div>
+          <ul>
+            <li class="inc">初回コンサルテーション</li>
+            <li class="inc">会場選定サポート</li>
+            <li class="inc">当日スケジュール作成</li>
+            <li class="inc">装花コーディネート</li>
+            <li class="inc">演出・音楽プランニング</li>
+          </ul>
         </div>
-        <div class="plan reveal">
-          <div class="flower">✈️</div>
-          <h3>RESORT</h3>
-          <p class="jp-name">リゾートウェディング</p>
-          <p class="desc">沖縄・軽井沢・海外まで。現地との調整はすべてお任せください。前撮り・ハネムーンも含めたトータルプランニング。</p>
-          <div class="price">¥1,480,000〜<small>（挙式＋滞在）</small></div>
+        <div class="plan-card reveal">
+          <p class="plan-name">Premium</p>
+          <h3>Lumière Plan</h3>
+          <div class="plan-price">¥380,000<span> 〜</span></div>
+          <ul>
+            <li class="inc">初回コンサルテーション</li>
+            <li class="inc">会場・宿泊手配すべて</li>
+            <li class="inc">スタイリスト連携</li>
+            <li class="inc">全演出フルプランニング</li>
+            <li class="inc">当日担当プランナー同行</li>
+          </ul>
         </div>
       </div>
-    </section>
-  </div>
-
-  <!-- 流れ -->
-  <section id="flow">
-    <div class="sec-head reveal">
-      <p class="sec-script">Journey to the Day</p>
-      <h2>当日までの流れ</h2>
-      <div class="petal-line">✿</div>
-    </div>
-    <div class="timeline">
-      <div class="t-item reveal">
-        <p class="when">First Step — 12〜8ヶ月前</p>
-        <h3>無料カウンセリング</h3>
-        <p>おふたりの馴れ初めから理想の一日まで、ゆっくりお聞かせください。予算のご相談もこの段階で丁寧に。</p>
-      </div>
-      <div class="t-item reveal">
-        <p class="when">Second Step — 8〜6ヶ月前</p>
-        <h3>会場選び・日程決定</h3>
-        <p>提携120会場からご希望に合う候補をご提案。見学ツアーにはプランナーが同行します。</p>
-      </div>
-      <div class="t-item reveal">
-        <p class="when">Third Step — 6〜3ヶ月前</p>
-        <h3>ドレス・演出・お料理</h3>
-        <p>ドレス試着、装花・ペーパーアイテムのデザイン、メニューの試食会。世界観を形にしていく楽しい期間です。</p>
-      </div>
-      <div class="t-item reveal">
-        <p class="when">Final Step — 当日</p>
-        <h3>ウェディングデイ</h3>
-        <p>当日は専任チームがすべてを進行。おふたりは、ただその瞬間を味わうだけで大丈夫です。</p>
-      </div>
     </div>
   </section>
 
-  <!-- ギャラリー -->
-  <section id="gallery">
-    <div class="sec-head reveal">
-      <p class="sec-script">Gallery</p>
-      <h2>ウェディングレポート</h2>
-      <div class="petal-line">✿</div>
+  <section class="gallery" id="gallery">
+    <div class="sec-hd reveal">
+      <p class="sec-eyebrow">Gallery</p>
+      <h2 style="font-family:var(--font-en);font-style:italic;font-size:clamp(1.8rem,4vw,2.8rem);">Real Weddings</h2>
     </div>
-    <div class="gallery reveal">
-      <div class="g-item g-tall"><div class="ph gp1"></div><span>Garden Ceremony</span></div>
-      <div class="g-item"><div class="ph gp2"></div><span>Table Coordinate</span></div>
-      <div class="g-item"><div class="ph gp3"></div><span>Bouquet</span></div>
-      <div class="g-item"><div class="ph gp4"></div><span>First Meet</span></div>
-      <div class="g-item"><div class="ph gp5"></div><span>Wedding Cake</span></div>
-      <div class="g-item"><div class="ph gp6"></div><span>Night Party</span></div>
+    <div class="gallery-grid reveal">
+      <div class="gi gi1"><img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=600&auto=format" alt="wedding"></div>
+      <div class="gi gi2"><img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=600&auto=format" alt="wedding"></div>
+      <div class="gi gi3"><img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600&auto=format" alt="wedding"></div>
+      <div class="gi gi4"><img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=600&auto=format" alt="wedding"></div>
+      <div class="gi gi5"><img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=600&auto=format" alt="wedding"></div>
+      <div class="gi gi6"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=600&auto=format" alt="wedding"></div>
     </div>
   </section>
 
-  <!-- Voice -->
-  <section>
-    <div class="sec-head reveal">
-      <p class="sec-script">Voices</p>
-      <h2>おふたりの声</h2>
-      <div class="petal-line">✿</div>
-    </div>
-    <div class="voices">
-      <div class="voice reveal">
-        <p>「ふたりとも山登りが趣味」と話したら、受付サインが登山地図のデザインに。ゲスト全員が「らしいね」と笑ってくれた瞬間、このサロンにお願いして良かったと心から思いました。</p>
-        <p class="who">— K様ご夫妻 / ガーデンウェディング</p>
+  <section class="contact" id="contact">
+    <h2 class="reveal">Get in Touch</h2>
+    <p class="reveal">まずはお気軽にご相談ください。ご希望の日程・会場・イメージなどをお聞かせいただければ、専任プランナーよりご連絡します。</p>
+    <form class="contact-form reveal" onsubmit="return false;">
+      <div>
+        <label>おふたりのお名前</label>
+        <input type="text" placeholder="山田 太郎 & 山田 花子">
       </div>
-      <div class="voice reveal">
-        <p>準備期間が4ヶ月しかなく不安でしたが、プランナーさんの段取りが完璧で、むしろ余裕があったほど。祖母への手紙の演出では会場中が涙でした。</p>
-        <p class="who">— T様ご夫妻 / 少人数ウェディング</p>
+      <div>
+        <label>メールアドレス</label>
+        <input type="email" placeholder="taro@example.com">
       </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta" id="contact">
-    <p class="sec-script reveal">Begin your story</p>
-    <h2 class="reveal" style="letter-spacing:.3em;font-weight:500;color:var(--heading);margin-top:14px;">まずは、おしゃべりから始めましょう</h2>
-    <p class="reveal">「式を挙げるか迷っている」段階でも大歓迎です。サロンでお茶を飲みながら、おふたりのお話をお聞かせください。オンライン相談も承っています。</p>
-    <div class="cta-btns reveal">
-      <a class="btn" href="mailto:hello@blanche-fleur.example.jp">無料相談を予約する</a>
-      <a class="btn outline" href="tel:0300001111">お電話で相談する</a>
-    </div>
+      <div>
+        <label>お式の予定</label>
+        <select>
+          <option>未定（まずは相談したい）</option>
+          <option>6ヶ月以内</option>
+          <option>6ヶ月〜1年以内</option>
+          <option>1年以上先</option>
+        </select>
+      </div>
+      <div>
+        <label>希望するウェディングのイメージ</label>
+        <textarea placeholder="ガーデンウェディング、少人数、鎌倉での式など、自由にお書きください"></textarea>
+      </div>
+      <button class="btn-gold" type="submit" style="border:none;cursor:pointer;width:100%;display:block;text-align:center;font-size:.82rem;letter-spacing:.3em;">無料相談を申し込む</button>
+    </form>
   </section>
 </main>
 
 <footer>
-  <a class="logo" href="#top">Blanche Fleur</a>
-  <p>東京都港区南青山X-X-X フルールメゾン2F / 表参道駅 徒歩6分</p>
-  <p>© 2025 Blanche Fleur Wedding Planning. All Rights Reserved.</p>
+  <div class="ft-inner">
+    <div>
+      <a class="ft-logo" href="#top">Blanc</a>
+      <p style="color:rgba(255,255,255,.4);font-size:.84rem;line-height:2;">東京都渋谷区代官山町1-1<br>代官山アトレ4F<br>Tel: 03-0000-0000</p>
+    </div>
+    <div class="ft-col">
+      <h4>Planners</h4>
+      <a href="#">About</a><a href="#">Gallery</a><a href="#">Real Weddings</a>
+    </div>
+    <div class="ft-col">
+      <h4>Info</h4>
+      <a href="#">料金・プラン</a><a href="#">Instagram</a><a href="#">プライバシーポリシー</a>
+    </div>
+  </div>
+  <div class="ft-bottom">© 2025 BLANC Wedding. All rights reserved.</div>
 </footer>
 
 <script>
-// モバイルメニュー
 const menuBtn = document.getElementById('menuBtn');
 const navList = document.getElementById('navList');
 menuBtn.addEventListener('click', () => {
@@ -628,16 +283,15 @@ navList.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
   menuBtn.classList.remove('open');
   navList.classList.remove('open');
 }));
-
-// スクロールリビール
-const io = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('show');
-      io.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.12 });
+document.addEventListener('click', (e) => {
+  if (!menuBtn.contains(e.target) && !navList.contains(e.target)) {
+    menuBtn.classList.remove('open');
+    navList.classList.remove('open');
+  }
+});
+const io = new IntersectionObserver(es => {
+  es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } });
+}, { threshold: .1 });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
 </body>

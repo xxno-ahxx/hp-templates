@@ -2,455 +2,123 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LUMIÈRE NOIRE | リュミエール・ノワール — トータルビューティサロン＆スパ</title>
-<meta name="description" content="銀座のプライベートビューティサロン＆スパ、リュミエール・ノワール。">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>LUMIÈRE Beauty Salon | ルミエール</title>
+<meta name="description" content="東京・表参道のラグジュアリービューティーサロン LUMIÈRE。上質なケアと洗練された空間で、あなたを輝かせます。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600&family=Cinzel:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
 :root{
-  --black:#101010;
-  --char:#181613;
-  --gold:#c9a45c;
-  --gold-light:#e6cf9a;
-  --gold-dim:rgba(201,164,92,.35);
-  --ivory:#f5efe4;
-  --muted:#9d968a;
-  --serif-jp:'Noto Serif JP',serif;
-  --serif-en:'Cinzel',serif;
+  --bg:#0c0a08;--gold:#c9a96e;--gold2:#e5c98c;--cream:#f5efe6;--muted:#8a7a6a;
+  --line:rgba(201,169,110,.2);--font-jp:'Noto Serif JP',serif;--font-en:'Playfair Display',serif;
 }
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-html{
-  scroll-behavior:smooth;
-}
-body{
-  background:var(--black);
-  color:var(--ivory);
-  font-family:var(--serif-jp);
-  line-height:2;
-  letter-spacing:.05em;
-  overflow-x:hidden;
-}
-/* 金の飾り線 */
-.gold-line{
-  width:64px;
-  height:1px;
-  background:linear-gradient(90deg,transparent,var(--gold),transparent);
-  margin:22px auto;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--cream);font-family:var(--font-jp);line-height:1.9;overflow-x:hidden;}
 /* ===== ナビ ===== */
-header{
-  position:fixed;
-  top:0;
-  left:0;
-  right:0;
-  z-index:100;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:20px 5vw;
-  background:linear-gradient(rgba(16,16,16,.92),rgba(16,16,16,.75) 70%,transparent);
-  transition:background .4s;
-}
-.logo{
-  font-family:var(--serif-en);
-  color:var(--gold);
-  text-decoration:none;
-  letter-spacing:.32em;
-  font-size:1.05rem;
-}
-nav ul{
-  display:flex;
-  gap:34px;
-  list-style:none;
-}
-nav a{
-  color:var(--ivory);
-  text-decoration:none;
-  font-size:.82rem;
-  letter-spacing:.24em;
-  position:relative;
-  padding-bottom:4px;
-}
-nav a::after{
-  content:'';
-  position:absolute;
-  bottom:0;
-  left:50%;
-  width:0;
-  height:1px;
-  background:var(--gold);
-  transition:width .4s,left .4s;
-}
-nav a:hover::after{
-  width:100%;
-  left:0;
-}
-.menu-btn{
-  display:none;
-  background:none;
-  border:none;
-  cursor:pointer;
-  flex-direction:column;
-  gap:6px;
-}
-.menu-btn span{
-  width:28px;
-  height:1px;
-  background:var(--gold);
-  transition:.35s;
-}
+header{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:22px 6vw;background:rgba(12,10,8,.88);border-bottom:1px solid var(--line);backdrop-filter:blur(12px);}
+.logo{font-family:var(--font-en);font-size:1.4rem;letter-spacing:.18em;color:var(--gold);text-decoration:none;}
+nav ul{display:flex;gap:30px;list-style:none;align-items:center;}
+nav a{color:var(--cream);text-decoration:none;font-size:.85rem;letter-spacing:.18em;transition:color .25s;}
+nav a:hover{color:var(--gold);}
+.nav-rsv{padding:10px 28px;border:1px solid var(--gold);color:var(--gold) !important;border-radius:2px;transition:background .25s !important;}
+.nav-rsv:hover{background:var(--gold) !important;color:var(--bg) !important;}
+.menu-btn{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:6px;min-width:44px;min-height:44px;align-items:center;justify-content:center;}
+.menu-btn span{width:26px;height:1px;background:var(--gold);transition:.3s;display:block;}
 /* ===== ヒーロー ===== */
-.hero{
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  position:relative;
-  padding:120px 6vw 80px;
-  background:
-    radial-gradient(900px 500px at 50% 110%,rgba(201,164,92,.14),transparent 65%),
-    radial-gradient(700px 380px at 50% -10%,rgba(201,164,92,.08),transparent 60%),
-    var(--black);
-  overflow:hidden;
-}
-.hero::before,.hero::after{
-  content:'';
-  position:absolute;
-  width:1px;
-  height:120px;
-  background:linear-gradient(var(--gold),transparent);
-  top:0;
-}
-.hero::before{left:8vw;}
-.hero::after{right:8vw;}
-.hero .kicker{
-  font-family:var(--serif-en);
-  letter-spacing:.5em;
-  color:var(--gold);
-  font-size:.8rem;
-  opacity:0;
-  animation:heroFade 1.4s .2s forwards;
-}
-.hero h1{
-  font-family:var(--serif-en);
-  font-weight:500;
-  font-size:clamp(2.2rem,7vw,5rem);
-  letter-spacing:.16em;
-  margin:22px 0 6px;
-  color:var(--ivory);
-  opacity:0;
-  animation:heroFade 1.4s .6s forwards;
-}
-.hero h1 span{
-  color:var(--gold);
-}
-.hero .sub{
-  font-size:clamp(.9rem,1.7vw,1.05rem);
-  color:var(--muted);
-  letter-spacing:.3em;
-  opacity:0;
-  animation:heroFade 1.4s 1s forwards;
-}
-@keyframes heroFade{
-  from{opacity:0;transform:translateY(24px);}
-  to{opacity:1;transform:none;}
-}
-.hero .btn{
-  margin-top:52px;
-  opacity:0;
-  animation:heroFade 1.4s 1.4s forwards;
-}
-.btn{
-  display:inline-block;
-  padding:16px 56px;
-  border:1px solid var(--gold);
-  color:var(--gold);
-  text-decoration:none;
-  letter-spacing:.32em;
-  font-size:.82rem;
-  position:relative;
-  overflow:hidden;
-  transition:color .45s;
-  z-index:1;
-}
-.btn::before{
-  content:'';
-  position:absolute;
-  inset:0;
-  background:var(--gold);
-  transform:scaleX(0);
-  transform-origin:right;
-  transition:transform .45s ease;
-  z-index:-1;
-}
-.btn:hover{
-  color:var(--black);
-}
-.btn:hover::before{
-  transform:scaleX(1);
-  transform-origin:left;
-}
-/* ===== セクション共通 ===== */
-section{
-  padding:130px 6vw;
-  max-width:1160px;
-  margin:0 auto;
-}
-.sec-head{
-  text-align:center;
-  margin-bottom:70px;
-}
-.sec-en{
-  font-family:var(--serif-en);
-  color:var(--gold);
-  letter-spacing:.44em;
-  font-size:.82rem;
-  text-transform:uppercase;
-}
-.sec-head h2{
-  font-size:clamp(1.5rem,3.4vw,2.1rem);
-  font-weight:500;
-  letter-spacing:.22em;
-  margin-top:.6em;
-}
-.reveal{
-  opacity:0;
-  transform:translateY(40px);
-  transition:opacity 1s ease,transform 1s ease;
-}
-.reveal.show{
-  opacity:1;
-  transform:none;
-}
-/* ===== コンセプト ===== */
-.concept{
-  text-align:center;
-  max-width:740px;
-}
-.concept p{
-  color:#cfc8bb;
-  font-size:clamp(.95rem,1.7vw,1.08rem);
-  line-height:2.5;
-}
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1400&auto=format') center/cover;opacity:.4;}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(120deg,rgba(12,10,8,.85) 40%,rgba(12,10,8,.3));}
+.hero-content{position:relative;z-index:1;padding:120px 8vw 80px;max-width:680px;}
+.hero-content .eyebrow{font-family:var(--font-en);color:var(--gold);letter-spacing:.45em;font-size:.75rem;text-transform:uppercase;margin-bottom:28px;display:flex;align-items:center;gap:16px;}
+.hero-content .eyebrow::before{content:'';display:block;width:40px;height:1px;background:var(--gold);}
+.hero-content h1{font-family:var(--font-en);font-size:clamp(2.6rem,6vw,5.2rem);font-style:italic;font-weight:400;line-height:1.28;margin-bottom:28px;color:var(--cream);}
+.hero-content p{color:var(--muted);font-size:.95rem;margin-bottom:42px;max-width:32em;}
+.btn-gold{display:inline-block;padding:16px 48px;background:linear-gradient(90deg,var(--gold),var(--gold2));color:var(--bg);font-family:var(--font-en);letter-spacing:.25em;font-size:.85rem;text-decoration:none;border-radius:2px;transition:opacity .3s;}
+.btn-gold:hover{opacity:.85;}
+/* ===== 数字 ===== */
+.highlights{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.hl-item{padding:52px 6vw;border-right:1px solid var(--line);text-align:center;}
+.hl-item:last-child{border-right:none;}
+.hl-num{font-family:var(--font-en);font-size:2.8rem;font-style:italic;color:var(--gold);}
+.hl-unit{font-size:.85rem;color:var(--gold);}
+.hl-label{color:var(--muted);font-size:.82rem;margin-top:8px;letter-spacing:.1em;}
 /* ===== メニュー ===== */
-.menu-list{
-  border-top:1px solid var(--gold-dim);
-}
-.menu-row{
-  display:grid;
-  grid-template-columns:1fr auto;
-  gap:20px;
-  align-items:baseline;
-  padding:34px 10px;
-  border-bottom:1px solid var(--gold-dim);
-  transition:background .4s,padding .4s;
-}
-.menu-row:hover{
-  background:rgba(201,164,92,.05);
-  padding-left:22px;
-}
-.menu-row h3{
-  font-size:1.08rem;
-  font-weight:500;
-  letter-spacing:.14em;
-}
-.menu-row h3 small{
-  display:block;
-  font-family:var(--serif-en);
-  color:var(--gold);
-  font-size:.72rem;
-  letter-spacing:.3em;
-  margin-bottom:6px;
-}
-.menu-row p{
-  color:var(--muted);
-  font-size:.86rem;
-  margin-top:8px;
-  max-width:36em;
-}
-.menu-price{
-  font-family:var(--serif-en);
-  color:var(--gold-light);
-  font-size:1.15rem;
-  letter-spacing:.1em;
-  white-space:nowrap;
-}
-/* ===== 空間ギャラリー ===== */
-.gallery-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  grid-auto-rows:220px;
-  gap:14px;
-}
-.g-item{
-  position:relative;
-  overflow:hidden;
-  border:1px solid rgba(201,164,92,.2);
-}
-.g-item .ph{
-  position:absolute;
-  inset:0;
-  transition:transform 1.2s ease;
-}
-.g-item:hover .ph{
-  transform:scale(1.07);
-}
-.g-item span{
-  position:absolute;
-  left:16px;
-  bottom:12px;
-  font-family:var(--serif-en);
-  letter-spacing:.3em;
-  font-size:.7rem;
-  color:var(--gold-light);
-  z-index:1;
-}
-.g1{grid-column:span 2;}
-.g1 .ph{background:linear-gradient(130deg,#3a3226,#141210);}
-.g2 .ph{background:linear-gradient(160deg,#2b2620,#0f0e0c);}
-.g3 .ph{background:linear-gradient(145deg,#4a4032,#191510);}
-.g4 .ph{background:linear-gradient(150deg,#262019,#0d0c0a);}
-.g5{grid-column:span 2;}
-.g5 .ph{background:linear-gradient(120deg,#3d352a,#12100d);}
-/* ===== Voice ===== */
-.voices{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:22px;
-}
-.voice{
-  border:1px solid var(--gold-dim);
-  padding:38px 30px;
-  background:linear-gradient(170deg,rgba(201,164,92,.06),transparent 55%);
-  position:relative;
-}
-.voice::before{
-  content:'“';
-  font-family:var(--serif-en);
-  position:absolute;
-  top:8px;
-  left:20px;
-  font-size:3.4rem;
-  color:var(--gold-dim);
-  line-height:1;
-}
-.voice p{
-  font-size:.88rem;
-  color:#d8d1c4;
-  margin-top:16px;
-}
-.voice .who{
-  margin-top:20px;
-  font-size:.78rem;
-  color:var(--gold);
-  letter-spacing:.2em;
-}
-/* ===== CTA ===== */
-.cta{
-  text-align:center;
-  border-top:1px solid var(--gold-dim);
-  border-bottom:1px solid var(--gold-dim);
-  max-width:none;
-  background:
-    radial-gradient(600px 300px at 50% 50%,rgba(201,164,92,.12),transparent 70%);
-}
-.cta h2{
-  font-family:var(--serif-en);
-  font-weight:500;
-  letter-spacing:.24em;
-  font-size:clamp(1.6rem,4.4vw,2.6rem);
-  color:var(--gold-light);
-}
-.cta p{
-  color:var(--muted);
-  margin:22px auto 40px;
-  max-width:34em;
-  font-size:.92rem;
-}
-.cta .tel{
-  display:block;
-  font-family:var(--serif-en);
-  font-size:clamp(1.4rem,3.6vw,2rem);
-  letter-spacing:.18em;
-  color:var(--ivory);
-  text-decoration:none;
-  margin-bottom:30px;
-}
-/* ===== インフォ・フッター ===== */
-.salon-info{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:36px;
-  text-align:center;
-}
-.salon-info h3{
-  font-family:var(--serif-en);
-  color:var(--gold);
-  letter-spacing:.3em;
-  font-size:.8rem;
-  margin-bottom:14px;
-}
-.salon-info p{
-  font-size:.88rem;
-  color:#cfc8bb;
-}
-footer{
-  text-align:center;
-  padding:44px 20px;
-  border-top:1px solid rgba(201,164,92,.15);
-  color:var(--muted);
-  font-size:.78rem;
-  letter-spacing:.2em;
-}
-footer .logo{
-  display:block;
-  margin-bottom:12px;
-}
+.menu-sec{padding:120px 8vw;max-width:1280px;margin:0 auto;}
+.sec-hd{text-align:center;margin-bottom:70px;}
+.sec-eyebrow{font-family:var(--font-en);color:var(--gold);letter-spacing:.4em;font-size:.75rem;text-transform:uppercase;}
+.sec-hd h2{font-family:var(--font-en);font-size:clamp(2rem,4vw,3rem);font-style:italic;margin:.5em 0 0;}
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);}
+.menu-item{background:var(--bg);padding:46px 36px;transition:background .3s;}
+.menu-item:hover{background:#14110d;}
+.menu-item .cat{font-family:var(--font-en);color:var(--gold);font-size:.72rem;letter-spacing:.4em;margin-bottom:16px;}
+.menu-item h3{font-family:var(--font-en);font-size:1.25rem;font-style:italic;margin-bottom:14px;}
+.menu-item p{color:var(--muted);font-size:.88rem;line-height:1.85;}
+.menu-item .price{margin-top:22px;font-family:var(--font-en);font-size:1.1rem;color:var(--gold2);}
+/* ===== スタイリスト ===== */
+.stylists{padding:0 8vw 120px;max-width:1280px;margin:0 auto;}
+.stylist-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+.stylist{border-radius:2px;overflow:hidden;}
+.stylist-img{height:340px;overflow:hidden;}
+.stylist-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s;}
+.stylist:hover .stylist-img img{transform:scale(1.04);}
+.stylist-info{padding:22px 4px;}
+.stylist-info h3{font-family:var(--font-en);font-style:italic;font-size:1.1rem;margin-bottom:4px;}
+.stylist-info .role{color:var(--gold);font-size:.75rem;letter-spacing:.3em;}
+.stylist-info p{color:var(--muted);font-size:.84rem;margin-top:10px;}
+/* ===== 予約 ===== */
+.booking{padding:110px 8vw;max-width:760px;margin:0 auto;text-align:center;}
+.booking h2{font-family:var(--font-en);font-size:clamp(2rem,4vw,3rem);font-style:italic;margin-bottom:18px;}
+.booking p{color:var(--muted);margin-bottom:46px;}
+.booking-form{display:flex;flex-direction:column;gap:18px;text-align:left;}
+.booking-form label{font-size:.75rem;letter-spacing:.25em;color:var(--muted);display:block;margin-bottom:6px;}
+.booking-form input,.booking-form select,.booking-form textarea{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--line);color:var(--cream);font-family:var(--font-jp);font-size:max(16px,1em);padding:14px 16px;outline:none;transition:border-color .3s;border-radius:2px;}
+.booking-form input:focus,.booking-form select:focus{border-color:var(--gold);}
+.booking-form textarea{resize:vertical;height:100px;}
+/* ===== フッター ===== */
+footer{border-top:1px solid var(--line);padding:56px 8vw;display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;}
+.ft-logo{font-family:var(--font-en);font-size:1.35rem;letter-spacing:.18em;color:var(--gold);display:block;margin-bottom:14px;}
+.ft-col h4{font-family:var(--font-en);font-size:.72rem;letter-spacing:.4em;color:var(--gold);margin-bottom:18px;}
+.ft-col p,.ft-col a{display:block;color:var(--muted);font-size:.85rem;text-decoration:none;line-height:2;}
+.ft-col a:hover{color:var(--cream);}
+.ft-bottom{border-top:1px solid var(--line);padding:24px 8vw;text-align:center;color:var(--muted);font-size:.78rem;letter-spacing:.1em;}
+/* ===== reveal ===== */
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .8s,transform .8s;}
+.reveal.show{opacity:1;transform:none;}
 /* ===== レスポンシブ ===== */
 @media(max-width:900px){
-  .gallery-grid{grid-template-columns:repeat(2,1fr);}
-  .g1,.g5{grid-column:span 2;}
-  .voices{grid-template-columns:1fr;}
-  .salon-info{grid-template-columns:1fr;}
-  .menu-row{grid-template-columns:1fr;}
-  nav ul{
-    position:fixed;
-    inset:0;
-    background:rgba(16,16,16,.97);
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    gap:38px;
-    transform:translateY(-100%);
-    transition:transform .5s;
-  }
+  .highlights{grid-template-columns:repeat(2,1fr);}
+  .menu-grid{grid-template-columns:1fr;}
+  .stylist-grid{grid-template-columns:repeat(2,1fr);}
+  footer{grid-template-columns:1fr 1fr;}
+  nav ul{position:fixed;inset:0;background:rgba(12,10,8,.96);flex-direction:column;align-items:center;justify-content:center;gap:30px;transform:translateY(-100%);transition:transform .4s;z-index:999;font-size:1.05rem;}
   nav ul.open{transform:none;}
-  .menu-btn{display:flex;z-index:110;}
+  .menu-btn{display:flex;z-index:1010;}
   .menu-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
   .menu-btn.open span:nth-child(2){opacity:0;}
   .menu-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
 }
+@media(max-width:560px){
+  .stylist-grid{grid-template-columns:1fr;}
+  footer{grid-template-columns:1fr;}
+  .highlights{grid-template-columns:1fr 1fr;}
+}
+/* === iOS セーフエリア対応 === */
+@supports (padding-top: env(safe-area-inset-top)) {
+  header { padding-top: max(22px, env(safe-area-inset-top)); }
+}
+input, select, textarea { font-size: max(16px, 1em); }
 </style>
 </head>
 <body>
-
 <header>
-  <a class="logo" href="#top">LUMIÈRE NOIRE</a>
+  <a class="logo" href="#top">LUMIÈRE</a>
   <nav>
     <ul id="navList">
-      <li><a href="#concept">CONCEPT</a></li>
-      <li><a href="#menu">MENU</a></li>
-      <li><a href="#space">SPACE</a></li>
-      <li><a href="#voice">VOICE</a></li>
-      <li><a href="#reserve">RESERVE</a></li>
+      <li><a href="#menu">メニュー</a></li>
+      <li><a href="#stylists">スタイリスト</a></li>
+      <li><a href="#booking">ご予約</a></li>
+      <li><a href="#booking" class="nav-rsv">予約する</a></li>
     </ul>
   </nav>
   <button class="menu-btn" id="menuBtn" aria-label="メニュー">
@@ -459,145 +127,152 @@ footer .logo{
 </header>
 
 <main id="top">
-  <!-- ヒーロー -->
-  <section class="hero" style="max-width:none;">
-    <p class="kicker">GINZA — PRIVATE BEAUTY SALON &amp; SPA</p>
-    <h1>LUMIÈRE <span>NOIRE</span></h1>
-    <div class="gold-line"></div>
-    <p class="sub">闇の中でこそ、光は美しい。</p>
-    <a class="btn" href="#reserve">RESERVATION</a>
-  </section>
-
-  <!-- コンセプト -->
-  <section class="concept" id="concept">
-    <div class="sec-head reveal">
-      <p class="sec-en">Concept</p>
-      <h2>あなただけの、静寂と輝き</h2>
-      <div class="gold-line"></div>
-    </div>
-    <p class="reveal">リュミエール・ノワールは、完全予約制・全室個室のプライベートサロン。髪、肌、そして心まで。一流のセラピストとトップスタイリストが、あなたのための時間だけに集中します。銀座の喧騒から一歩離れた、大人のための隠れ家へようこそ。</p>
-  </section>
-
-  <!-- メニュー -->
-  <section id="menu">
-    <div class="sec-head reveal">
-      <p class="sec-en">Menu</p>
-      <h2>トリートメントメニュー</h2>
-      <div class="gold-line"></div>
-    </div>
-    <div class="menu-list reveal">
-      <div class="menu-row">
-        <div>
-          <h3><small>HAIR</small>プレミアムカット＆髪質改善トリートメント</h3>
-          <p>骨格と髪質を見極めたカットに、酸熱トリートメントを組み合わせた当店いちばん人気のコース。</p>
-        </div>
-        <span class="menu-price">¥18,700</span>
-      </div>
-      <div class="menu-row">
-        <div>
-          <h3><small>FACIAL</small>ゴールドリフトフェイシャル 70min</h3>
-          <p>24Kゴールドパックと独自のリンパドレナージュで、フェイスラインを引き上げ透明感のある肌へ。</p>
-        </div>
-        <span class="menu-price">¥24,200</span>
-      </div>
-      <div class="menu-row">
-        <div>
-          <h3><small>SPA</small>ヘッドスパ「夜の森」 60min</h3>
-          <p>ヒノキと白檀のオリジナルアロマで頭皮を解きほぐす、深い眠りに落ちるようなドライヘッドスパ。</p>
-        </div>
-        <span class="menu-price">¥13,200</span>
-      </div>
-      <div class="menu-row">
-        <div>
-          <h3><small>BODY</small>全身アロマトリートメント 90min</h3>
-          <p>その日の体調に合わせて精油をブレンド。首肩から足先まで、流れるようなストロークで巡りを整えます。</p>
-        </div>
-        <span class="menu-price">¥27,500</span>
-      </div>
-      <div class="menu-row">
-        <div>
-          <h3><small>BRIDAL</small>ブライダルコース（3回集中）</h3>
-          <p>挙式日から逆算したオーダーメイドプラン。ヘア・フェイシャル・ボディをトータルでプロデュース。</p>
-        </div>
-        <span class="menu-price">¥66,000</span>
-      </div>
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="eyebrow">Luxury Beauty Salon, Omotesando</p>
+      <h1>Beauty<br>is a<br>ritual.</h1>
+      <p>ひとりひとりの美しさを引き出す、丁寧な施術と上質な時間。表参道の静かな空間で、あなただけの美を見つけましょう。</p>
+      <a class="btn-gold" href="#booking">ご予約はこちら</a>
     </div>
   </section>
 
-  <!-- 空間 -->
-  <section id="space">
-    <div class="sec-head reveal">
-      <p class="sec-en">Space</p>
-      <h2>サロンの空間</h2>
-      <div class="gold-line"></div>
-    </div>
-    <div class="gallery-grid reveal">
-      <div class="g-item g1"><div class="ph"></div><span>RECEPTION</span></div>
-      <div class="g-item g2"><div class="ph"></div><span>PRIVATE ROOM</span></div>
-      <div class="g-item g3"><div class="ph"></div><span>SPA SUITE</span></div>
-      <div class="g-item g4"><div class="ph"></div><span>POWDER ROOM</span></div>
-      <div class="g-item g5"><div class="ph"></div><span>LOUNGE</span></div>
-    </div>
-  </section>
+  <div class="highlights reveal">
+    <div class="hl-item"><div class="hl-num">12<span class="hl-unit">年</span></div><p class="hl-label">営業の実績</p></div>
+    <div class="hl-item"><div class="hl-num">4,800<span class="hl-unit">+</span></div><p class="hl-label">累計施術数</p></div>
+    <div class="hl-item"><div class="hl-num">98<span class="hl-unit">%</span></div><p class="hl-label">顧客満足度</p></div>
+    <div class="hl-item"><div class="hl-num">8<span class="hl-unit">名</span></div><p class="hl-label">専任スタイリスト</p></div>
+  </div>
 
-  <!-- お客様の声 -->
-  <section id="voice">
-    <div class="sec-head reveal">
-      <p class="sec-en">Voice</p>
-      <h2>お客様の声</h2>
-      <div class="gold-line"></div>
+  <section class="menu-sec" id="menu">
+    <div class="sec-hd reveal">
+      <p class="sec-eyebrow">Services</p>
+      <h2>施術メニュー</h2>
     </div>
-    <div class="voices">
-      <div class="voice reveal">
-        <p>個室なので周りを気にせず、本当にリラックスできます。ヘッドスパは途中の記憶がないほど。月に一度の自分へのご褒美です。</p>
-        <p class="who">40代 女性 / 経営者</p>
+    <div class="menu-grid reveal">
+      <div class="menu-item">
+        <p class="cat">Hair</p>
+        <h3>ヘアカラー & ハイライト</h3>
+        <p>イルミナカラーやバレイヤージュなど、最新トレンドのカラーリング技術を提供。ダメージを最小限に抑えながら、光が宿る美しい発色を実現します。</p>
+        <p class="price">¥18,000〜</p>
       </div>
-      <div class="voice reveal">
-        <p>髪質改善をお願いして3ヶ月。癖に悩んでいた髪が朝のブローだけでまとまるようになりました。カウンセリングの丁寧さが違います。</p>
-        <p class="who">30代 女性 / 会社員</p>
+      <div class="menu-item">
+        <p class="cat">Skin</p>
+        <h3>フェイシャルトリートメント</h3>
+        <p>肌質診断をもとに、ビタミンC導入・ハーブピーリング・高周波リフティングなどを組み合わせた完全オーダーメイドのフェイシャルケア。</p>
+        <p class="price">¥24,000〜</p>
       </div>
-      <div class="voice reveal">
-        <p>結婚式前のブライダルコースを利用しました。当日は肌の調子が人生最高で、写真を見返すたびにお願いして良かったと思います。</p>
-        <p class="who">20代 女性 / ご新婦</p>
+      <div class="menu-item">
+        <p class="cat">Body</p>
+        <h3>アロマ全身ボディケア</h3>
+        <p>有機アロマオイルを使用したリンパドレナージュとボディラップ。疲れを芯からほぐし、輝く素肌を取り戻すトータルケア。</p>
+        <p class="price">¥32,000〜</p>
+      </div>
+      <div class="menu-item">
+        <p class="cat">Nail</p>
+        <h3>ジェルネイル & アート</h3>
+        <p>国産トップジェルを使用した深みのある発色と長持ちな仕上がり。シーズンのアートデザインから上品なワンカラーまで対応。</p>
+        <p class="price">¥12,000〜</p>
+      </div>
+      <div class="menu-item">
+        <p class="cat">Bridal</p>
+        <h3>ブライダルパッケージ</h3>
+        <p>結婚式当日のヘアメイクから前撮りまで、一貫してサポート。式場への出張も承ります。トライアルセット込みのお得なプランも。</p>
+        <p class="price">¥85,000〜</p>
+      </div>
+      <div class="menu-item">
+        <p class="cat">Special</p>
+        <h3>VIP フルデイプログラム</h3>
+        <p>ヘア・スキン・ボディ・ネイルを一日でトータルケア。特別なイベント前や、自分へのご褒美に。シャンパン・ランチ付きの贅沢な1日。</p>
+        <p class="price">¥150,000〜</p>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="cta reveal" id="reserve">
-    <p class="sec-en">Reservation</p>
-    <h2>ご予約・お問い合わせ</h2>
-    <p>完全予約制。当日のご予約はお電話にてご相談ください。初回のお客様には、丁寧なカウンセリングの時間を別途お取りしています。</p>
-    <a class="tel" href="tel:0300000000">03-0000-0000</a>
-    <a class="btn" href="mailto:reserve@lumiere-noire.example.jp">WEB RESERVATION</a>
+  <section class="stylists" id="stylists">
+    <div class="sec-hd reveal" style="margin-bottom:56px;">
+      <p class="sec-eyebrow">Our Team</p>
+      <h2>スタイリスト</h2>
+    </div>
+    <div class="stylist-grid">
+      <div class="stylist reveal">
+        <div class="stylist-img"><img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=600&auto=format" alt="Yuki Tanaka"></div>
+        <div class="stylist-info"><h3>Yuki Tanaka</h3><p class="role">Hair Director</p><p>パリ・ロンドンでの修行経験を持つトップスタイリスト。カラーリング技術と繊細なカットで多くのファッション誌に参加。</p></div>
+      </div>
+      <div class="stylist reveal">
+        <div class="stylist-img"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&auto=format" alt="Mio Saito"></div>
+        <div class="stylist-info"><h3>Mio Saito</h3><p class="role">Skin Care Specialist</p><p>皮膚科学に基づいたアプローチで、肌悩みに丁寧に向き合うスキンスペシャリスト。クリニカルエステ資格保有。</p></div>
+      </div>
+      <div class="stylist reveal">
+        <div class="stylist-img"><img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=600&auto=format" alt="Emi Nakamura"></div>
+        <div class="stylist-info"><h3>Emi Nakamura</h3><p class="role">Nail Artist</p><p>繊細なアートワークが得意なネイリスト。雑誌やCM撮影のネイル担当経験多数。トレンドと個性のバランスを大切にします。</p></div>
+      </div>
+      <div class="stylist reveal">
+        <div class="stylist-img"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&auto=format" alt="Kenji Morimoto"></div>
+        <div class="stylist-info"><h3>Kenji Morimoto</h3><p class="role">Bridal Specialist</p><p>年間100組以上のブライダルを担当するヘアメイクアーティスト。花嫁の個性を最大に引き出す演出を心がけています。</p></div>
+      </div>
+    </div>
   </section>
 
-  <!-- サロン情報 -->
-  <section>
-    <div class="salon-info reveal">
+  <section class="booking" id="booking">
+    <h2 class="reveal">Reservation</h2>
+    <p class="reveal">ご希望のメニューとお日にちをお知らせください。担当者よりご確認のご連絡をさしあげます。</p>
+    <form class="booking-form reveal" onsubmit="return false;">
       <div>
-        <h3>ADDRESS</h3>
-        <p>東京都中央区銀座7-XX-X<br>ノワールビル 5F</p>
+        <label>お名前</label>
+        <input type="text" placeholder="山田 花子">
       </div>
       <div>
-        <h3>HOURS</h3>
-        <p>平日 11:00 - 21:00<br>土日祝 10:00 - 19:00 / 月曜定休</p>
+        <label>電話番号</label>
+        <input type="tel" placeholder="03-0000-0000">
       </div>
       <div>
-        <h3>ACCESS</h3>
-        <p>銀座駅 A2出口 徒歩4分<br>新橋駅 銀座口 徒歩6分</p>
+        <label>ご希望メニュー</label>
+        <select>
+          <option>ヘアカラー & ハイライト</option>
+          <option>フェイシャルトリートメント</option>
+          <option>アロマ全身ボディケア</option>
+          <option>ジェルネイル & アート</option>
+          <option>ブライダルパッケージ</option>
+          <option>VIP フルデイプログラム</option>
+        </select>
       </div>
-    </div>
+      <div>
+        <label>ご希望日時</label>
+        <input type="text" placeholder="例：6月15日（日）13:00〜">
+      </div>
+      <div>
+        <label>ご要望など</label>
+        <textarea placeholder="アレルギー・お肌の状態・ご要望などがあればお知らせください"></textarea>
+      </div>
+      <button class="btn-gold" style="border:none;cursor:pointer;width:100%;margin-top:8px;" type="submit">予約リクエストを送る</button>
+    </form>
   </section>
 </main>
 
 <footer>
-  <a class="logo" href="#top">LUMIÈRE NOIRE</a>
-  <p>© 2025 LUMIÈRE NOIRE GINZA. All Rights Reserved.</p>
+  <div>
+    <a class="ft-logo" href="#top">LUMIÈRE</a>
+    <p style="color:var(--muted);font-size:.84rem;line-height:2;">東京都渋谷区神宮前5-1-1<br>表参道ビル3F<br>Tel: 03-0000-0000</p>
+  </div>
+  <div class="ft-col">
+    <h4>Hours</h4>
+    <p>火〜土：10:00〜20:00</p>
+    <p>日・祝：10:00〜18:00</p>
+    <p>定休日：毎週月曜日</p>
+  </div>
+  <div class="ft-col">
+    <h4>Links</h4>
+    <a href="#">メニュー一覧</a>
+    <a href="#">スタイリスト</a>
+    <a href="#">Instagram</a>
+    <a href="#">プライバシーポリシー</a>
+  </div>
 </footer>
+<div class="ft-bottom">© 2025 LUMIÈRE Beauty Salon. All rights reserved.</div>
 
 <script>
-// モバイルメニュー
 const menuBtn = document.getElementById('menuBtn');
 const navList = document.getElementById('navList');
 menuBtn.addEventListener('click', () => {
@@ -608,16 +283,15 @@ navList.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
   menuBtn.classList.remove('open');
   navList.classList.remove('open');
 }));
-
-// スクロールリビール
-const io = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('show');
-      io.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.12 });
+document.addEventListener('click', (e) => {
+  if (!menuBtn.contains(e.target) && !navList.contains(e.target)) {
+    menuBtn.classList.remove('open');
+    navList.classList.remove('open');
+  }
+});
+const io = new IntersectionObserver(es => {
+  es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } });
+}, { threshold: .1 });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
 </body>

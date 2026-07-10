@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Nexalight Inc. | ネクサライト — AIで業務の未来をつくる</title>
 <meta name="description" content="AI×クラウドで企業のDXを加速するスタートアップ、ネクサライト株式会社。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -10,489 +10,113 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#07080f;
-  --bg2:#0d0f1c;
-  --card:#12152600;
-  --card-solid:#131629;
-  --line:rgba(255,255,255,.08);
-  --text:#e8eaf6;
-  --muted:#8b90ad;
-  --violet:#7c5cff;
-  --cyan:#22d3ee;
-  --magenta:#f43f9d;
+  --bg:#07080f;--bg2:#0d0f1c;--card:#12152600;--card-solid:#131629;
+  --line:rgba(255,255,255,.08);--text:#e8eaf6;--muted:#8b90ad;
+  --violet:#7c5cff;--cyan:#22d3ee;--magenta:#f43f9d;
   --grad:linear-gradient(120deg,#7c5cff 0%,#22d3ee 50%,#f43f9d 100%);
-  --font-jp:'Noto Sans JP',sans-serif;
-  --font-en:'Space Grotesk',monospace;
+  --font-jp:'Noto Sans JP',sans-serif;--font-en:'Space Grotesk',monospace;
 }
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-html{
-  scroll-behavior:smooth;
-}
-body{
-  background:var(--bg);
-  color:var(--text);
-  font-family:var(--font-jp);
-  line-height:1.85;
-  overflow-x:hidden;
-}
-/* 背景メッシュグラデーション */
-.bg-mesh{
-  position:fixed;
-  inset:0;
-  z-index:-1;
-  background:
-    radial-gradient(600px 400px at 15% 10%,rgba(124,92,255,.22),transparent 60%),
-    radial-gradient(700px 500px at 85% 20%,rgba(34,211,238,.14),transparent 60%),
-    radial-gradient(600px 500px at 60% 90%,rgba(244,63,157,.12),transparent 60%),
-    var(--bg);
-}
-.bg-grid{
-  position:fixed;
-  inset:0;
-  z-index:-1;
-  background-image:
-    linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
-  background-size:48px 48px;
-  mask-image:radial-gradient(ellipse at 50% 0%,#000 30%,transparent 75%);
-}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:var(--font-jp);line-height:1.85;overflow-x:hidden;}
+.bg-mesh{position:fixed;inset:0;z-index:-1;background:radial-gradient(600px 400px at 15% 10%,rgba(124,92,255,.22),transparent 60%),radial-gradient(700px 500px at 85% 20%,rgba(34,211,238,.14),transparent 60%),radial-gradient(600px 500px at 60% 90%,rgba(244,63,157,.12),transparent 60%),var(--bg);}
+.bg-grid{position:fixed;inset:0;z-index:-1;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(ellipse at 50% 0%,#000 30%,transparent 75%);}
 /* ===== ナビ ===== */
-header{
-  position:fixed;
-  top:16px;
-  left:50%;
-  transform:translateX(-50%);
-  width:min(1080px,92vw);
-  z-index:100;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:12px 24px;
-  border-radius:18px;
-  background:rgba(13,15,28,.6);
-  border:1px solid var(--line);
-  backdrop-filter:blur(16px);
-}
-.logo{
-  font-family:var(--font-en);
-  font-weight:700;
-  font-size:1.25rem;
-  text-decoration:none;
-  color:var(--text);
-}
-.logo b{
-  background:var(--grad);
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
-}
-nav ul{
-  display:flex;
-  gap:26px;
-  list-style:none;
-}
-nav a{
-  color:var(--muted);
-  text-decoration:none;
-  font-size:.9rem;
-  transition:color .25s;
-}
-nav a:hover{
-  color:var(--text);
-}
-.nav-cta{
-  padding:9px 22px;
-  border-radius:12px;
-  background:var(--grad);
-  color:#fff !important;
-  font-weight:700;
-}
-.menu-btn{
-  display:none;
-  background:none;
-  border:none;
-  cursor:pointer;
-  flex-direction:column;
-  gap:5px;
-}
-.menu-btn span{
-  width:24px;
-  height:2px;
-  background:var(--text);
-  transition:.3s;
-}
+header{position:fixed;top:16px;left:50%;transform:translateX(-50%);width:min(1080px,92vw);z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:12px 24px;border-radius:18px;background:rgba(13,15,28,.6);border:1px solid var(--line);backdrop-filter:blur(16px);}
+.logo{font-family:var(--font-en);font-weight:700;font-size:1.25rem;text-decoration:none;color:var(--text);}
+.logo b{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+nav ul{display:flex;gap:26px;list-style:none;}
+nav a{color:var(--muted);text-decoration:none;font-size:.9rem;transition:color .25s;}
+nav a:hover{color:var(--text);}
+.nav-cta{padding:9px 22px;border-radius:12px;background:var(--grad);color:#fff !important;font-weight:700;}
+.menu-btn{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;min-width:44px;min-height:44px;align-items:center;justify-content:center;}
+.menu-btn span{width:24px;height:2px;background:var(--text);transition:.3s;display:block;}
 /* ===== ヒーロー ===== */
-.hero{
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:140px 6vw 80px;
-  position:relative;
-}
-.badge{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  padding:6px 18px;
-  border-radius:999px;
-  border:1px solid var(--line);
-  background:rgba(255,255,255,.04);
-  font-size:.82rem;
-  color:var(--muted);
-}
-.badge i{
-  width:8px;
-  height:8px;
-  border-radius:50%;
-  background:var(--cyan);
-  box-shadow:0 0 12px var(--cyan);
-  animation:pulse 2s infinite;
-}
-@keyframes pulse{
-  0%,100%{opacity:1;}
-  50%{opacity:.35;}
-}
-.hero h1{
-  font-size:clamp(2.2rem,6.4vw,4.6rem);
-  font-weight:900;
-  line-height:1.3;
-  letter-spacing:.01em;
-  margin:26px 0 20px;
-}
-.hero h1 .grad{
-  background:var(--grad);
-  background-size:200% 200%;
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
-  animation:gradShift 6s ease infinite;
-}
-@keyframes gradShift{
-  0%,100%{background-position:0% 50%;}
-  50%{background-position:100% 50%;}
-}
-.hero p.lead{
-  max-width:38em;
-  color:var(--muted);
-  font-size:clamp(.95rem,1.5vw,1.1rem);
-}
-.hero-actions{
-  display:flex;
-  gap:16px;
-  margin-top:36px;
-  flex-wrap:wrap;
-  justify-content:center;
-}
-.btn{
-  padding:15px 38px;
-  border-radius:14px;
-  text-decoration:none;
-  font-weight:700;
-  font-size:.95rem;
-  transition:transform .25s,box-shadow .25s;
-}
-.btn.primary{
-  background:var(--grad);
-  color:#fff;
-  box-shadow:0 10px 40px rgba(124,92,255,.4);
-}
-.btn.primary:hover{
-  transform:translateY(-3px);
-  box-shadow:0 16px 52px rgba(124,92,255,.55);
-}
-.btn.outline{
-  border:1px solid var(--line);
-  color:var(--text);
-  background:rgba(255,255,255,.03);
-}
-.btn.outline:hover{
-  border-color:var(--cyan);
-  color:var(--cyan);
-}
-/* ターミナル風デモ */
-.terminal{
-  margin-top:64px;
-  width:min(720px,94%);
-  border-radius:18px;
-  border:1px solid var(--line);
-  background:rgba(9,11,22,.85);
-  backdrop-filter:blur(10px);
-  text-align:left;
-  overflow:hidden;
-  box-shadow:0 40px 80px rgba(0,0,0,.5);
-}
-.term-bar{
-  display:flex;
-  gap:8px;
-  padding:12px 16px;
-  border-bottom:1px solid var(--line);
-}
-.term-bar i{
-  width:11px;
-  height:11px;
-  border-radius:50%;
-}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:140px 6vw 80px;position:relative;}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:6px 18px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.04);font-size:.82rem;color:var(--muted);}
+.badge i{width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px var(--cyan);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.35;}}
+.hero h1{font-size:clamp(2.2rem,6.4vw,4.6rem);font-weight:900;line-height:1.3;letter-spacing:.01em;margin:26px 0 20px;}
+.hero h1 .grad{background:var(--grad);background-size:200% 200%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gradShift 6s ease infinite;}
+@keyframes gradShift{0%,100%{background-position:0% 50%;}50%{background-position:100% 50%;}}
+.hero p.lead{max-width:38em;color:var(--muted);font-size:clamp(.95rem,1.5vw,1.1rem);}
+.hero-actions{display:flex;gap:16px;margin-top:36px;flex-wrap:wrap;justify-content:center;}
+.btn{padding:15px 38px;border-radius:14px;text-decoration:none;font-weight:700;font-size:.95rem;transition:transform .25s,box-shadow .25s;}
+.btn.primary{background:var(--grad);color:#fff;box-shadow:0 10px 40px rgba(124,92,255,.4);}
+.btn.primary:hover{transform:translateY(-3px);box-shadow:0 16px 52px rgba(124,92,255,.55);}
+.btn.outline{border:1px solid var(--line);color:var(--text);background:rgba(255,255,255,.03);}
+.btn.outline:hover{border-color:var(--cyan);color:var(--cyan);}
+.terminal{margin-top:64px;width:min(720px,94%);border-radius:18px;border:1px solid var(--line);background:rgba(9,11,22,.85);backdrop-filter:blur(10px);text-align:left;overflow:hidden;box-shadow:0 40px 80px rgba(0,0,0,.5);}
+.term-bar{display:flex;gap:8px;padding:12px 16px;border-bottom:1px solid var(--line);}
+.term-bar i{width:11px;height:11px;border-radius:50%;}
 .term-bar i:nth-child(1){background:#ff5f57;}
 .term-bar i:nth-child(2){background:#febc2e;}
 .term-bar i:nth-child(3){background:#28c840;}
-.term-body{
-  font-family:var(--font-en);
-  font-size:.85rem;
-  padding:20px 22px 26px;
-  color:#a7f3d0;
-  min-height:120px;
-  white-space:pre-wrap;
-}
+.term-body{font-family:var(--font-en);font-size:.85rem;padding:20px 22px 26px;color:#a7f3d0;min-height:120px;white-space:pre-wrap;}
 .term-body .prompt{color:var(--cyan);}
-.cursor{
-  display:inline-block;
-  width:9px;
-  height:1.1em;
-  background:var(--cyan);
-  vertical-align:text-bottom;
-  animation:blink 1s steps(1) infinite;
-}
+.cursor{display:inline-block;width:9px;height:1.1em;background:var(--cyan);vertical-align:text-bottom;animation:blink 1s steps(1) infinite;}
 @keyframes blink{50%{opacity:0;}}
 /* ===== セクション共通 ===== */
-section{
-  padding:110px 6vw;
-  max-width:1200px;
-  margin:0 auto;
-}
-.sec-label{
-  font-family:var(--font-en);
-  color:var(--cyan);
-  letter-spacing:.3em;
-  text-transform:uppercase;
-  font-size:.8rem;
-}
-h2.sec-title{
-  font-size:clamp(1.7rem,4vw,2.6rem);
-  font-weight:900;
-  margin:.4em 0 1.6em;
-  line-height:1.4;
-}
-.reveal{
-  opacity:0;
-  transform:translateY(40px);
-  transition:opacity .7s ease,transform .7s ease;
-}
-.reveal.show{
-  opacity:1;
-  transform:none;
-}
+section{padding:110px 6vw;max-width:1200px;margin:0 auto;}
+.sec-label{font-family:var(--font-en);color:var(--cyan);letter-spacing:.3em;text-transform:uppercase;font-size:.8rem;}
+h2.sec-title{font-size:clamp(1.7rem,4vw,2.6rem);font-weight:900;margin:.4em 0 1.6em;line-height:1.4;}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.show{opacity:1;transform:none;}
 /* ===== Bento Grid ===== */
-.bento{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  grid-auto-rows:190px;
-  gap:18px;
-}
-.bento-item{
-  border-radius:22px;
-  border:1px solid var(--line);
-  background:linear-gradient(160deg,rgba(255,255,255,.05),rgba(255,255,255,.01));
-  padding:28px;
-  position:relative;
-  overflow:hidden;
-  transition:border-color .3s,transform .3s;
-}
-.bento-item:hover{
-  border-color:rgba(124,92,255,.55);
-  transform:translateY(-4px);
-}
-.bento-item h3{
-  font-size:1.1rem;
-  font-weight:700;
-  margin-bottom:8px;
-}
-.bento-item p{
-  color:var(--muted);
-  font-size:.86rem;
-}
-.bento-item .icon{
-  font-size:1.8rem;
-  margin-bottom:12px;
-  display:block;
-}
-.b-wide{grid-column:span 2;}
-.b-tall{grid-row:span 2;}
-.b-glow::before{
-  content:'';
-  position:absolute;
-  width:220px;
-  height:220px;
-  border-radius:50%;
-  background:radial-gradient(circle,rgba(124,92,255,.35),transparent 70%);
-  top:-70px;
-  right:-70px;
-}
-.b-glow2::before{
-  content:'';
-  position:absolute;
-  width:220px;
-  height:220px;
-  border-radius:50%;
-  background:radial-gradient(circle,rgba(34,211,238,.28),transparent 70%);
-  bottom:-70px;
-  left:-70px;
-}
-.big-num{
-  font-family:var(--font-en);
-  font-size:clamp(2.4rem,4vw,3.4rem);
-  font-weight:700;
-  background:var(--grad);
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
-}
+.bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:190px;gap:18px;}
+.bento-item{border-radius:22px;border:1px solid var(--line);background:linear-gradient(160deg,rgba(255,255,255,.05),rgba(255,255,255,.01));padding:28px;position:relative;overflow:hidden;transition:border-color .3s,transform .3s;}
+.bento-item:hover{border-color:rgba(124,92,255,.55);transform:translateY(-4px);}
+.bento-item h3{font-size:1.1rem;font-weight:700;margin-bottom:8px;}
+.bento-item p{color:var(--muted);font-size:.86rem;}
+.bento-item .icon{font-size:1.8rem;margin-bottom:12px;display:block;}
+.b-wide{grid-column:span 2;}.b-tall{grid-row:span 2;}
+.b-glow::before{content:'';position:absolute;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(124,92,255,.35),transparent 70%);top:-70px;right:-70px;}
+.b-glow2::before{content:'';position:absolute;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(34,211,238,.28),transparent 70%);bottom:-70px;left:-70px;}
+.big-num{font-family:var(--font-en);font-size:clamp(2.4rem,4vw,3.4rem);font-weight:700;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
 /* ===== 実績カウンター ===== */
-.stats{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:18px;
-  text-align:center;
-}
-.stat{
-  padding:36px 12px;
-  border-radius:22px;
-  border:1px solid var(--line);
-  background:rgba(255,255,255,.03);
-}
-.stat .num{
-  font-family:var(--font-en);
-  font-size:clamp(2rem,4vw,3rem);
-  font-weight:700;
-  color:var(--cyan);
-}
-.stat .unit{
-  font-size:1rem;
-  color:var(--violet);
-}
-.stat p{
-  color:var(--muted);
-  font-size:.85rem;
-  margin-top:6px;
-}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;text-align:center;}
+.stat{padding:36px 12px;border-radius:22px;border:1px solid var(--line);background:rgba(255,255,255,.03);}
+.stat .num{font-family:var(--font-en);font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--cyan);}
+.stat .unit{font-size:1rem;color:var(--violet);}
+.stat p{color:var(--muted);font-size:.85rem;margin-top:6px;}
 /* ===== 導入事例 ===== */
-.cases{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-}
-.case-card{
-  border-radius:22px;
-  border:1px solid var(--line);
-  background:var(--card-solid);
-  padding:30px 26px;
-  transition:transform .3s,border-color .3s;
-}
-.case-card:hover{
-  transform:translateY(-6px);
-  border-color:rgba(34,211,238,.5);
-}
-.case-tag{
-  display:inline-block;
-  font-size:.72rem;
-  padding:4px 12px;
-  border-radius:999px;
-  background:rgba(124,92,255,.15);
-  color:#b7a6ff;
-  margin-bottom:14px;
-}
-.case-card h3{
-  font-size:1.05rem;
-  margin-bottom:10px;
-}
-.case-card p{
-  color:var(--muted);
-  font-size:.87rem;
-}
-.case-metric{
-  margin-top:18px;
-  padding-top:16px;
-  border-top:1px dashed var(--line);
-  font-family:var(--font-en);
-  color:var(--cyan);
-  font-weight:700;
-  font-size:1.2rem;
-}
+.cases{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.case-card{border-radius:22px;border:1px solid var(--line);background:var(--card-solid);padding:30px 26px;transition:transform .3s,border-color .3s;}
+.case-card:hover{transform:translateY(-6px);border-color:rgba(34,211,238,.5);}
+.case-tag{display:inline-block;font-size:.72rem;padding:4px 12px;border-radius:999px;background:rgba(124,92,255,.15);color:#b7a6ff;margin-bottom:14px;}
+.case-card h3{font-size:1.05rem;margin-bottom:10px;}
+.case-card p{color:var(--muted);font-size:.87rem;}
+.case-metric{margin-top:18px;padding-top:16px;border-top:1px dashed var(--line);font-family:var(--font-en);color:var(--cyan);font-weight:700;font-size:1.2rem;}
 /* ===== CTA ===== */
-.cta{
-  text-align:center;
-  border-radius:28px;
-  border:1px solid rgba(124,92,255,.4);
-  background:
-    radial-gradient(500px 260px at 50% 0%,rgba(124,92,255,.25),transparent 70%),
-    var(--bg2);
-  padding:90px 8vw;
-}
-.cta h2{
-  font-size:clamp(1.7rem,4vw,2.6rem);
-  font-weight:900;
-}
-.cta p{
-  color:var(--muted);
-  margin:18px auto 34px;
-  max-width:36em;
-}
+.cta{text-align:center;border-radius:28px;border:1px solid rgba(124,92,255,.4);background:radial-gradient(500px 260px at 50% 0%,rgba(124,92,255,.25),transparent 70%),var(--bg2);padding:90px 8vw;}
+.cta h2{font-size:clamp(1.7rem,4vw,2.6rem);font-weight:900;}
+.cta p{color:var(--muted);margin:18px auto 34px;max-width:36em;}
 /* ===== フッター ===== */
-footer{
-  border-top:1px solid var(--line);
-  margin-top:60px;
-  padding:48px 6vw;
-  display:flex;
-  flex-wrap:wrap;
-  gap:24px;
-  align-items:center;
-  justify-content:space-between;
-  color:var(--muted);
-  font-size:.85rem;
-}
-footer nav{
-  display:flex;
-  gap:20px;
-}
-footer a{
-  color:var(--muted);
-  text-decoration:none;
-}
+footer{border-top:1px solid var(--line);margin-top:60px;padding:48px 6vw;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between;color:var(--muted);font-size:.85rem;}
+footer nav{display:flex;gap:20px;}
+footer a{color:var(--muted);text-decoration:none;}
 footer a:hover{color:var(--text);}
 /* ===== レスポンシブ ===== */
 @media(max-width:920px){
   .bento{grid-template-columns:repeat(2,1fr);}
   .stats{grid-template-columns:repeat(2,1fr);}
   .cases{grid-template-columns:1fr;}
-  nav ul{
-    position:fixed;
-    inset:0;
-    background:rgba(7,8,15,.96);
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    gap:32px;
-    font-size:1.15rem;
-    transform:translateY(-100%);
-    transition:transform .4s;
-  }
+  nav ul{position:fixed;inset:0;background:rgba(7,8,15,.96);flex-direction:column;align-items:center;justify-content:center;gap:32px;font-size:1.15rem;transform:translateY(-100%);transition:transform .4s;z-index:999;}
   nav ul.open{transform:none;}
-  .menu-btn{display:flex;z-index:110;}
+  .menu-btn{display:flex;z-index:1010;}
   .menu-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
   .menu-btn.open span:nth-child(2){opacity:0;}
   .menu-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
 }
 @media(max-width:560px){
   .bento{grid-template-columns:1fr;grid-auto-rows:auto;}
-  .b-wide{grid-column:auto;}
-  .b-tall{grid-row:auto;}
+  .b-wide{grid-column:auto;}.b-tall{grid-row:auto;}
 }
+/* === iOS セーフエリア対応 === */
+@supports (padding-top: env(safe-area-inset-top)) {
+  header { padding-top: max(12px, env(safe-area-inset-top)); }
+}
+input, select, textarea { font-size: max(16px, 1em); }
 </style>
 </head>
 <body>
@@ -515,7 +139,6 @@ footer a:hover{color:var(--text);}
 </header>
 
 <main id="top">
-  <!-- ヒーロー -->
   <section class="hero">
     <span class="badge"><i></i>シリーズB 資金調達を完了しました</span>
     <h1>面倒な業務は、<br><span class="grad">AIに任せる時代へ。</span></h1>
@@ -530,47 +153,19 @@ footer a:hover{color:var(--text);}
     </div>
   </section>
 
-  <!-- プロダクト（Bento Grid） -->
   <section id="product">
     <p class="sec-label reveal">Product</p>
     <h2 class="sec-title reveal">Nexa Flow ができること</h2>
     <div class="bento">
-      <div class="bento-item b-wide b-glow reveal">
-        <span class="icon">🤖</span>
-        <h3>AIエージェントによる業務自動化</h3>
-        <p>メール仕分け・請求書処理・レポート作成まで、自然言語で指示するだけ。ノーコードでワークフローを構築できます。</p>
-      </div>
-      <div class="bento-item b-tall reveal">
-        <span class="icon">📊</span>
-        <h3>リアルタイム分析</h3>
-        <p>自動化の効果をダッシュボードで可視化。削減工数・コスト・エラー率を常時トラッキング。</p>
-        <div class="big-num" style="margin-top:18px;">-72%</div>
-        <p>手作業エラー削減率</p>
-      </div>
-      <div class="bento-item reveal">
-        <span class="icon">🔗</span>
-        <h3>200+ 連携</h3>
-        <p>Slack・kintone・Salesforce など主要SaaSと即接続。</p>
-      </div>
-      <div class="bento-item reveal">
-        <span class="icon">🛡️</span>
-        <h3>エンタープライズ級<br>セキュリティ</h3>
-        <p>ISMS認証取得済み。データは国内リージョンで暗号化。</p>
-      </div>
-      <div class="bento-item b-wide b-glow2 reveal">
-        <span class="icon">⚡</span>
-        <h3>最短1日で導入完了</h3>
-        <p>テンプレートから選ぶだけで、その日から自動化がスタート。専任のカスタマーサクセスが定着まで伴走します。</p>
-      </div>
-      <div class="bento-item reveal">
-        <span class="icon">🌏</span>
-        <h3>多言語対応</h3>
-        <p>日英中韓を含む28言語の文書を処理可能。</p>
-      </div>
+      <div class="bento-item b-wide b-glow reveal"><span class="icon">🤖</span><h3>AIエージェントによる業務自動化</h3><p>メール仕分け・請求書処理・レポート作成まで、自然言語で指示するだけ。ノーコードでワークフローを構築できます。</p></div>
+      <div class="bento-item b-tall reveal"><span class="icon">📊</span><h3>リアルタイム分析</h3><p>自動化の効果をダッシュボードで可視化。削減工数・コスト・エラー率を常時トラッキング。</p><div class="big-num" style="margin-top:18px;">-72%</div><p>手作業エラー削減率</p></div>
+      <div class="bento-item reveal"><span class="icon">🔗</span><h3>200+ 連携</h3><p>Slack・kintone・Salesforce など主要SaaSと即接続。</p></div>
+      <div class="bento-item reveal"><span class="icon">🛡️</span><h3>エンタープライズ級セキュリティ</h3><p>ISMS認証取得済み。データは国内リージョンで暗号化。</p></div>
+      <div class="bento-item b-wide b-glow2 reveal"><span class="icon">⚡</span><h3>最短1日で導入完了</h3><p>テンプレートから選ぶだけで、その日から自動化がスタート。専任のカスタマーサクセスが定着まで伴走します。</p></div>
+      <div class="bento-item reveal"><span class="icon">🌏</span><h3>多言語対応</h3><p>日英中韓を含む28言語の文書を処理可能。</p></div>
     </div>
   </section>
 
-  <!-- 実績 -->
   <section id="stats">
     <p class="sec-label reveal">Numbers</p>
     <h2 class="sec-title reveal">数字で見るネクサライト</h2>
@@ -582,33 +177,16 @@ footer a:hover{color:var(--text);}
     </div>
   </section>
 
-  <!-- 導入事例 -->
   <section id="cases">
     <p class="sec-label reveal">Case Studies</p>
     <h2 class="sec-title reveal">導入事例</h2>
     <div class="cases">
-      <div class="case-card reveal">
-        <span class="case-tag">製造業 / 従業員1,200名</span>
-        <h3>月4,000枚の請求書処理を完全自動化</h3>
-        <p>紙とPDFが混在していた請求書処理をNexa FlowのOCR＋AI仕分けで一本化。経理チームは月次決算の早期化に注力できるように。</p>
-        <div class="case-metric">工数 -85% / 月220時間削減</div>
-      </div>
-      <div class="case-card reveal">
-        <span class="case-tag">EC / 従業員300名</span>
-        <h3>問い合わせ一次対応をAIエージェント化</h3>
-        <p>FAQと注文データを学習したエージェントが24時間対応。オペレーターは複雑な相談に集中し、顧客満足度が向上しました。</p>
-        <div class="case-metric">応答時間 -92% / CSAT +18pt</div>
-      </div>
-      <div class="case-card reveal">
-        <span class="case-tag">金融 / 従業員5,000名</span>
-        <h3>コンプライアンス点検レポートを自動生成</h3>
-        <p>各支店から届く点検データを自動集計し、異常値をAIが検知してアラート。監査対応の準備期間が大幅に短縮されました。</p>
-        <div class="case-metric">レポート作成 3日 → 2時間</div>
-      </div>
+      <div class="case-card reveal"><span class="case-tag">製造業 / 従業員1,200名</span><h3>月4,000枚の請求書処理を完全自動化</h3><p>紙とPDFが混在していた請求書処理をNexa FlowのOCR＋AI仕分けで一本化。経理チームは月次決算の早期化に注力できるように。</p><div class="case-metric">工数 -85% / 月220時間削減</div></div>
+      <div class="case-card reveal"><span class="case-tag">EC / 従業員300名</span><h3>問い合わせ一次対応をAIエージェント化</h3><p>FAQと注文データを学習したエージェントが24時間対応。オペレーターは複雑な相談に集中し、顧客満足度が向上しました。</p><div class="case-metric">応答時間 -92% / CSAT +18pt</div></div>
+      <div class="case-card reveal"><span class="case-tag">金融 / 従業員5,000名</span><h3>コンプライアンス点検レポートを自動生成</h3><p>各支店から届く点検データを自動集計し、異常値をAIが検知してアラート。監査対応の準備期間が大幅に短縮されました。</p><div class="case-metric">レポート作成 3日 → 2時間</div></div>
     </div>
   </section>
 
-  <!-- CTA -->
   <section>
     <div class="cta reveal" id="contact">
       <h2>まずは14日間、無料で。</h2>
@@ -630,7 +208,6 @@ footer a:hover{color:var(--text);}
 </footer>
 
 <script>
-// モバイルメニュー
 const menuBtn = document.getElementById('menuBtn');
 const navList = document.getElementById('navList');
 menuBtn.addEventListener('click', () => {
@@ -641,19 +218,16 @@ navList.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
   menuBtn.classList.remove('open');
   navList.classList.remove('open');
 }));
-
-// スクロールリビール
+document.addEventListener('click', (e) => {
+  if (!menuBtn.contains(e.target) && !navList.contains(e.target)) {
+    menuBtn.classList.remove('open');
+    navList.classList.remove('open');
+  }
+});
 const io = new IntersectionObserver(es => {
-  es.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('show');
-      io.unobserve(e.target);
-    }
-  });
+  es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } });
 }, { threshold: .15 });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-// カウントアップアニメーション
 const counters = document.querySelectorAll('.num[data-count]');
 const cio = new IntersectionObserver(es => {
   es.forEach(e => {
@@ -664,7 +238,6 @@ const cio = new IntersectionObserver(es => {
     const start = performance.now();
     const tick = now => {
       const p = Math.min((now - start) / dur, 1);
-      // easeOutCubic で滑らかに
       el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
       if (p < 1) requestAnimationFrame(tick);
     };
@@ -673,8 +246,6 @@ const cio = new IntersectionObserver(es => {
   });
 }, { threshold: .6 });
 counters.forEach(c => cio.observe(c));
-
-// ターミナルのタイピング演出
 const lines = [
   { text: '$ nexa deploy --workflow invoice-automation', cls: 'prompt' },
   { text: '✔ OCRモデルを読み込みました (2.1s)', cls: '' },
@@ -684,26 +255,12 @@ const lines = [
 const termBody = document.getElementById('termBody');
 let li = 0, ci = 0;
 function typeLine() {
-  if (li >= lines.length) {
-    termBody.insertAdjacentHTML('beforeend', '<span class="cursor"></span>');
-    return;
-  }
+  if (li >= lines.length) { termBody.insertAdjacentHTML('beforeend', '<span class="cursor"></span>'); return; }
   const line = lines[li];
-  if (ci === 0) {
-    const span = document.createElement('span');
-    if (line.cls) span.className = line.cls;
-    span.id = 'line' + li;
-    termBody.appendChild(span);
-  }
+  if (ci === 0) { const span = document.createElement('span'); if (line.cls) span.className = line.cls; span.id = 'line' + li; termBody.appendChild(span); }
   const span = document.getElementById('line' + li);
   span.textContent = line.text.slice(0, ++ci);
-  if (ci < line.text.length) {
-    setTimeout(typeLine, 24);
-  } else {
-    termBody.appendChild(document.createTextNode('\n'));
-    li++; ci = 0;
-    setTimeout(typeLine, 350);
-  }
+  if (ci < line.text.length) { setTimeout(typeLine, 24); } else { termBody.appendChild(document.createTextNode('\n')); li++; ci = 0; setTimeout(typeLine, 350); }
 }
 setTimeout(typeLine, 800);
 </script>
