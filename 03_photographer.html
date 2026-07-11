@@ -509,6 +509,75 @@ footer{
     z-index:10000 !important;         /* メニューより上にハンバーガーを出す */
   }
 }
+
+/* ===== fix4: モバイルメニュー最終修正 =====
+   問題1: 閉じているのにメニューが見える（transformによる隠しがbackdrop-filter配下で失敗）
+     → display:none で完全に非表示にする
+   問題2: 開いたとき背景が透ける
+     → 不透明な background-color の全画面オーバーレイに置換 */
+@media (max-width: 900px){
+
+  /* ① ハンバーガーボタン：常に表示・最前面 */
+  .menu-btn{
+    display:flex !important;
+    position:fixed !important;
+    top:1rem !important;
+    right:1rem !important;
+    z-index:10000 !important;
+    cursor:pointer !important;
+  }
+
+  /* ② メニュー本体：デフォルトは完全非表示（閉時に見えない） */
+  header nav ul,
+  nav ul{
+    display:none !important;
+    visibility:hidden !important;
+    pointer-events:none !important;
+    transform:none !important;
+    transition:none !important;
+  }
+
+  /* ③ .open 時：不透明背景の全画面オーバーレイ（背景が透けない） */
+  header nav ul.open,
+  nav ul.open{
+    display:flex !important;
+    visibility:visible !important;
+    pointer-events:auto !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:2rem !important;
+    position:fixed !important;
+    inset:0 !important;
+    width:100vw !important;
+    height:100vh !important;
+    background-color:#111111 !important;
+    z-index:9999 !important;
+    padding:5rem 2rem 2rem !important;
+    overflow-y:auto !important;
+    backdrop-filter:none !important;
+    -webkit-backdrop-filter:none !important;
+  }
+
+  /* ④ メニュー内のリスト項目 */
+  header nav ul.open li,
+  nav ul.open li{
+    width:100% !important;
+    text-align:center !important;
+    padding:1rem 0 !important;
+    border-bottom:1px solid rgba(128,128,128,0.2) !important;
+    list-style:none !important;
+  }
+
+  /* ⑤ backdrop-filterを持つ親要素の解除（Chromeのfixed基準ずれバグ回避） */
+  body.menu-open header,
+  body.menu-open nav{
+    backdrop-filter:none !important;
+    -webkit-backdrop-filter:none !important;
+    transform:none !important;
+  }
+
+}
 </style>
 </head>
 <body>
