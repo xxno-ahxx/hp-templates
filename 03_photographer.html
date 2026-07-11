@@ -429,28 +429,20 @@ footer{
   .services{grid-template-columns:1fr;}
   .service{border-right:none;}
   .profile{grid-template-columns:1fr;gap:48px;}
-  /* モバイルメニュー：デフォルトで完全非表示（表示バグ修正） */
   nav ul{
-    display:none !important;
-    visibility:hidden;
-    opacity:0;
     position:fixed;
     inset:0;
     background:#0c0c0c;
-    z-index:999;
-  }
-  /* openクラスがついたときだけ表示 */
-  nav ul.open{
-    display:flex !important;
-    visibility:visible;
-    opacity:1;
     flex-direction:column;
     align-items:center;
     justify-content:center;
     gap:38px;
     font-size:1rem;
+    transform:translateX(100%);
+    transition:transform .5s ease;
   }
-  .menu-btn{display:flex;position:relative;z-index:1000;}
+  nav ul.open{transform:none;}
+  .menu-btn{display:flex;z-index:110;}
   .menu-btn.open span:nth-child(1){transform:translateY(8px) rotate(45deg);}
   .menu-btn.open span:nth-child(2){opacity:0;}
   .menu-btn.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg);}
@@ -458,6 +450,64 @@ footer{
 @media(max-width:560px){
   .works-grid{columns:1;}
   section{padding:100px 6vw;}
+}
+
+/* ===== fix3: モバイルメニュー全画面オーバーレイ強制修正 =====
+   header の backdrop-filter / transform が fixed 子要素の基準を
+   ヘッダー自身にしてしまうため、開いている間は解除する */
+@media(max-width:900px){
+  body.menu-open header{
+    transform:none !important;
+    -webkit-transform:none !important;
+    backdrop-filter:none !important;
+    -webkit-backdrop-filter:none !important;
+    filter:none !important;
+    top:0 !important;
+    left:0 !important;
+    right:0 !important;
+    width:100% !important;
+    max-width:none !important;
+    border-radius:0 !important;
+    background:transparent !important;
+    border-color:transparent !important;
+    box-shadow:none !important;
+  }
+  nav ul.open{
+    display:flex !important;
+    flex-direction:column !important;
+    position:fixed !important;        /* 画面全体を基準に固定 */
+    top:0 !important;
+    left:0 !important;
+    width:100vw !important;           /* 全幅 */
+    height:100vh !important;          /* 全高 */
+    background:#0c0c0c !important;       /* 不透明色を強制 */
+    background-color:#0c0c0c !important;
+    z-index:9999 !important;          /* 最前面 */
+    padding:80px 0 40px !important;   /* ヘッダー分の余白 */
+    margin:0 !important;
+    overflow-y:auto !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+    gap:0 !important;
+    transform:none !important;
+  }
+  nav ul.open li{
+    width:100% !important;
+    text-align:center !important;
+    padding:1.2rem 2rem !important;
+    margin:0 !important;
+    border-bottom:1px solid rgba(128,128,128,.2) !important;
+    font-size:1.1rem !important;
+    list-style:none !important;
+  }
+  nav ul.open a{
+    color:#f0f0f0 !important;
+    font-size:1.1rem !important;
+  }
+  .menu-btn{
+    position:relative !important;
+    z-index:10000 !important;         /* メニューより上にハンバーガーを出す */
+  }
 }
 </style>
 </head>
@@ -608,6 +658,33 @@ window.addEventListener('scroll', () => {
     heroPhoto.style.transform = `translateY(${y * 0.25}px) scale(${1 + y * 0.0002})`;
   }
 }, { passive: true });
+</script>
+
+<script>
+/* fix3: メニュー開閉と同期して body に .menu-open を付与し、
+   header の backdrop-filter / transform を解除する */
+(function(){
+  var btn = document.getElementById('menuBtn');
+  var list = document.getElementById('navList');
+  if(!btn || !list) return;
+  var sync = function(){
+    setTimeout(function(){
+      document.body.classList.toggle('menu-open', list.classList.contains('open'));
+    }, 0);
+  };
+  btn.addEventListener('click', sync);                 // ハンバーガー押下時
+  list.querySelectorAll('a').forEach(function(a){      // メニュー内リンク押下時
+    a.addEventListener('click', sync);
+  });
+  // メニュー外クリックで閉じる
+  document.addEventListener('click', function(e){
+    if(!btn.contains(e.target) && !list.contains(e.target) && list.classList.contains('open')){
+      list.classList.remove('open');
+      btn.classList.remove('open');
+      document.body.classList.remove('menu-open');
+    }
+  });
+})();
 </script>
 </body>
 </html>
