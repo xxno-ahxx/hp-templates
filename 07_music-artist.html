@@ -2,126 +2,513 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>NEON HAZE | ネオンヘイズ — Official Site</title>
-<meta name="description" content="東京発エレクトロ×シューゲイザーバンド NEON HAZE のオフィシャルサイト。">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>夜光クレヨン | YAKO CRAYON — OFFICIAL SITE</title>
+<meta name="description" content="オルタナティブロックバンド「夜光クレヨン」オフィシャルサイト。最新リリース・ライブ情報。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Black+Ops+One&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Rubik+Mono+One&family=Special+Elite&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#050508;--dark:#0b0b12;--neon:#00ffcc;--pink:#ff2d78;--purple:#8b00ff;
-  --text:#e8e8f0;--muted:#666680;--line:rgba(255,255,255,.08);
-  --font-jp:'Noto Sans JP',sans-serif;--font-en:'Rajdhani',sans-serif;--font-title:'Black Ops One',cursive;
+  --void:#08070c;
+  --panel:#111019;
+  --neon-green:#39ff88;
+  --neon-pink:#ff2d95;
+  --neon-cyan:#2de1ff;
+  --paper:#e9e6df;
+  --gray:#7d7a86;
+  --font-jp:'Noto Sans JP',sans-serif;
+  --font-mono:'Rubik Mono One',monospace;
+  --font-type:'Special Elite',cursive;
 }
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{background:var(--bg);color:var(--text);font-family:var(--font-jp);line-height:1.85;overflow-x:hidden;}
-/* ===== ノイズテクスチャ ===== */
-body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.6;}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+html{
+  scroll-behavior:smooth;
+}
+body{
+  background:var(--void);
+  color:var(--paper);
+  font-family:var(--font-jp);
+  line-height:1.8;
+  overflow-x:hidden;
+}
+/* ノイズテクスチャ */
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  opacity:.055;
+  background-image:repeating-conic-gradient(#fff 0% .0001%,transparent .0002% .0004%);
+  mix-blend-mode:overlay;
+}
 /* ===== ナビ ===== */
-header{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:16px 6vw;background:rgba(5,5,8,.8);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);}
-.logo{font-family:var(--font-title);font-size:1.4rem;letter-spacing:.1em;text-decoration:none;background:linear-gradient(90deg,var(--neon),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent;}
-nav ul{display:flex;gap:28px;list-style:none;align-items:center;}
-nav a{color:var(--muted);text-decoration:none;font-family:var(--font-en);font-size:1rem;letter-spacing:.2em;text-transform:uppercase;transition:color .2s;}
-nav a:hover{color:var(--neon);}
-.nav-tickets{padding:8px 22px;border:1px solid var(--neon);color:var(--neon) !important;font-weight:700;}
-.nav-tickets:hover{background:var(--neon);color:var(--bg) !important;}
-.menu-btn{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;min-width:44px;min-height:44px;align-items:center;justify-content:center;}
-.menu-btn span{width:24px;height:1px;background:var(--neon);transition:.3s;display:block;}
+header{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:100;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:18px 5vw;
+  background:linear-gradient(rgba(8,7,12,.94),rgba(8,7,12,.7) 75%,transparent);
+}
+.logo{
+  font-family:var(--font-type);
+  color:var(--neon-green);
+  font-size:1.15rem;
+  text-decoration:none;
+  letter-spacing:.1em;
+  text-shadow:0 0 12px rgba(57,255,136,.7);
+}
+nav ul{
+  display:flex;
+  gap:26px;
+  list-style:none;
+}
+nav a{
+  color:var(--paper);
+  text-decoration:none;
+  font-size:.82rem;
+  font-weight:700;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  transition:color .2s,text-shadow .2s;
+}
+nav a:hover{
+  color:var(--neon-pink);
+  text-shadow:0 0 14px rgba(255,45,149,.8);
+}
+.menu-btn{
+  display:none;
+  background:none;
+  border:none;
+  cursor:pointer;
+  flex-direction:column;
+  gap:6px;
+}
+.menu-btn span{
+  width:28px;
+  height:2px;
+  background:var(--neon-green);
+  box-shadow:0 0 8px rgba(57,255,136,.8);
+  transition:.3s;
+}
 /* ===== ヒーロー ===== */
-.hero{min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden;padding-top:72px;}
-.glitch-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 60% 40%,rgba(139,0,255,.35),transparent 65%),radial-gradient(ellipse 50% 60% at 30% 60%,rgba(0,255,204,.18),transparent 60%),radial-gradient(ellipse 60% 40% at 80% 80%,rgba(255,45,120,.22),transparent 60%),var(--bg);}
-.hero-content{position:relative;z-index:1;padding:0 8vw;width:100%;}
-.hero-sub{font-family:var(--font-en);font-size:.85rem;letter-spacing:.55em;color:var(--neon);text-transform:uppercase;margin-bottom:16px;}
-.hero h1{font-family:var(--font-title);font-size:clamp(4rem,12vw,11rem);line-height:.95;margin-bottom:24px;position:relative;}
-.hero h1 .main{display:block;color:var(--text);}
-.hero h1 .ghost{display:block;-webkit-text-stroke:1px var(--pink);color:transparent;filter:blur(.5px);}
-.hero-desc{max-width:36em;color:var(--muted);font-size:.96rem;margin-bottom:38px;}
-.hero-actions{display:flex;gap:16px;align-items:center;flex-wrap:wrap;}
-.btn{display:inline-block;padding:14px 38px;text-decoration:none;font-family:var(--font-en);font-size:1rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;transition:all .25s;}
-.btn.glow{background:linear-gradient(90deg,var(--neon),var(--purple));color:#000;box-shadow:0 0 30px rgba(0,255,204,.4);}
-.btn.glow:hover{box-shadow:0 0 50px rgba(0,255,204,.7);}
-.btn.wire{border:1px solid var(--muted);color:var(--text);}
-.btn.wire:hover{border-color:var(--pink);color:var(--pink);}
-.hero-scroll{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;font-family:var(--font-en);font-size:.72rem;letter-spacing:.4em;color:var(--muted);}
-.hero-scroll::after{content:'';display:block;width:1px;height:48px;background:linear-gradient(var(--neon),transparent);}
-/* ===== ディスコグラフィ ===== */
-.discography{padding:110px 6vw;max-width:1280px;margin:0 auto;}
-.sec-label{font-family:var(--font-en);color:var(--neon);letter-spacing:.5em;font-size:.78rem;text-transform:uppercase;margin-bottom:12px;}
-h2.sec-title{font-family:var(--font-title);font-size:clamp(2rem,6vw,5rem);margin-bottom:56px;line-height:1.1;}
-.album-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-.album-card{position:relative;border-radius:4px;overflow:hidden;aspect-ratio:1;cursor:pointer;}
-.album-card img{width:100%;height:100%;object-fit:cover;transition:transform .5s,filter .5s;}
-.album-card:hover img{transform:scale(1.05);filter:brightness(.55);}
-.album-info{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:24px;background:linear-gradient(0deg,rgba(5,5,8,.9) 30%,transparent);opacity:0;transition:opacity .3s;}
-.album-card:hover .album-info{opacity:1;}
-.album-info .year{font-family:var(--font-en);color:var(--neon);font-size:.78rem;letter-spacing:.3em;margin-bottom:6px;}
-.album-info h3{font-family:var(--font-title);font-size:1.4rem;margin-bottom:4px;}
-.album-info p{color:var(--muted);font-size:.82rem;}
+.hero{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  position:relative;
+  padding:120px 5vw 80px;
+  background:
+    radial-gradient(560px 380px at 20% 80%,rgba(255,45,149,.16),transparent 65%),
+    radial-gradient(600px 420px at 80% 20%,rgba(45,225,255,.13),transparent 65%),
+    var(--void);
+  overflow:hidden;
+}
+.hero .scan{
+  position:absolute;
+  inset:0;
+  background:repeating-linear-gradient(0deg,rgba(255,255,255,.028) 0 1px,transparent 1px 4px);
+  pointer-events:none;
+}
+.hero .tour-badge{
+  font-family:var(--font-type);
+  color:var(--neon-cyan);
+  border:1px dashed var(--neon-cyan);
+  padding:6px 22px;
+  font-size:.85rem;
+  letter-spacing:.2em;
+  transform:rotate(-2deg);
+}
+.hero h1{
+  font-family:var(--font-mono);
+  font-size:clamp(2.4rem,9.5vw,6.4rem);
+  line-height:1.06;
+  margin:34px 0 18px;
+  position:relative;
+  color:var(--paper);
+}
+.glitch{
+  position:relative;
+  display:inline-block;
+}
+.glitch::before,.glitch::after{
+  content:attr(data-text);
+  position:absolute;
+  inset:0;
+  overflow:hidden;
+}
+.glitch::before{
+  color:var(--neon-pink);
+  animation:glitch1 2.6s infinite steps(1);
+  clip-path:inset(20% 0 40% 0);
+}
+.glitch::after{
+  color:var(--neon-cyan);
+  animation:glitch2 3.1s infinite steps(1);
+  clip-path:inset(55% 0 15% 0);
+}
+@keyframes glitch1{
+  0%,92%,100%{transform:none;opacity:0;}
+  93%{transform:translate(-6px,2px);opacity:.9;}
+  95%{transform:translate(4px,-2px);opacity:.9;}
+  97%{transform:translate(-2px,1px);opacity:.7;}
+}
+@keyframes glitch2{
+  0%,88%,100%{transform:none;opacity:0;}
+  89%{transform:translate(5px,-3px);opacity:.9;}
+  92%{transform:translate(-5px,2px);opacity:.8;}
+  95%{transform:translate(3px,1px);opacity:.6;}
+}
+.hero .band-jp{
+  font-size:clamp(1rem,2.4vw,1.4rem);
+  font-weight:900;
+  letter-spacing:.5em;
+  color:var(--neon-green);
+  text-shadow:0 0 18px rgba(57,255,136,.6);
+}
+.hero p.copy{
+  color:var(--gray);
+  margin-top:22px;
+  font-size:.92rem;
+  max-width:34em;
+}
+.hero-btns{
+  margin-top:40px;
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+.btn{
+  display:inline-block;
+  padding:14px 40px;
+  text-decoration:none;
+  font-weight:900;
+  letter-spacing:.14em;
+  font-size:.88rem;
+  border:2px solid var(--neon-green);
+  color:var(--neon-green);
+  box-shadow:0 0 18px rgba(57,255,136,.25),inset 0 0 18px rgba(57,255,136,.08);
+  transition:.25s;
+  text-transform:uppercase;
+}
+.btn:hover{
+  background:var(--neon-green);
+  color:var(--void);
+  box-shadow:0 0 34px rgba(57,255,136,.7);
+}
+.btn.pink{
+  border-color:var(--neon-pink);
+  color:var(--neon-pink);
+  box-shadow:0 0 18px rgba(255,45,149,.25),inset 0 0 18px rgba(255,45,149,.08);
+}
+.btn.pink:hover{
+  background:var(--neon-pink);
+  color:var(--void);
+  box-shadow:0 0 34px rgba(255,45,149,.7);
+}
+/* ===== セクション共通 ===== */
+section{
+  padding:110px 5vw;
+  max-width:1120px;
+  margin:0 auto;
+  position:relative;
+  z-index:2;
+}
+.sec-head{
+  margin-bottom:54px;
+}
+.sec-head h2{
+  font-family:var(--font-mono);
+  font-size:clamp(1.6rem,4.4vw,2.6rem);
+  letter-spacing:.04em;
+}
+.sec-head h2 span{
+  color:var(--neon-pink);
+}
+.sec-head .jp{
+  font-family:var(--font-type);
+  color:var(--gray);
+  letter-spacing:.3em;
+  margin-top:6px;
+  font-size:.85rem;
+}
+.reveal{
+  opacity:0;
+  transform:translateY(38px);
+  transition:opacity .7s,transform .7s;
+}
+.reveal.show{
+  opacity:1;
+  transform:none;
+}
+/* ===== 最新リリース ===== */
+.release{
+  display:grid;
+  grid-template-columns:340px 1fr;
+  gap:48px;
+  align-items:center;
+}
+.jacket{
+  aspect-ratio:1/1;
+  background:
+    radial-gradient(circle at 30% 30%,rgba(45,225,255,.5),transparent 55%),
+    radial-gradient(circle at 75% 70%,rgba(255,45,149,.55),transparent 55%),
+    linear-gradient(140deg,#1d1a2b,#08070c);
+  border:1px solid #2b2838;
+  position:relative;
+  box-shadow:0 30px 60px rgba(0,0,0,.6),0 0 44px rgba(255,45,149,.15);
+  transform:rotate(-2deg);
+  transition:transform .4s;
+}
+.jacket:hover{
+  transform:rotate(0) scale(1.02);
+}
+.jacket::after{
+  content:'夜光クレヨン / 真夜中スペクトル';
+  position:absolute;
+  bottom:14px;
+  left:14px;
+  font-family:var(--font-type);
+  font-size:.75rem;
+  color:var(--paper);
+  letter-spacing:.12em;
+}
+.release-info .label{
+  color:var(--neon-cyan);
+  font-family:var(--font-type);
+  letter-spacing:.24em;
+  font-size:.8rem;
+}
+.release-info h3{
+  font-size:clamp(1.5rem,3.6vw,2.2rem);
+  font-weight:900;
+  margin:10px 0 14px;
+}
+.release-info p{
+  color:var(--gray);
+  font-size:.9rem;
+  max-width:36em;
+}
+.tracklist{
+  list-style:none;
+  margin:24px 0 30px;
+  border-top:1px solid #2b2838;
+}
+.tracklist li{
+  display:flex;
+  gap:18px;
+  padding:11px 6px;
+  border-bottom:1px solid #2b2838;
+  font-size:.9rem;
+  transition:background .25s,padding-left .25s;
+  cursor:pointer;
+}
+.tracklist li:hover{
+  background:rgba(57,255,136,.06);
+  padding-left:16px;
+}
+.tracklist .no{
+  font-family:var(--font-mono);
+  color:var(--neon-green);
+  font-size:.8rem;
+  min-width:2em;
+}
+.tracklist .time{
+  margin-left:auto;
+  color:var(--gray);
+  font-size:.8rem;
+}
 /* ===== ライブ ===== */
-.live{padding:0 6vw 110px;max-width:1280px;margin:0 auto;}
-.live-list{display:flex;flex-direction:column;gap:1px;background:var(--line);}
-.live-item{background:var(--bg);display:flex;align-items:center;gap:24px;padding:24px 28px;transition:background .25s;}
-.live-item:hover{background:var(--dark);}
-.live-date{font-family:var(--font-title);font-size:1.8rem;color:var(--neon);min-width:90px;}
-.live-body{flex:1;}
-.live-body h3{font-size:1rem;font-weight:700;margin-bottom:2px;}
-.live-body p{color:var(--muted);font-size:.84rem;}
-.live-tag{padding:4px 12px;border:1px solid rgba(0,255,204,.4);color:var(--neon);font-family:var(--font-en);font-size:.72rem;letter-spacing:.2em;border-radius:2px;}
-.live-tag.sold{border-color:rgba(255,45,120,.4);color:var(--pink);}
-.live-btn{padding:9px 22px;background:transparent;border:1px solid var(--line);color:var(--text);font-family:var(--font-en);font-size:.82rem;letter-spacing:.15em;cursor:pointer;transition:border-color .2s;text-decoration:none;}
-.live-btn:hover{border-color:var(--neon);}
-/* ===== ビデオ ===== */
-.video-sec{background:var(--dark);padding:110px 6vw;text-align:center;}
-.video-inner{max-width:900px;margin:0 auto;}
-.video-wrap{position:relative;margin-top:56px;aspect-ratio:16/9;background:#000;border-radius:8px;overflow:hidden;border:1px solid var(--line);}
-.video-wrap img{width:100%;height:100%;object-fit:cover;opacity:.6;}
-.play-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:72px;height:72px;border-radius:50%;background:rgba(0,255,204,.15);border:2px solid var(--neon);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .3s;font-size:1.6rem;color:var(--neon);}
-.play-btn:hover{background:rgba(0,255,204,.3);}
-/* ===== ファンクラブ ===== */
-.fanclub{padding:110px 6vw;max-width:720px;margin:0 auto;text-align:center;}
-.fanclub .neon-box{border:1px solid var(--neon);border-radius:4px;padding:52px 48px;position:relative;}
-.fanclub .neon-box::before{content:'';position:absolute;inset:-1px;border-radius:4px;box-shadow:0 0 40px rgba(0,255,204,.3),inset 0 0 40px rgba(0,255,204,.05);}
-.fanclub h2{font-family:var(--font-title);font-size:clamp(1.8rem,5vw,3rem);margin-bottom:16px;}
-.fanclub p{color:var(--muted);margin-bottom:32px;}
-.fanclub input[type=email]{width:100%;background:transparent;border:1px solid var(--line);color:var(--text);font-family:var(--font-jp);font-size:max(16px,1em);padding:13px 16px;outline:none;margin-bottom:14px;transition:border-color .3s;}
-.fanclub input:focus{border-color:var(--neon);}
+.live-table{
+  border:1px solid #2b2838;
+}
+.live-row{
+  display:grid;
+  grid-template-columns:130px 1fr auto;
+  gap:20px;
+  padding:26px 26px;
+  border-bottom:1px solid #2b2838;
+  align-items:center;
+  transition:background .3s;
+}
+.live-row:last-child{border-bottom:none;}
+.live-row:hover{
+  background:rgba(255,45,149,.05);
+}
+.live-date{
+  font-family:var(--font-mono);
+  color:var(--neon-cyan);
+  font-size:1rem;
+  line-height:1.3;
+}
+.live-date small{
+  display:block;
+  font-family:var(--font-type);
+  color:var(--gray);
+  font-size:.72rem;
+}
+.live-info h3{
+  font-size:1.02rem;
+  font-weight:900;
+}
+.live-info p{
+  color:var(--gray);
+  font-size:.82rem;
+}
+.live-status{
+  font-family:var(--font-type);
+  font-size:.78rem;
+  padding:6px 16px;
+  border:1px solid var(--neon-green);
+  color:var(--neon-green);
+  white-space:nowrap;
+}
+.live-status.soldout{
+  border-color:var(--gray);
+  color:var(--gray);
+  text-decoration:line-through;
+}
+/* ===== ギャラリー ===== */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+}
+.shot{
+  aspect-ratio:1/1;
+  position:relative;
+  overflow:hidden;
+  border:1px solid #2b2838;
+  filter:saturate(1.15) contrast(1.1);
+  transition:transform .3s,box-shadow .3s;
+}
+.shot:hover{
+  transform:scale(1.03) rotate(-1deg);
+  box-shadow:0 0 28px rgba(45,225,255,.3);
+  z-index:2;
+}
+.s1{background:radial-gradient(circle at 40% 40%,rgba(255,45,149,.7),#141018 70%);}
+.s2{background:radial-gradient(circle at 60% 30%,rgba(45,225,255,.6),#0d1216 70%);}
+.s3{background:radial-gradient(circle at 30% 70%,rgba(57,255,136,.55),#0e130f 70%);}
+.s4{background:radial-gradient(circle at 70% 60%,rgba(255,196,45,.55),#16120a 70%);}
+.s5{background:radial-gradient(circle at 50% 50%,rgba(160,45,255,.6),#120a18 70%);}
+.s6{background:radial-gradient(circle at 25% 30%,rgba(45,225,255,.45),#0a0e14 70%);}
+.s7{background:radial-gradient(circle at 70% 30%,rgba(255,45,149,.5),#150d12 70%);}
+.s8{background:radial-gradient(circle at 40% 70%,rgba(57,255,136,.45),#0c110d 70%);}
+.shot span{
+  position:absolute;
+  left:10px;
+  bottom:8px;
+  font-family:var(--font-type);
+  font-size:.68rem;
+  color:rgba(233,230,223,.85);
+  letter-spacing:.1em;
+}
+/* ===== CTA ===== */
+.cta{
+  text-align:center;
+  border:2px solid var(--neon-pink);
+  box-shadow:0 0 40px rgba(255,45,149,.2),inset 0 0 60px rgba(255,45,149,.05);
+  padding:80px 8vw;
+  margin-bottom:80px;
+}
+.cta h2{
+  font-family:var(--font-mono);
+  font-size:clamp(1.6rem,5vw,3rem);
+  color:var(--neon-pink);
+  text-shadow:0 0 22px rgba(255,45,149,.6);
+}
+.cta p{
+  color:var(--gray);
+  margin:18px auto 36px;
+  max-width:32em;
+  font-size:.9rem;
+}
 /* ===== フッター ===== */
-footer{border-top:1px solid var(--line);padding:44px 6vw;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between;}
-.ft-social{display:flex;gap:16px;}
-.ft-social a{color:var(--muted);text-decoration:none;font-family:var(--font-en);font-size:.82rem;letter-spacing:.2em;transition:color .2s;}
-.ft-social a:hover{color:var(--neon);}
-footer p{color:var(--muted);font-size:.78rem;}
-/* ===== reveal ===== */
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s,transform .8s;}
-.reveal.show{opacity:1;transform:none;}
+footer{
+  border-top:1px solid #2b2838;
+  padding:44px 5vw;
+  text-align:center;
+  color:var(--gray);
+  font-size:.8rem;
+  position:relative;
+  z-index:2;
+}
+.sns{
+  display:flex;
+  gap:26px;
+  justify-content:center;
+  margin-bottom:18px;
+  list-style:none;
+}
+.sns a{
+  color:var(--paper);
+  text-decoration:none;
+  font-family:var(--font-type);
+  letter-spacing:.14em;
+  font-size:.85rem;
+}
+.sns a:hover{
+  color:var(--neon-green);
+}
 /* ===== レスポンシブ ===== */
-@media(max-width:768px){
-  .album-grid{grid-template-columns:1fr 1fr;}.live-item{flex-wrap:wrap;gap:12px;}
-  nav ul{position:fixed;inset:0;background:rgba(5,5,8,.97);flex-direction:column;align-items:center;justify-content:center;gap:28px;transform:translateY(-100%);transition:transform .4s;z-index:999;font-size:1.1rem;}
-  nav ul.open{transform:none;}
-  .menu-btn{display:flex;z-index:1010;}
-  .menu-btn.open span:nth-child(1){transform:translateY(6px) rotate(45deg);}
+@media(max-width:880px){
+  .release{grid-template-columns:1fr;}
+  .jacket{max-width:320px;margin:0 auto;}
+  .gallery{grid-template-columns:repeat(2,1fr);}
+  .live-row{grid-template-columns:1fr;gap:8px;}
+  /* モバイルメニュー：デフォルトで完全非表示（表示バグ修正） */
+  nav ul{
+    display:none !important;
+    visibility:hidden;
+    opacity:0;
+    position:fixed;
+    inset:0;
+    background:#08070c;
+    z-index:999;
+  }
+  /* openクラスがついたときだけ表示 */
+  nav ul.open{
+    display:flex !important;
+    visibility:visible;
+    opacity:1;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:36px;
+    font-size:1.1rem;
+  }
+  .menu-btn{display:flex;position:relative;z-index:1000;}
+  .menu-btn.open span:nth-child(1){transform:translateY(8px) rotate(45deg);}
   .menu-btn.open span:nth-child(2){opacity:0;}
-  .menu-btn.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg);}
+  .menu-btn.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg);}
 }
-@media(max-width:480px){.album-grid{grid-template-columns:1fr;}}
-/* === iOS セーフエリア対応 === */
-@supports (padding-top: env(safe-area-inset-top)) {
-  header { padding-top: max(16px, env(safe-area-inset-top)); }
-}
-input, select, textarea { font-size: max(16px, 1em); }
 </style>
 </head>
 <body>
+
 <header>
-  <a class="logo" href="#top">NEON HAZE</a>
+  <a class="logo" href="#top">YAKO CRAYON</a>
   <nav>
     <ul id="navList">
-      <li><a href="#discography">Music</a></li>
+      <li><a href="#release">Release</a></li>
       <li><a href="#live">Live</a></li>
-      <li><a href="#video">Video</a></li>
-      <li><a href="#fanclub" class="nav-tickets">Fan Club</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#fanclub">Fan Club</a></li>
     </ul>
   </nav>
   <button class="menu-btn" id="menuBtn" aria-label="メニュー">
@@ -130,108 +517,134 @@ input, select, textarea { font-size: max(16px, 1em); }
 </header>
 
 <main id="top">
-  <section class="hero">
-    <div class="glitch-bg"></div>
-    <div class="hero-content">
-      <p class="hero-sub">Tokyo Electro × Shoegaze</p>
-      <h1>
-        <span class="main">NEON</span>
-        <span class="ghost">HAZE</span>
-      </h1>
-      <p class="hero-desc">夢と現実の狭間に浮かぶサウンドスケープ。ノイズとビートが交錯するネオン色の世界へ、ようこそ。</p>
-      <div class="hero-actions">
-        <a class="btn glow" href="#discography">Listen Now</a>
-        <a class="btn wire" href="#live">Live Dates</a>
-      </div>
-    </div>
-    <div class="hero-scroll">Scroll</div>
-  </section>
-
-  <section class="discography" id="discography">
-    <p class="sec-label reveal">Discography</p>
-    <h2 class="sec-title reveal">Our<br>Music</h2>
-    <div class="album-grid">
-      <div class="album-card reveal">
-        <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&auto=format" alt="Neon Hymns">
-        <div class="album-info"><p class="year">2024</p><h3>Neon Hymns</h3><p>3rd Album · 10 tracks</p></div>
-      </div>
-      <div class="album-card reveal">
-        <img src="https://images.unsplash.com/photo-1501612780327-45045538702b?w=600&auto=format" alt="Violet Frequencies">
-        <div class="album-info"><p class="year">2022</p><h3>Violet Frequencies</h3><p>2nd Album · 9 tracks</p></div>
-      </div>
-      <div class="album-card reveal">
-        <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&auto=format" alt="Haze EP">
-        <div class="album-info"><p class="year">2020</p><h3>Haze EP</h3><p>1st EP · 5 tracks</p></div>
-      </div>
+  <!-- ヒーロー -->
+  <section class="hero" style="max-width:none;">
+    <div class="scan"></div>
+    <span class="tour-badge">NATIONAL TOUR 2025 "SPECTRUM" 開催決定</span>
+    <h1><span class="glitch" data-text="YAKO">YAKO</span><br><span class="glitch" data-text="CRAYON">CRAYON</span></h1>
+    <p class="band-jp">夜光クレヨン</p>
+    <p class="copy">真夜中にしか描けない色がある。オルタナティブロックバンド「夜光クレヨン」、3rdアルバム『真夜中スペクトル』全国発売中。</p>
+    <div class="hero-btns">
+      <a class="btn" href="#release">最新アルバムを聴く</a>
+      <a class="btn pink" href="#live">ツアーチケット</a>
     </div>
   </section>
 
-  <section class="live" id="live">
-    <p class="sec-label reveal">Live</p>
-    <h2 class="sec-title reveal">Tour Dates</h2>
-    <div class="live-list reveal">
-      <div class="live-item">
-        <div class="live-date">7.26</div>
-        <div class="live-body"><h3>NEON HAZE TOUR 2025 — 東京公演</h3><p>恵比寿 LIQUIDROOM / OPEN 18:00 · START 19:00</p></div>
-        <span class="live-tag">残席あり</span>
-        <a class="live-btn" href="#">チケット購入</a>
-      </div>
-      <div class="live-item">
-        <div class="live-date">8.03</div>
-        <div class="live-body"><h3>NEON HAZE TOUR 2025 — 大阪公演</h3><p>心斎橋 BIGCAT / OPEN 17:30 · START 18:30</p></div>
-        <span class="live-tag sold">SOLD OUT</span>
-        <a class="live-btn" href="#" style="opacity:.4;pointer-events:none;">チケット購入</a>
-      </div>
-      <div class="live-item">
-        <div class="live-date">8.17</div>
-        <div class="live-body"><h3>NEON HAZE TOUR 2025 — 名古屋公演</h3><p>名古屋 CLUB QUATTRO / OPEN 18:00 · START 19:00</p></div>
-        <span class="live-tag">残席わずか</span>
-        <a class="live-btn" href="#">チケット購入</a>
-      </div>
-      <div class="live-item">
-        <div class="live-date">9.06</div>
-        <div class="live-body"><h3>NEON HAZE TOUR 2025 — 福岡公演</h3><p>福岡 DRUM LOGOS / OPEN 18:00 · START 19:00</p></div>
-        <span class="live-tag">残席あり</span>
-        <a class="live-btn" href="#">チケット購入</a>
+  <!-- リリース -->
+  <section id="release">
+    <div class="sec-head reveal">
+      <h2>NEW <span>RELEASE</span></h2>
+      <p class="jp">— 最新リリース —</p>
+    </div>
+    <div class="release">
+      <div class="jacket reveal"></div>
+      <div class="release-info reveal">
+        <p class="label">3RD FULL ALBUM / 2025.06.18 OUT</p>
+        <h3>『真夜中スペクトル』</h3>
+        <p>眠れない夜のための11曲。轟音と静寂、蛍光色のメロディが交差する、バンド史上最も振り切れた一枚。初回限定盤にはツアードキュメント映像を収録。</p>
+        <ul class="tracklist">
+          <li><span class="no">01</span>スペクトル<span class="time">3:42</span></li>
+          <li><span class="no">02</span>ネオンサインの下で<span class="time">4:15</span></li>
+          <li><span class="no">03</span>透明少年<span class="time">3:28</span></li>
+          <li><span class="no">04</span>午前三時のクレヨン<span class="time">5:02</span></li>
+          <li><span class="no">05</span>ハウリング・ムーン<span class="time">3:56</span></li>
+          <li><span class="no">06</span>ラストシーンは要らない<span class="time">4:44</span></li>
+        </ul>
+        <a class="btn" href="#">各配信サイトで聴く</a>
       </div>
     </div>
   </section>
 
-  <section class="video-sec" id="video">
-    <div class="video-inner">
-      <p class="sec-label reveal">Video</p>
-      <h2 class="sec-title reveal">Latest<br>MV</h2>
-      <div class="video-wrap reveal">
-        <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=900&auto=format" alt="MV Thumbnail">
-        <button class="play-btn" aria-label="再生">▶</button>
+  <!-- ライブ -->
+  <section id="live">
+    <div class="sec-head reveal">
+      <h2>LIVE <span>SCHEDULE</span></h2>
+      <p class="jp">— ツアー日程 —</p>
+    </div>
+    <div class="live-table reveal">
+      <div class="live-row">
+        <div class="live-date">08.02<small>SAT 2025</small></div>
+        <div class="live-info">
+          <h3>SPECTRUM TOUR — 東京公演</h3>
+          <p>Zepp Shinjuku / OPEN 17:00 · START 18:00</p>
+        </div>
+        <span class="live-status soldout">SOLD OUT</span>
       </div>
-      <p style="margin-top:20px;color:var(--muted);font-size:.88rem;">"Neon Hymns" — Official Music Video (2024)</p>
+      <div class="live-row">
+        <div class="live-date">08.16<small>SAT 2025</small></div>
+        <div class="live-info">
+          <h3>SPECTRUM TOUR — 大阪公演</h3>
+          <p>なんばHatch / OPEN 16:30 · START 17:30</p>
+        </div>
+        <span class="live-status">TICKET</span>
+      </div>
+      <div class="live-row">
+        <div class="live-date">08.23<small>SAT 2025</small></div>
+        <div class="live-info">
+          <h3>SPECTRUM TOUR — 名古屋公演</h3>
+          <p>DIAMOND HALL / OPEN 17:00 · START 18:00</p>
+        </div>
+        <span class="live-status">TICKET</span>
+      </div>
+      <div class="live-row">
+        <div class="live-date">09.06<small>SAT 2025</small></div>
+        <div class="live-info">
+          <h3>SPECTRUM TOUR — 福岡公演</h3>
+          <p>DRUM LOGOS / OPEN 17:00 · START 18:00</p>
+        </div>
+        <span class="live-status">TICKET</span>
+      </div>
+      <div class="live-row">
+        <div class="live-date">09.20<small>SAT 2025</small></div>
+        <div class="live-info">
+          <h3>SPECTRUM TOUR FINAL — 日本武道館</h3>
+          <p>日本武道館 / OPEN 16:00 · START 17:00</p>
+        </div>
+        <span class="live-status">先行抽選中</span>
+      </div>
     </div>
   </section>
 
-  <section class="fanclub reveal" id="fanclub">
-    <div class="neon-box">
-      <p class="sec-label">Fan Club</p>
-      <h2>Join the Haze</h2>
-      <p>ニュースレターに登録すると、ライブ先行抽選・新曲先行試聴・限定コンテンツが届きます。</p>
-      <input type="email" placeholder="your@email.com">
-      <button class="btn glow" style="border:none;cursor:pointer;width:100%;">Register Now</button>
+  <!-- ギャラリー -->
+  <section id="gallery">
+    <div class="sec-head reveal">
+      <h2>GALLERY</h2>
+      <p class="jp">— ライブフォト —</p>
+    </div>
+    <div class="gallery reveal">
+      <div class="shot s1"><span>TOKYO 2025</span></div>
+      <div class="shot s2"><span>OSAKA 2025</span></div>
+      <div class="shot s3"><span>NAGOYA 2024</span></div>
+      <div class="shot s4"><span>FES 2024</span></div>
+      <div class="shot s5"><span>SENDAI 2024</span></div>
+      <div class="shot s6"><span>SAPPORO 2024</span></div>
+      <div class="shot s7"><span>FUKUOKA 2023</span></div>
+      <div class="shot s8"><span>STUDIO 2023</span></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section>
+    <div class="cta reveal" id="fanclub">
+      <h2>JOIN "CRAYON BOX"</h2>
+      <p>オフィシャルファンクラブ「クレヨンボックス」会員募集中。チケット最速先行、会員限定音源、メンバーのラジオが毎週届く。</p>
+      <a class="btn pink" href="#">ファンクラブに入会する</a>
     </div>
   </section>
 </main>
 
 <footer>
-  <a class="logo" href="#top">NEON HAZE</a>
-  <div class="ft-social">
-    <a href="#">Instagram</a>
-    <a href="#">X (Twitter)</a>
-    <a href="#">YouTube</a>
-    <a href="#">Spotify</a>
-  </div>
-  <p>© 2025 NEON HAZE. All rights reserved.</p>
+  <ul class="sns">
+    <li><a href="#">X (Twitter)</a></li>
+    <li><a href="#">Instagram</a></li>
+    <li><a href="#">YouTube</a></li>
+    <li><a href="#">TikTok</a></li>
+  </ul>
+  <p>© 2025 YAKO CRAYON / MIDNIGHT RECORDS</p>
 </footer>
 
 <script>
+// モバイルメニュー
 const menuBtn = document.getElementById('menuBtn');
 const navList = document.getElementById('navList');
 menuBtn.addEventListener('click', () => {
@@ -242,15 +655,16 @@ navList.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
   menuBtn.classList.remove('open');
   navList.classList.remove('open');
 }));
-document.addEventListener('click', (e) => {
-  if (!menuBtn.contains(e.target) && !navList.contains(e.target)) {
-    menuBtn.classList.remove('open');
-    navList.classList.remove('open');
-  }
-});
-const io = new IntersectionObserver(es => {
-  es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } });
-}, { threshold: .1 });
+
+// スクロールリビール
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('show');
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
 </body>

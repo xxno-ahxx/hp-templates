@@ -2,132 +2,474 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Haruki Sato Photography</title>
-<meta name="description" content="東京を拠点にするフォトグラファー 佐藤 春樹のポートフォリオ。人物・風景・商業撮影を手がけます。">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>REN AOKI PHOTOGRAPHY | 蒼木 蓮 — 写真家ポートフォリオ</title>
+<meta name="description" content="東京を拠点に活動する写真家・蒼木蓮のポートフォリオサイト。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#0a0a0a;--white:#f0f0eb;--muted:#888;--line:rgba(255,255,255,.1);
-  --font-jp:'Noto Serif JP',serif;--font-en:'Cormorant Garamond',serif;
+  --black:#0c0c0c;
+  --ink:#1a1a1a;
+  --gray:#7a7a7a;
+  --light:#f4f2ee;
+  --white:#fdfdfc;
+  --accent:#b0a48e;
+  --serif-jp:'Shippori Mincho',serif;
+  --serif-en:'Cormorant Garamond',serif;
 }
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{background:var(--bg);color:var(--white);font-family:var(--font-jp);line-height:1.9;overflow-x:hidden;}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+html{
+  scroll-behavior:smooth;
+}
+body{
+  background:var(--white);
+  color:var(--ink);
+  font-family:var(--serif-jp);
+  line-height:2.1;
+  letter-spacing:.06em;
+  overflow-x:hidden;
+}
+::selection{
+  background:var(--black);
+  color:var(--white);
+}
 /* ===== ナビ ===== */
-header{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:22px 6vw;mix-blend-mode:difference;}
-.logo{font-family:var(--font-en);font-size:1.3rem;font-weight:600;letter-spacing:.15em;color:var(--white);text-decoration:none;}
-nav ul{display:flex;gap:32px;list-style:none;}
-nav a{color:var(--white);text-decoration:none;font-family:var(--font-en);font-size:.95rem;letter-spacing:.12em;transition:opacity .25s;}
-nav a:hover{opacity:.55;}
-.menu-btn{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:6px;min-width:44px;min-height:44px;align-items:center;justify-content:center;}
-.menu-btn span{width:26px;height:1px;background:var(--white);transition:.3s;display:block;}
-/* ===== ヒーロー ===== */
-.hero{height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden;}
-.hero-img{background:url('https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=900&auto=format') center/cover;position:relative;}
-.hero-img::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,.35);}
-.hero-text{display:flex;flex-direction:column;justify-content:center;padding:10vw 7vw;background:var(--bg);position:relative;z-index:1;}
-.hero-text .eyebrow{font-family:var(--font-en);letter-spacing:.35em;font-size:.8rem;color:var(--muted);text-transform:uppercase;margin-bottom:28px;}
-.hero-text h1{font-family:var(--font-en);font-size:clamp(2.8rem,5vw,5rem);font-style:italic;font-weight:400;line-height:1.25;margin-bottom:28px;}
-.hero-text p{color:var(--muted);font-size:.95rem;max-width:28em;margin-bottom:40px;}
-.btn-line{display:inline-flex;align-items:center;gap:14px;color:var(--white);text-decoration:none;font-family:var(--font-en);letter-spacing:.25em;font-size:.85rem;text-transform:uppercase;}
-.btn-line::after{content:'';display:block;width:48px;height:1px;background:currentColor;transition:width .35s;}
-.btn-line:hover::after{width:80px;}
-.scroll-hint{position:absolute;bottom:38px;left:50%;transform:translateX(-50%);font-family:var(--font-en);font-size:.7rem;letter-spacing:.4em;color:var(--muted);text-transform:uppercase;display:flex;align-items:center;gap:10px;}
-.scroll-hint::before{content:'';display:block;width:1px;height:40px;background:var(--muted);margin-right:4px;}
-/* ===== セクション ===== */
-.works{padding:120px 6vw;max-width:1400px;margin:0 auto;}
-.sec-hd{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:56px;}
-.sec-hd h2{font-family:var(--font-en);font-size:clamp(1.8rem,4vw,3.2rem);font-style:italic;}
-.sec-hd a{font-family:var(--font-en);color:var(--muted);text-decoration:none;font-size:.85rem;letter-spacing:.2em;transition:color .25s;}
-.sec-hd a:hover{color:var(--white);}
-.gallery{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:90px;gap:10px;}
-.gitem{border-radius:2px;overflow:hidden;position:relative;}
-.gitem img{width:100%;height:100%;object-fit:cover;transition:transform .6s;display:block;}
-.gitem:hover img{transform:scale(1.06);}
-.gitem .hover-info{position:absolute;inset:0;background:rgba(0,0,0,.5);opacity:0;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .3s;}
-.gitem:hover .hover-info{opacity:1;}
-.gitem .hover-info span{font-family:var(--font-en);font-size:.8rem;letter-spacing:.2em;color:var(--white);}
-.g1{grid-column:span 5;grid-row:span 5;}
-.g2{grid-column:span 4;grid-row:span 3;}
-.g3{grid-column:span 3;grid-row:span 3;}
-.g4{grid-column:span 4;grid-row:span 4;}
-.g5{grid-column:span 3;grid-row:span 4;}
-.g6{grid-column:span 5;grid-row:span 3;}
-/* ===== About ===== */
-.about{display:grid;grid-template-columns:1fr 1fr;gap:0;max-width:1400px;margin:0 auto;align-items:center;}
-.about-img{height:75vh;background:url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&auto=format') center/cover;}
-.about-text{padding:80px 8vw;background:#111;}
-.about-text .eyebrow{font-family:var(--font-en);letter-spacing:.3em;font-size:.75rem;color:var(--muted);text-transform:uppercase;margin-bottom:22px;}
-.about-text h2{font-family:var(--font-en);font-size:clamp(2rem,3.5vw,3rem);font-style:italic;margin-bottom:24px;line-height:1.35;}
-.about-text p{color:var(--muted);font-size:.95rem;margin-bottom:18px;}
-.about-text .signature{font-family:var(--font-en);font-size:1.8rem;font-style:italic;margin-top:32px;}
-/* ===== 料金 ===== */
-.pricing{padding:120px 6vw;max-width:1200px;margin:0 auto;text-align:center;}
-.pricing h2{font-family:var(--font-en);font-size:clamp(1.8rem,4vw,3rem);font-style:italic;margin-bottom:60px;}
-.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
-.price-item{background:var(--bg);padding:52px 32px;text-align:left;}
-.price-item .pl{font-family:var(--font-en);color:var(--muted);letter-spacing:.3em;font-size:.75rem;text-transform:uppercase;margin-bottom:16px;}
-.price-item h3{font-family:var(--font-en);font-size:1.4rem;margin-bottom:20px;}
-.price-item .amount{font-family:var(--font-en);font-size:2.6rem;font-weight:600;letter-spacing:-.02em;margin-bottom:6px;}
-.price-item .amount span{font-size:1rem;color:var(--muted);}
-.price-item ul{list-style:none;margin-top:28px;display:flex;flex-direction:column;gap:10px;}
-.price-item li{color:var(--muted);font-size:.88rem;padding-left:16px;position:relative;}
-.price-item li::before{content:'—';position:absolute;left:0;color:var(--line);}
-/* ===== 問い合わせ ===== */
-.contact{padding:120px 6vw;max-width:700px;margin:0 auto;text-align:center;}
-.contact h2{font-family:var(--font-en);font-size:clamp(2rem,4vw,3.4rem);font-style:italic;margin-bottom:20px;}
-.contact p{color:var(--muted);margin-bottom:40px;}
-.form-row{display:flex;flex-direction:column;gap:16px;text-align:left;}
-.form-row label{font-family:var(--font-en);font-size:.78rem;letter-spacing:.25em;color:var(--muted);display:block;margin-bottom:6px;}
-.form-row input,.form-row textarea,.form-row select{width:100%;background:transparent;border:none;border-bottom:1px solid var(--line);color:var(--white);font-family:var(--font-jp);font-size:max(16px,1em);padding:12px 0;outline:none;transition:border-color .3s;}
-.form-row input:focus,.form-row textarea:focus{border-bottom-color:var(--white);}
-.form-row textarea{resize:vertical;height:120px;}
-.btn-submit{margin-top:28px;background:none;border:1px solid var(--line);color:var(--white);font-family:var(--font-en);font-size:.85rem;letter-spacing:.3em;padding:16px 48px;cursor:pointer;transition:border-color .3s,color .3s;}
-.btn-submit:hover{border-color:var(--white);}
+header{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:100;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:26px 5vw;
+  mix-blend-mode:difference;
+  color:#fff;
+}
+.logo{
+  font-family:var(--serif-en);
+  font-size:1.05rem;
+  letter-spacing:.42em;
+  text-decoration:none;
+  color:#fff;
+  text-transform:uppercase;
+}
+nav ul{
+  display:flex;
+  gap:36px;
+  list-style:none;
+}
+nav a{
+  color:#fff;
+  text-decoration:none;
+  font-size:.8rem;
+  letter-spacing:.3em;
+  text-transform:uppercase;
+  font-family:var(--serif-en);
+  opacity:.75;
+  transition:opacity .3s;
+}
+nav a:hover{
+  opacity:1;
+}
+.menu-btn{
+  display:none;
+  background:none;
+  border:none;
+  cursor:pointer;
+  flex-direction:column;
+  gap:7px;
+}
+.menu-btn span{
+  width:30px;
+  height:1px;
+  background:#fff;
+  transition:.35s;
+}
+/* ===== ヒーロー（全画面） ===== */
+.hero{
+  height:100vh;
+  position:relative;
+  display:flex;
+  align-items:flex-end;
+  overflow:hidden;
+}
+.hero-photo{
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(1200px 700px at 70% 30%,rgba(255,255,255,.14),transparent 60%),
+    linear-gradient(160deg,#3c3c3c 0%,#141414 45%,#050505 100%);
+}
+.hero-photo::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1px);
+  background-size:5px 5px;
+  opacity:.5;
+}
+.hero-inner{
+  position:relative;
+  z-index:1;
+  padding:0 5vw 12vh;
+  color:var(--white);
+}
+.hero-en{
+  font-family:var(--serif-en);
+  font-size:clamp(3rem,10vw,8rem);
+  font-weight:400;
+  letter-spacing:.08em;
+  line-height:1.05;
+  opacity:0;
+  animation:fadeUp 1.6s .3s ease forwards;
+}
+.hero-en em{
+  font-style:italic;
+  color:var(--accent);
+}
+.hero-jp{
+  margin-top:24px;
+  font-size:clamp(.85rem,1.6vw,1rem);
+  letter-spacing:.4em;
+  color:rgba(255,255,255,.75);
+  opacity:0;
+  animation:fadeUp 1.6s .8s ease forwards;
+}
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(30px);}
+  to{opacity:1;transform:none;}
+}
+.scroll-hint{
+  position:absolute;
+  right:5vw;
+  bottom:6vh;
+  writing-mode:vertical-rl;
+  font-family:var(--serif-en);
+  letter-spacing:.4em;
+  font-size:.75rem;
+  color:rgba(255,255,255,.6);
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+.scroll-hint::after{
+  content:'';
+  width:1px;
+  height:70px;
+  background:rgba(255,255,255,.5);
+  animation:lineDrop 2s ease infinite;
+}
+@keyframes lineDrop{
+  0%{transform:scaleY(0);transform-origin:top;}
+  50%{transform:scaleY(1);transform-origin:top;}
+  51%{transform-origin:bottom;}
+  100%{transform:scaleY(0);transform-origin:bottom;}
+}
+/* ===== セクション共通 ===== */
+section{
+  padding:140px 5vw;
+  max-width:1240px;
+  margin:0 auto;
+}
+.sec-index{
+  font-family:var(--serif-en);
+  font-style:italic;
+  color:var(--accent);
+  font-size:1rem;
+  letter-spacing:.2em;
+}
+h2.sec-title{
+  font-size:clamp(1.5rem,3.4vw,2.2rem);
+  font-weight:500;
+  letter-spacing:.24em;
+  margin:.5em 0 2em;
+}
+.reveal{
+  opacity:0;
+  transform:translateY(44px);
+  transition:opacity 1.1s ease,transform 1.1s ease;
+}
+.reveal.show{
+  opacity:1;
+  transform:none;
+}
+/* ===== Statement ===== */
+.statement{
+  text-align:center;
+  max-width:760px;
+}
+.statement p{
+  font-size:clamp(1rem,2vw,1.25rem);
+  line-height:2.6;
+}
+.statement .en{
+  font-family:var(--serif-en);
+  font-style:italic;
+  color:var(--gray);
+  margin-top:36px;
+  font-size:1rem;
+  letter-spacing:.14em;
+}
+/* ===== Works（マソンリー） ===== */
+.works-bg{
+  background:var(--light);
+}
+.works-grid{
+  columns:3;
+  column-gap:20px;
+}
+.work{
+  break-inside:avoid;
+  margin-bottom:20px;
+  position:relative;
+  overflow:hidden;
+  cursor:pointer;
+}
+.work .ph{
+  width:100%;
+  display:block;
+  filter:grayscale(1) contrast(1.05);
+  transition:filter .8s ease,transform 1.2s ease;
+}
+.work:hover .ph{
+  filter:grayscale(.1) contrast(1);
+  transform:scale(1.04);
+}
+.work .cap{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  padding:18px 20px 14px;
+  background:linear-gradient(transparent,rgba(0,0,0,.65));
+  color:#fff;
+  font-size:.8rem;
+  letter-spacing:.24em;
+  opacity:0;
+  transform:translateY(10px);
+  transition:.5s;
+}
+.work:hover .cap{
+  opacity:1;
+  transform:none;
+}
+.ph{
+  aspect-ratio:var(--ar,3/4);
+}
+.ph1{background:linear-gradient(150deg,#585858,#1d1d1d);--ar:3/4;}
+.ph2{background:linear-gradient(120deg,#9c9c9c,#3d3d3d);--ar:4/3;}
+.ph3{background:linear-gradient(170deg,#2f2f2f,#0a0a0a);--ar:3/5;}
+.ph4{background:linear-gradient(140deg,#c9c4b8,#6e6a60);--ar:1/1;}
+.ph5{background:linear-gradient(160deg,#6f6f6f,#242424);--ar:3/4;}
+.ph6{background:linear-gradient(130deg,#42403a,#161513);--ar:4/5;}
+.ph7{background:linear-gradient(155deg,#8a877e,#2c2b27);--ar:4/3;}
+.ph8{background:linear-gradient(145deg,#333,#0d0d0d);--ar:1/1;}
+.ph9{background:linear-gradient(165deg,#b5b0a4,#57534a);--ar:3/4;}
+/* ===== Services ===== */
+.services{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:0;
+  border-top:1px solid #ddd;
+}
+.service{
+  padding:52px 34px;
+  border-bottom:1px solid #ddd;
+  border-right:1px solid #ddd;
+  transition:background .4s;
+}
+.service:nth-child(3n){border-right:none;}
+.service:hover{
+  background:var(--light);
+}
+.service .no{
+  font-family:var(--serif-en);
+  font-style:italic;
+  color:var(--accent);
+  font-size:1.4rem;
+}
+.service h3{
+  font-size:1.1rem;
+  font-weight:500;
+  letter-spacing:.2em;
+  margin:14px 0 12px;
+}
+.service p{
+  font-size:.86rem;
+  color:var(--gray);
+  line-height:2;
+}
+.service .fee{
+  display:block;
+  margin-top:18px;
+  font-family:var(--serif-en);
+  letter-spacing:.1em;
+  font-size:.95rem;
+}
+/* ===== Profile ===== */
+.profile{
+  display:grid;
+  grid-template-columns:.85fr 1.15fr;
+  gap:70px;
+  align-items:center;
+}
+.profile-photo{
+  aspect-ratio:3/4;
+  background:linear-gradient(160deg,#4a4a4a,#111);
+  filter:grayscale(1);
+  position:relative;
+}
+.profile-photo::after{
+  content:'REN AOKI';
+  position:absolute;
+  bottom:-14px;
+  right:-10px;
+  font-family:var(--serif-en);
+  font-style:italic;
+  letter-spacing:.3em;
+  color:var(--accent);
+  font-size:.85rem;
+}
+.profile h3{
+  font-size:1.4rem;
+  font-weight:500;
+  letter-spacing:.3em;
+  margin-bottom:6px;
+}
+.profile .en-name{
+  font-family:var(--serif-en);
+  font-style:italic;
+  color:var(--gray);
+  margin-bottom:28px;
+}
+.profile p{
+  font-size:.92rem;
+  color:#444;
+}
+.awards{
+  margin-top:28px;
+  list-style:none;
+  border-top:1px solid #ddd;
+}
+.awards li{
+  border-bottom:1px solid #ddd;
+  padding:12px 4px;
+  font-size:.83rem;
+  color:var(--gray);
+  display:flex;
+  gap:22px;
+}
+.awards b{
+  font-family:var(--serif-en);
+  color:var(--ink);
+  font-weight:600;
+  min-width:3.4em;
+}
+/* ===== CTA ===== */
+.cta{
+  background:var(--black);
+  color:var(--white);
+  text-align:center;
+  max-width:none;
+}
+.cta-inner{
+  max-width:720px;
+  margin:0 auto;
+}
+.cta h2{
+  font-family:var(--serif-en);
+  font-size:clamp(2rem,6vw,3.6rem);
+  font-weight:400;
+  font-style:italic;
+  letter-spacing:.1em;
+}
+.cta p{
+  margin:26px 0 44px;
+  color:#bbb;
+  font-size:.92rem;
+}
+.cta a.btn{
+  display:inline-block;
+  padding:18px 64px;
+  border:1px solid var(--white);
+  color:var(--white);
+  text-decoration:none;
+  letter-spacing:.34em;
+  font-size:.82rem;
+  transition:background .4s,color .4s;
+}
+.cta a.btn:hover{
+  background:var(--white);
+  color:var(--black);
+}
 /* ===== フッター ===== */
-footer{border-top:1px solid var(--line);padding:40px 6vw;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:18px;}
-footer p{color:var(--muted);font-family:var(--font-en);font-size:.82rem;letter-spacing:.1em;}
-footer nav{display:flex;gap:24px;}
-footer a{color:var(--muted);text-decoration:none;font-family:var(--font-en);font-size:.82rem;letter-spacing:.1em;transition:color .25s;}
-footer a:hover{color:var(--white);}
-/* ===== reveal ===== */
-.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease;}
-.reveal.show{opacity:1;transform:none;}
+footer{
+  padding:44px 5vw;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:14px;
+  font-family:var(--serif-en);
+  letter-spacing:.24em;
+  font-size:.75rem;
+  color:var(--gray);
+  text-transform:uppercase;
+}
 /* ===== レスポンシブ ===== */
-@media(max-width:768px){
-  header{mix-blend-mode:normal;background:rgba(10,10,10,.85);backdrop-filter:blur(12px);}
-  .hero{grid-template-columns:1fr;height:auto;}
-  .hero-img{height:55vw;min-height:260px;}
-  .hero-text{padding:52px 6vw 64px;}
-  nav ul{position:fixed;top:0;right:0;bottom:0;width:78vw;max-width:320px;background:#111;flex-direction:column;align-items:flex-start;justify-content:center;gap:28px;padding:60px 40px;transform:translateX(100%);transition:transform .4s cubic-bezier(.77,0,.18,1);z-index:999;}
-  nav ul.open{transform:none;}
-  .menu-btn{display:flex;z-index:1010;}
-  .menu-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+@media(max-width:900px){
+  .works-grid{columns:2;}
+  .services{grid-template-columns:1fr;}
+  .service{border-right:none;}
+  .profile{grid-template-columns:1fr;gap:48px;}
+  /* モバイルメニュー：デフォルトで完全非表示（表示バグ修正） */
+  nav ul{
+    display:none !important;
+    visibility:hidden;
+    opacity:0;
+    position:fixed;
+    inset:0;
+    background:#0c0c0c;
+    z-index:999;
+  }
+  /* openクラスがついたときだけ表示 */
+  nav ul.open{
+    display:flex !important;
+    visibility:visible;
+    opacity:1;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:38px;
+    font-size:1rem;
+  }
+  .menu-btn{display:flex;position:relative;z-index:1000;}
+  .menu-btn.open span:nth-child(1){transform:translateY(8px) rotate(45deg);}
   .menu-btn.open span:nth-child(2){opacity:0;}
-  .menu-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-  .about{grid-template-columns:1fr;}
-  .gallery{grid-template-columns:repeat(6,1fr);grid-auto-rows:70px;}
-  .g1,.g2,.g3,.g4,.g5,.g6{grid-column:span 3;grid-row:span 3;}
-  .price-grid{grid-template-columns:1fr;}
-  .sec-hd{flex-direction:column;gap:16px;}
+  .menu-btn.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg);}
 }
-/* === iOS セーフエリア対応 === */
-@supports (padding-top: env(safe-area-inset-top)) {
-  header { padding-top: max(22px, env(safe-area-inset-top)); }
+@media(max-width:560px){
+  .works-grid{columns:1;}
+  section{padding:100px 6vw;}
 }
-input, select, textarea { font-size: max(16px, 1em); }
 </style>
 </head>
 <body>
+
 <header>
-  <a class="logo" href="#top">Haruki Sato</a>
+  <a class="logo" href="#top">Ren Aoki</a>
   <nav>
     <ul id="navList">
       <li><a href="#works">Works</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#profile">Profile</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
@@ -137,140 +479,105 @@ input, select, textarea { font-size: max(16px, 1em); }
 </header>
 
 <main id="top">
-  <section class="hero">
-    <div class="hero-img"></div>
-    <div class="hero-text">
-      <p class="eyebrow">Photographer / Tokyo</p>
-      <h1>Light<br>makes<br>stories.</h1>
-      <p>光と影が語る一瞬を、丁寧に切り取ります。ポートレート・ランドスケープ・商業撮影。</p>
-      <a class="btn-line" href="#works">Portfolio を見る</a>
+  <!-- ヒーロー -->
+  <section class="hero" style="padding:0;max-width:none;">
+    <div class="hero-photo"></div>
+    <div class="hero-inner">
+      <h1 class="hero-en">Light,<br><em>and silence.</em></h1>
+      <p class="hero-jp">写真家 蒼木 蓮 — 光と沈黙を、一枚に。</p>
     </div>
     <div class="scroll-hint">Scroll</div>
   </section>
 
-  <section class="works" id="works">
-    <div class="sec-hd reveal">
-      <h2>Selected Works</h2>
-      <a href="#">すべて見る →</a>
-    </div>
-    <div class="gallery reveal">
-      <div class="gitem g1">
-        <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&auto=format" alt="Portrait">
-        <div class="hover-info"><span>Portrait</span><span style="opacity:.65;font-size:.7rem;margin-top:6px;">2024</span></div>
-      </div>
-      <div class="gitem g2">
-        <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=600&auto=format" alt="Landscape">
-        <div class="hover-info"><span>Landscape</span></div>
-      </div>
-      <div class="gitem g3">
-        <img src="https://images.unsplash.com/photo-1517760444937-f6397edcbbcd?w=600&auto=format" alt="Street">
-        <div class="hover-info"><span>Street</span></div>
-      </div>
-      <div class="gitem g4">
-        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600&auto=format" alt="Fashion">
-        <div class="hover-info"><span>Fashion</span></div>
-      </div>
-      <div class="gitem g5">
-        <img src="https://images.unsplash.com/photo-1514565131-fce0801e6785?w=600&auto=format" alt="Architecture">
-        <div class="hover-info"><span>Architecture</span></div>
-      </div>
-      <div class="gitem g6">
-        <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=900&auto=format" alt="Nature">
-        <div class="hover-info"><span>Nature</span></div>
-      </div>
-    </div>
+  <!-- ステートメント -->
+  <section class="statement reveal">
+    <p>シャッターを切る一瞬の前には、いつも長い沈黙があります。<br>被写体と向き合い、光を待ち、風がやむのを待つ。<br>その静けさごと写し取ることが、私の仕事です。</p>
+    <p class="en">Tokyo-based photographer, specializing in portrait and landscape.</p>
   </section>
 
-  <section class="about" id="about">
-    <div class="about-img"></div>
-    <div class="about-text reveal">
-      <p class="eyebrow">About</p>
-      <h2>光の中に<br>ある真実を</h2>
-      <p>東京を拠点に、10年以上にわたって人物・風景・商業写真を手がけてきました。雑誌、広告、ウェディング、ブランドルックブックまで幅広いジャンルに対応します。</p>
-      <p>すべての撮影において、被写体が持つ固有の光を探すことを大切にしています。技術とセンスで、見た人の記憶に残る一枚をお届けします。</p>
-      <div class="signature">Haruki Sato</div>
-    </div>
-  </section>
+  <!-- Works -->
+  <div class="works-bg" id="works">
+    <section>
+      <p class="sec-index reveal">01 — Works</p>
+      <h2 class="sec-title reveal">作品</h2>
+      <div class="works-grid">
+        <figure class="work reveal"><div class="ph ph1"></div><figcaption class="cap">SILENCE / 2025 — 東京</figcaption></figure>
+        <figure class="work reveal"><div class="ph ph2"></div><figcaption class="cap">HORIZON / 2024 — 北海道</figcaption></figure>
+        <figure class="work reveal"><div class="ph ph3"></div><figcaption class="cap">VERTICAL CITY / 2025 — 新宿</figcaption></figure>
+        <figure class="work reveal"><div class="ph ph4"></div><figcaption class="cap">PORTRAIT #12 / 2024</figcaption></figure>
+        <figure class="work reveal"><div class="ph ph5"></div><figcaption class="cap">RAIN / 2023 — 鎌倉</figcaption></figure>
+        <figure class="work reveal"><div class="ph ph6"></div><figcaption class="cap">NIGHT SWIM / 2025 — 沖縄</figcaption></figure>
+        <figure class="work reveal"><div class="ph ph7"></div><figcaption class="cap">DUNE / 2024 — 鳥取</figcaption></figure>
+        <figure class="work reveal"><div class="ph ph8"></div><figcaption class="cap">MONOLITH / 2023 — 大阪</figcaption></figure>
+        <figure class="work reveal"><div class="ph ph9"></div><figcaption class="cap">PORTRAIT #27 / 2025</figcaption></figure>
+      </div>
+    </section>
+  </div>
 
-  <section class="pricing" id="pricing">
-    <h2 class="reveal">Pricing</h2>
-    <div class="price-grid reveal">
-      <div class="price-item">
-        <p class="pl">Portrait</p>
+  <!-- Services -->
+  <section id="services">
+    <p class="sec-index reveal">02 — Services</p>
+    <h2 class="sec-title reveal">撮影メニュー</h2>
+    <div class="services reveal">
+      <div class="service">
+        <span class="no">i.</span>
         <h3>ポートレート撮影</h3>
-        <div class="amount">¥25,000<span> / 2時間</span></div>
-        <ul>
-          <li>撮影データ 30枚（レタッチ済み）</li>
-          <li>ロケーション相談込み</li>
-          <li>衣装チェンジ 1回</li>
-          <li>納品：1週間以内</li>
-        </ul>
+        <p>プロフィール写真・宣材写真・家族写真。自然光のスタジオ、またはご希望のロケーションで撮影します。</p>
+        <span class="fee">¥38,000〜 / 90min</span>
       </div>
-      <div class="price-item">
-        <p class="pl">Commercial</p>
-        <h3>商業・ブランド撮影</h3>
-        <div class="amount">¥80,000<span> / 半日</span></div>
-        <ul>
-          <li>スタジオ手配サポート</li>
-          <li>スタイリスト連携可</li>
-          <li>RAW + レタッチデータ</li>
-          <li>使用権・ライセンス込み</li>
-        </ul>
+      <div class="service">
+        <span class="no">ii.</span>
+        <h3>ブランド・商品撮影</h3>
+        <p>ブランドの世界観を丁寧にヒアリングし、Webサイトやルックブックのためのビジュアルを制作します。</p>
+        <span class="fee">¥120,000〜 / 1day</span>
       </div>
-      <div class="price-item">
-        <p class="pl">Wedding</p>
-        <h3>ウェディング撮影</h3>
-        <div class="amount">¥150,000<span> / 終日</span></div>
-        <ul>
-          <li>挙式〜披露宴フル対応</li>
-          <li>レタッチ写真 200枚以上</li>
-          <li>アルバム制作オプション</li>
-          <li>前撮りパッケージも相談可</li>
+      <div class="service">
+        <span class="no">iii.</span>
+        <h3>ウェディング・記念日</h3>
+        <p>前撮り・当日スナップ。演出しすぎない、ふたりの空気感そのままの記録を残します。</p>
+        <span class="fee">¥88,000〜 / 3h</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Profile -->
+  <section id="profile">
+    <p class="sec-index reveal">03 — Profile</p>
+    <h2 class="sec-title reveal">プロフィール</h2>
+    <div class="profile">
+      <div class="profile-photo reveal"></div>
+      <div class="reveal">
+        <h3>蒼木 蓮</h3>
+        <p class="en-name">Ren Aoki / Photographer</p>
+        <p>1990年、長野県生まれ。武蔵野美術大学卒業後、広告制作会社を経て2018年に独立。「光と沈黙」をテーマに、人物と風景の境界を探る作品を制作している。国内外の雑誌・広告で活動する傍ら、毎年個展を開催。</p>
+        <ul class="awards">
+          <li><b>2025</b>個展「沈黙の質量」開催（表参道 GALLERY SEN）</li>
+          <li><b>2024</b>日本写真芸術賞 新人賞 受賞</li>
+          <li><b>2023</b>PARIS PHOTO FAIR 出展</li>
+          <li><b>2021</b>写真集『余白』刊行</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <section class="contact" id="contact">
-    <h2 class="reveal">Get in Touch</h2>
-    <p class="reveal">撮影のご相談、お見積もり、ロケーションについてなど、お気軽にどうぞ。2営業日以内にご返信します。</p>
-    <form class="form-row reveal" onsubmit="return false;">
-      <div>
-        <label>お名前</label>
-        <input type="text" placeholder="山田 太郎">
-      </div>
-      <div>
-        <label>メールアドレス</label>
-        <input type="email" placeholder="taro@example.com">
-      </div>
-      <div>
-        <label>撮影の種類</label>
-        <select>
-          <option>ポートレート</option>
-          <option>商業・ブランド</option>
-          <option>ウェディング</option>
-          <option>その他</option>
-        </select>
-      </div>
-      <div>
-        <label>メッセージ</label>
-        <textarea placeholder="撮影日時・場所・ご要望など"></textarea>
-      </div>
-      <button class="btn-submit" type="submit">Send Message</button>
-    </form>
+  <!-- CTA -->
+  <section class="cta" id="contact">
+    <div class="cta-inner reveal">
+      <h2>Let&rsquo;s make a quiet masterpiece.</h2>
+      <p>撮影のご依頼・お見積りは、メールにて承ります。通常2営業日以内にご返信いたします。</p>
+      <a class="btn" href="mailto:contact@renaoki.example.jp">CONTACT</a>
+    </div>
   </section>
 </main>
 
 <footer>
-  <p>© 2025 Haruki Sato Photography. All rights reserved.</p>
-  <nav>
-    <a href="#">Instagram</a>
-    <a href="#">Behance</a>
-    <a href="#">プライバシーポリシー</a>
-  </nav>
+  <span>REN AOKI PHOTOGRAPHY</span>
+  <span>Tokyo, Japan</span>
+  <span>© 2025 Ren Aoki</span>
 </footer>
 
 <script>
+// モバイルメニュー開閉
 const menuBtn = document.getElementById('menuBtn');
 const navList = document.getElementById('navList');
 menuBtn.addEventListener('click', () => {
@@ -281,16 +588,26 @@ navList.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
   menuBtn.classList.remove('open');
   navList.classList.remove('open');
 }));
-document.addEventListener('click', (e) => {
-  if (!menuBtn.contains(e.target) && !navList.contains(e.target)) {
-    menuBtn.classList.remove('open');
-    navList.classList.remove('open');
-  }
-});
-const io = new IntersectionObserver(es => {
-  es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } });
-}, { threshold: .12 });
+
+// スクロールリビール（ゆったりめ）
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('show');
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// ヒーローのパララックス
+const heroPhoto = document.querySelector('.hero-photo');
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  if (y < window.innerHeight) {
+    heroPhoto.style.transform = `translateY(${y * 0.25}px) scale(${1 + y * 0.0002})`;
+  }
+}, { passive: true });
 </script>
 </body>
 </html>
